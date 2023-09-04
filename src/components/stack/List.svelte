@@ -209,7 +209,7 @@
       </div>
       {#if isActive}
         <p
-          class="text-zinc-400 mt-5 animate-up opacity-0 text-center w-full"
+          class="text-zinc-400 mt-5 animate-up opacity-0 text-center w-full text-wrap-balance"
           style="--anim-delay:0.3s; --anim-duration:0.2s"
         >
           {item.description}
@@ -257,5 +257,9 @@
       transform: translateY(0);
       opacity: 100%;
     }
+  }
+
+  .text-wrap-balance {
+    text-wrap: balance;
   }
 </style>
