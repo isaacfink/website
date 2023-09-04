@@ -1,0 +1,60 @@
+---
+title: "Creating models"
+description: "In this post we will add the functionality to create models and ustilize it to inetract with the database"
+pubDate: "Jul 02 2022"
+heroImage: "/blog-placeholder-5.jpg"
+---
+
+This is the first post in a new series where we will create a python orm from scratch, the goal of this is to learn more about python and sql databases, the final project while functional will not be production ready but nevertheless it will be an interesting learning experience
+
+First a few words briefly explaining what an ORM is and why you should use it, an ORM or Object Relational Model is a library that allows you to interact with a database using familiar language features and syntax
+
+In general Databases operate with a client server model, usually over the `TCP/IP` protocol, the normal connection works as follows:
+
+1. The client requests a connection to the database server
+2. The server forks a process to handle this connection
+3. The server and client establish a connection and can now communicate
+4. The client sends a query to the server
+5. The server processes the query and sends the result back to the client
+
+This is handled by a driver, the popular SQL databases have drivers for most if not all programming languages, for example `psycopg2` is a popular driver for python, this driver handles the connection and communication with the database server, the ORM will use this driver to communicate with the database
+
+### Our API
+
+The first step in creating any library is deciding on an API, furtunotely for us we don't need to figure this out as there are already dozens of popular ORMs for many languages, for this series I will be implementing a similar APi to the popular drizzle ORm for JavaScript, I like their API for it's simplicity and ease of use, this API implements the builder pattern which we will explore more later on as we get to actually write code
+
+Our API will look something like this
+
+```python
+from orm import Model, Field, Integer, String
+
+class User(Model):
+    id = Integer().primary_key().not_null().serial()
+    name = String().not_null().default("John Doe")
+    email = String().not_null().unique()
+```
+
+And here is how you would use it
+
+```python
+from ./models import User
+from orm.operators import Eq
+
+# Get a user
+user = User.select().where(Eq('id', 1))
+
+# Create a new user
+user = User.create({'name':'John Doe', 'email':'john.doe@example.com'})
+
+# Update a user
+user.update({'name':'Jane Doe'}).where(Eq('id', 1))
+
+# Delete a user
+user.delete().where(Eq('id', 1))
+```
+
+As we keep going we will add more interesting features like support for join columns and typings for everything, but our first goal is to get all of this started so let's get right to it
+
+### Setting up the project
+
+The first thing in every python project is to create a folder where you will save you code, I will call mine `orm` and inside of it I will create a file called `__init__.py` this file is required for python to treat the folder as a module, this will allow us to import our code from other files

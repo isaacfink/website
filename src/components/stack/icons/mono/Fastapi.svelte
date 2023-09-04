@@ -1,0 +1,22 @@
+<svg
+  class="w-full h-full"
+  viewBox="0 0 2500 2500"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g clip-path="url(#clip0_1_38)">
+    <path
+      d="M1250 2500C1940.36 2500 2500 1940.36 2500 1250C2500 559.644 1940.36 0 1250 0C559.644 0 0 559.644 0 1250C0 1940.36 559.644 2500 1250 2500Z"
+      fill="#3F3F46"
+    />
+    <path
+      d="M1321.02 303.035L691.964 1439.4H1258.12L1195.21 2196.96L1824.27 1060.6H1258.12L1321.02 303.035Z"
+      fill="#27272A"
+    />
+  </g>
+  <defs>
+    <clipPath id="clip0_1_38">
+      <rect width="2500" height="2500" fill="white" />
+    </clipPath>
+  </defs>
+</svg>

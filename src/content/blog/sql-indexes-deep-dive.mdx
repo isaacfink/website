@@ -1,0 +1,67 @@
+---
+title: "SQL Database indexes deep dive"
+description: "A comprehensive explanation on SQL indexes, what is it? why should I use it? how do they work?"
+pubDate: "Jul 02 2022"
+heroImage: "/blog-placeholder-5.jpg"
+---
+
+Indexes are one of the most imprtant tools when it comes to database optimization, in this post I will explain how they work, why they are so important, how to implement them and the different types of indexes
+
+### What is an index?
+
+The short answer is an index is a data structure that allows the database to quickly look up some information, similar to how an index in a book works, indexes make looking up tables faster and more efficient.
+
+Now the long answer...
+
+To understand how an Index speeds up queries we first need to understand what happens under the hood when you make a sql query, for this example we will use the following structure of a users tables
+
+```sql
+CREATE TABLE USERS (
+  id SERIAL PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  age INT
+);
+```
+
+Now let's examine a simple query that selects a single user based on their `ID`
+
+```sql
+SELECT * FROM USERS WHERE id = 1;
+```
+
+When the database receives this query it will first look at the `USERS` table and scan through all the rows until it finds the row with the `ID` of 1, this is called a `full table scan` and it is very inefficient, especially if the table is very large.
+
+This `full table scan` is the default behavior of a query, and without ny indexes it is the only way for the Database to find a row, think of it like a book and you're looking for a specific chapter, you would open the book to page one and go over each page until you find the chapter you're looking for
+
+But if you have an index on the book you could just glance over the index which is a lot faster than going over every single page, on the most basic level this is what a Database index does
+
+> By default most databases will add an index on the `PRIMARY KEY` column so technically for a lookup by `ID` the database will use an index without you having to do anything
+
+Here is how you add a basic index to a column, you can indexes to multiple columns and you can also specify the type of index but for now we will just use the default index
+
+```sql
+CREATE INDEX users_id_index ON users (id);
+```
+
+Let's look at this line and see what's going on, `CREATE INDEX` creates the index, `users_id_index` is the name of the index, `ON users` is the table we are adding the index to and `(id)` is the column we are indexing
+
+What happens behind the scenes is the Database will create a data structure with a record for all the rows in the database (you could create on indexes on only some rows, more on that later) this structure needs to be kept up to date which brings us to the a very important topic
+
+**Inexes slow down writes**, whenever you add a row to the table the Database will update all the indexes on that table and that takes time, this doesn't mean we shouldn't add indexes but you should be mindful of the smount of indexes you add, it is still a very powerful and useful tool though
+
+Earlier I wrote the Database creates a data structure, for a basic index this structure is called a `B-Tree` it is very similar to a [Binary Search Tree](/blog/binary-search-trees)
+
+> You might think `B_Tree` stands for binary tree but the original paper on the topic does not say that, the author's name starts with b and he was working for boeing at the time so your guess is as good as mine
+
+This is what a basic `B-Tree` looks like
+
+![B-Tree](/images/database-indexes/b-tree.png)
+
+The nodes are key value pairs with the key being the `ID` the value is usually the locaiton on disk of the row, sometimes on a query like this
+
+```sql
+SELECT id FROM users WHERE id = 1;
+```
+
+the database can get all the information just from the index, this is called a `covered index` and it is very performant because the Database doesn't even have to use the disk at all
