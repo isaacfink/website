@@ -47,6 +47,8 @@
       title: "Python",
       description:
         "One of the most popular general purpose programming languages used primarily for data science but also in many other industries",
+      baseColor:
+        "linear-gradient(90deg, rgba(56,126,184,1) 0%, rgba(255,224,82,1) 100%)",
     },
     {
       logo: Javascript,
@@ -54,6 +56,7 @@
       title: "JavaScript",
       description:
         "Consistently ranked as one of the most used languages JavaScript is the main langauge powering the modern web as well as mobile applications",
+      baseColor: "#F0DB4F",
     },
     {
       logo: Typescript,
@@ -61,6 +64,7 @@
       title: "TypeScript",
       description:
         "A superset of JavaScript that adds static typing to the language. TypeScript is used to build large scale applications with type safety in mind",
+      baseColor: "#007ACC",
     },
     {
       logo: Php,
@@ -68,6 +72,7 @@
       title: "PHP",
       description:
         "A popular general-purpose scripting language that is especially suited to web development, PHP powers 80% of the web and is a popular choice for web development despite it's age",
+      baseColor: "#777BB3",
     },
     {
       logo: Tailwindcss,
@@ -75,6 +80,8 @@
       title: "Tailwind CSS",
       description:
         "A utility-first CSS framework that allows you to build custom designs without leaving your HTML, Tailwind became very popular in recent eyars for it's flexibility and usefulness for creating design systems",
+      baseColor:
+        "linear-gradient(90deg, rgba(34,152,189,1) 0%, rgba(14,215,181,1) 100%)",
     },
     {
       logo: Nestjs,
@@ -82,6 +89,7 @@
       title: "NestJS",
       description:
         "A progressive Node.js framework for building efficient, reliable and scalable server-side applications, NestJS uses the dependency injection pattern and is often referred to as the Angular of backend development",
+      baseColor: "#E0234E",
     },
     {
       logo: Django,
@@ -89,6 +97,7 @@
       title: "Django",
       description:
         "A high-level Python Web framework that encourages rapid development and clean, pragmatic design, Django is easy to start with and has a great ecosystem of packages and libraries to extend the funcitonality",
+      baseColor: "#2BA977",
     },
     {
       logo: Laravel,
@@ -96,6 +105,7 @@
       title: "Laravel",
       description:
         "A feature rich PHP framework for complex web development, Laravel supports regular web pages as well as APIs GraphQL and web socket communication, Laravel also has great support for modern JavaScript frontend frameworks",
+      baseColor: "#FF2D20",
     },
     {
       logo: FastApi,
@@ -103,6 +113,7 @@
       title: "FastAPI",
       description:
         "A modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints",
+      baseColor: "#05998B",
     },
     {
       logo: React,
@@ -110,6 +121,7 @@
       title: "React",
       description:
         "The OG of Javascript frontend frameworks React is the most popular and most used framework for building modern interactive web applications",
+      baseColor: "#61DAFB",
     },
     {
       logo: svelte,
@@ -117,6 +129,7 @@
       title: "Svelte",
       description:
         "A newer approach to building web applications, powered by a compiler svelte has the flexibility to do things in a simpler and more efficient way than other frameworks",
+      baseColor: "#FF3E00",
     },
     {
       logo: Vite,
@@ -124,6 +137,8 @@
       title: "Vite",
       description:
         "The fastest build tool for JavaScript frontend applications, Vite powers some of the worlds bets frontend frameworks like SvelteKit",
+      baseColor:
+        "linear-gradient(90deg, rgba(65,209,255,1) 0%, rgba(255,234,131,1) 50%, rgba(189,52,254,1) 100%)",
     },
     {
       logo: Postgresql,
@@ -131,6 +146,7 @@
       title: "PostgreSQL",
       description:
         "A powerful, open source object-relational database system with a strong reputation for reliability, feature robustness, and performance",
+      baseColor: "#336791",
     },
     {
       logo: Mongo,
@@ -138,6 +154,7 @@
       title: "MongoDB",
       description:
         "A general purpose, NoSQL Database, document oriented and is used for faster writes and/or denormalized data",
+      baseColor: "#00ED64",
     },
     {
       logo: Nginx,
@@ -145,6 +162,7 @@
       title: "Nginx",
       description:
         "A web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache, Nginx is mostly used for high availability and high demand web applications to manage traffic and load balance between multiple servers",
+      baseColor: "#009900",
     },
     {
       logo: Docker,
@@ -152,6 +170,7 @@
       title: "Docker",
       description:
         "A tool designed to make it easier to create, deploy, and run applications by using containers abstracting the underlying infrastructure so applications work as expected on every platform",
+      baseColor: "#1D63ED",
     },
     {
       logo: Firebase,
@@ -159,6 +178,7 @@
       title: "Firebase",
       description:
         "A backend as a service platform that provides managed services like databases, realtime, auth and serverless functions",
+      baseColor: "#FCCA3F",
     },
     {
       logo: Supabase,
@@ -166,6 +186,7 @@
       title: "Supabase",
       description:
         "An open source Firebase alternative. Supabase adds realtime and RESTful APIs to your existing PostgreSQL database without a single line of code",
+      baseColor: "#3ECF8E",
     },
   ];
 
@@ -221,7 +242,8 @@
           <svelte:component this={item.mono} />
         </div>
         <div
-          class="absolute -bottom-[22rem] left-1/2 -translate-x-1/2 w-[46rem] h-96 rounded-[50%] bg-primary-500/20 blur-3xl"
+          class="absolute -bottom-[22rem] left-1/2 -translate-x-1/2 w-[46rem] h-96 rounded-[50%] blur-3xl bg-base-color"
+          style={`--base-color: ${item.baseColor}`}
         />
       {/if}
     </button>
@@ -246,6 +268,11 @@
   .animate-up {
     animation: up var(--anim-duration, 0.36s) ease-in-out forwards;
     animation-delay: var(--anim-delay);
+  }
+
+  .bg-base-color {
+    background: var(--base-color);
+    opacity: 0.1;
   }
 
   @keyframes up {
