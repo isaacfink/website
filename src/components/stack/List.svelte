@@ -230,7 +230,7 @@
       </div>
       {#if isActive}
         <p
-          class="text-zinc-400 mt-5 animate-up opacity-0 text-center w-full text-wrap-balance"
+          class="text-zinc-400 mt-5 animate-up opacity-0 text-left md:text-center w-full text-wrap-balance"
           style="--anim-delay:0.3s; --anim-duration:0.2s"
         >
           {item.description}
@@ -242,7 +242,7 @@
           <svelte:component this={item.mono} />
         </div>
         <div
-          class="absolute -bottom-[22rem] left-1/2 -translate-x-1/2 w-[46rem] h-96 rounded-[50%] blur-3xl bg-base-color"
+          class="absolute -bottom-[22rem] left-1/2 -translate-x-1/2 w-[46rem] h-96 rounded-[50%] blur-3xl bg-base-color animate-light"
           style={`--base-color: ${item.baseColor}`}
         />
       {/if}

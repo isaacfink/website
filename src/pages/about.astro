@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import portrait from "../images/portrait.jpg";
 ---
 
 <BaseLayout
@@ -14,11 +16,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     >
       <div class="lg:pl-20">
         <div class="max-w-xs px-2.5 lg:max-w-none">
-          <img
+          <Image
+            src={portrait}
+            alt={"Isaac Finkelstein"}
+            class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800 shadow-2xl shadow-primary-300/40"
+          />
+          <!-- <img
             src="/images/portrait.jpg"
             alt=""
             class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800 shadow-2xl shadow-primary-300/40"
-          />
+          /> -->
         </div>
       </div>
       <div class="lg:order-first lg:row-span-2">
@@ -33,27 +40,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             I’ve loved making things for as long as I can remember, and wrote my
             first program when I was 16 years old, Originally I wanted to become
             a hacker (remember I was 16) but after learning Python I fell in
-            love with the elegance and simplicity of compuetr programs
+            love with the elegance and simplicity of computer programming and
+            software development
           </p>
           <p>
-            The only thing I loved more than computers as a kid was space. When
-            I was 8, I climbed the 40-foot oak tree at the back of our yard
-            while wearing my older sister’s motorcycle helmet, counted down from
-            three, and jumped — hoping the tree was tall enough that with just a
-            bit of momentum I’d be able to get to orbit.
+            I started ouit freelancing building mom and pop websites for friends
+            and family until I decided to take a full time position at a bigger
+            company, i wanted to get the opportunity to learn from more senior
+            developers and work on bigger projects, this gave me some good
+            insight into how to build complex software with high availability
+            and scalability.
           </p>
           <p>
-            I spent the next few summers indoors working on a rocket design,
-            while I recovered from the multiple surgeries it took to fix my
-            badly broken legs. It took nine iterations, but when I was 15 I sent
-            my dad’s Blackberry into orbit and was able to transmit a photo back
-            down to our family computer from space.
+            After a while I started wondering how does everything really work,
+            we all know about the 0s and 1s but I wanted to really understand
+            everything, one of the first books I read on the subject is the
+            excellent book Code: the hidden language of computer hardware and
+            software, this book scratched an itch and since then I started
+            reading as much as I can about the software we rely on
           </p>
           <p>
-            Today, I’m the founder of Planetaria, where we’re working on
-            civilian space suits and manned shuttle kits you can assemble at
-            home so that the next generation of kids really <em>can</em> make it
-            to orbit — from the comfort of their own backyards.
+            Right now I am focused on database inetrnals and i am working on my
+            own port of SQLite in Rust
           </p>
         </div>
       </div>
