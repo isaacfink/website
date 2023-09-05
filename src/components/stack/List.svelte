@@ -79,7 +79,7 @@
       mono: TailwindcssMono,
       title: "Tailwind CSS",
       description:
-        "A utility-first CSS framework that allows you to build custom designs without leaving your HTML, Tailwind became very popular in recent eyars for it's flexibility and usefulness for creating design systems",
+        "A utility-first CSS framework that allows you to build custom designs without leaving your HTML, Tailwind became very popular in recent years for it's flexibility and usefulness for creating design systems",
       baseColor:
         "linear-gradient(90deg, rgba(34,152,189,1) 0%, rgba(14,215,181,1) 100%)",
     },
@@ -88,7 +88,7 @@
       mono: NestjsMono,
       title: "NestJS",
       description:
-        "A progressive Node.js framework for building efficient, reliable and scalable server-side applications, NestJS uses the dependency injection pattern and is often referred to as the Angular of backend development",
+        "A feature rich Node.js framework for building efficient, reliable and scalable server-side applications, NestJS uses the dependency injection pattern and is often used in enterprise applications",
       baseColor: "#E0234E",
     },
     {
@@ -136,7 +136,7 @@
       mono: ViteMono,
       title: "Vite",
       description:
-        "The fastest build tool for JavaScript frontend applications, Vite powers some of the worlds bets frontend frameworks like SvelteKit",
+        "The fastest build tool for JavaScript frontend applications, Vite powers some of the worlds best frontend frameworks like SvelteKit",
       baseColor:
         "linear-gradient(90deg, rgba(65,209,255,1) 0%, rgba(255,234,131,1) 50%, rgba(189,52,254,1) 100%)",
     },
@@ -153,7 +153,7 @@
       mono: MongoMono,
       title: "MongoDB",
       description:
-        "A general purpose, NoSQL Database, document oriented and is used for faster writes and/or denormalized data",
+        "A general purpose, NoSQL Database, document oriented and is used for faster writes and/or denormalized data, MonogoDB became very popular among startups and otehr fast moving teams",
       baseColor: "#00ED64",
     },
     {
@@ -185,7 +185,7 @@
       mono: SupabaseMono,
       title: "Supabase",
       description:
-        "An open source Firebase alternative. Supabase adds realtime and RESTful APIs to your existing PostgreSQL database without a single line of code",
+        "An open source Firebase alternative. Supabase adds realtime and RESTful APIs as well as file storage and user management based on a postgres database and can be self hosted too",
       baseColor: "#3ECF8E",
     },
   ];
@@ -302,8 +302,5 @@
       transform: scale(1);
       opacity: 100%;
     }
-  }
-  .text-wrap-balance {
-    text-wrap: balance;
   }
 </style>

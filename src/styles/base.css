@@ -10,4 +10,8 @@
   button {
     --webkit-tap-highlight-color: transparent;
   }
+
+  .text-wrap-balance {
+    text-wrap: balance;
+  }
 }
