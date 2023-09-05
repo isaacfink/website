@@ -5,6 +5,12 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "../styles/base.css";
 import { ViewTransitions } from "astro:transitions";
+export type Props = {
+  showHeader?: boolean;
+  showFooter?: boolean;
+};
+
+const { showFooter = true, showHeader = true } = Astro.props;
 ---
 
 <html lang="en">
@@ -16,8 +22,8 @@ import { ViewTransitions } from "astro:transitions";
     <title>{SITE_TITLE}</title>
   </head>
   <body class="bg-black relative p-0 dark">
-    <Header />
+    {showHeader && <Header />}
     <slot />
-    <Footer />
+    {showFooter && <Footer />}
   </body>
 </html>

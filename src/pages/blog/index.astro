@@ -1,10 +1,5 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
 import { dateFormatter } from "../../formatters";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
@@ -12,24 +7,28 @@ import { Image } from "astro:assets";
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+const series = [
+  { title: "Build an SQL ORM in python from scratch", slug: "python-orm" },
+];
 ---
 
 <BaseLayout>
   <main class="section-container py-12 px-12">
     <section class="max-w-4xl mx-auto pt-24">
       <h1 class="text-zinc-100 mb-24 text-5xl">From my blog</h1>
-      <ul class="grid grid-cols-2 gap-5">
+      <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {
           posts.map((post) => (
             <li class="">
-              <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+              <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl aspect-square p-4 group">
                 <Image
                   src={post.data.heroImage}
                   alt=""
                   class="absolute inset-0 -z-10 h-full w-full object-cover"
                 />
-                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-                <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/70 to-gray-900/10" />
+                <div class="absolute inset-0 -z-10 bg-primary-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                 <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
                   <time datetime="2020-03-16" class="mr-8">
@@ -51,3 +50,6 @@ const posts = (await getCollection("blog")).sort(
     </section>
   </main>
 </BaseLayout>
+<p class="text-zinc-100">
+  making a website responsive is called mobilizing a website
+</p>

@@ -211,7 +211,10 @@
           ? 'justify-between items-center'
           : 'justify-center items-center'}"
       >
-        <div class="h-12 w-12 flex items-center justify-center shrink-0">
+        <div
+          class="h-12 w-12 flex items-center justify-center shrink-0 {isActive &&
+            'animate-scale'}"
+        >
           {#if isActive}
             <svelte:component this={item.logo} />
           {:else}
@@ -286,6 +289,20 @@
     }
   }
 
+  .animate-scale {
+    animation: scale 0.2s ease-in-out forwards;
+    animation-delay: 100;
+  }
+  @keyframes scale {
+    0% {
+      transform: scale(0.8);
+      opacity: 0%;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 100%;
+    }
+  }
   .text-wrap-balance {
     text-wrap: balance;
   }

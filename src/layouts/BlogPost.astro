@@ -30,8 +30,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     }
   </style>
 
-  <main class="section-container py-24">
-    <article class="prose mx-auto dark:prose-invert">
+  <main class="section-container py-24 px-4">
+    <article
+      class="prose mx-auto dark:prose-invert prose-code:before:hidden prose-code:after:hidden [&_code:not(pre_*)]:text-primary-600 [&_code:not(pre_*)]:bg-zinc-700/50 [&_code:not(pre_*)]:px-1.5 [&_code:not(pre_*)]:py-1 [&_code:not(pre_*)]:rounded"
+    >
       <div class="hero-image">
         {
           heroImage && (

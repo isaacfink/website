@@ -1,7 +1,4 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "../styles/base.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -18,9 +15,12 @@ import Cv from "../components/Cv.astro";
         <h1
           class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
         >
-          I am <span class="text-primary-700 dark:text-primary-400"
-            >Isaac Finkelstein,</span
-          > A full stack developer with a passion for making the web faster and
+          I am <span
+            class="bg-gradient-to-tr from-primary-400/50 via-primary-500 to-primary-600/50 bg-clip-text text-transparent"
+            >Isaac Finkelstein</span
+          >
+          <br />
+           A software developer with a passion for making the web faster and
           easier to use
         </h1>
         <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
@@ -41,7 +41,31 @@ import Cv from "../components/Cv.astro";
     <hr class="mx-56 bg-zinc-700" />
   </section>
   <section class="section-container py-12 px-12">
-    <h2 class="text-white text-2xl text-center">My tech stack</h2>
+    <h2
+      class="text-white text-2xl flex space-x-3 items-center justify-center font-mono"
+    >
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-7 h-7 text-zinc-500"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
+          ></path>
+        </svg>
+      </span>
+      <span>What I use</span>
+    </h2>
+    <p class="text-zinc-600 text-center max-w-xs mx-auto mt-2 text-sm">
+      "A bad workman blames his tools" but a good one credits his, these are
+      some of the technologies I use to create the magic
+    </p>
     <StackList client:load />
   </section>
   <section class="section-container py-12 px-12">
