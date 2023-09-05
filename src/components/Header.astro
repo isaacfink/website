@@ -1,36 +1,71 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+
+const { pathname } = Astro.url;
+
+const navIndicatorClasses =
+  "absolute inset-x-2 bg-primary-500/90 h-1 rounded-t-full";
 ---
 
+<div class="absolute inset-x-2 bg-primary-500 h-1 rounded-full blur-2xl"></div>
 <header class="section-container py-3 flex items-center justify-center">
   <nav
-    class="py-1 px-2 flex items-center justify-center space-x-3 rounded-full border border-zinc-700 bg-zinc-800"
+    class="py-1 px-2 rounded-full border border-zinc-700 bg-zinc-800 overflow-hidden"
   >
-    <a
-      href="/"
-      class="text-zinc-100 px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500"
-      >Home</a
-    >
-    <!-- <a
+    <ul class="flex items-center justify-center space-x-3">
+      <li class="relative">
+        <a
+          href="/"
+          class={`${
+            pathname === "/" ? "text-primary-400" : "text-zinc-100"
+          } px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
+          >Home</a
+        >
+        {
+          pathname === "/" && (
+            <div transition:name="navIndicator" class={navIndicatorClasses} />
+          )
+        }
+      </li>
+      <!-- <a
       href="/blog"
-      class="text-zinc-100 px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500"
+      class={`${pathname === '/about' ? 'text-primary-600': 'text-zinc-100'} px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
       >Blog</a
-    >
-    <a
+      >
+      <a
       href="/projects"
-      class="text-zinc-100 px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500"
+      class={`${pathname === '/about' ? 'text-primary-600': 'text-zinc-100'} px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
       >Projects</a
-    > -->
-    <a
-      href="/about"
-      class="text-zinc-100 px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500"
-      >About</a
-    >
-    <a
-      href="/contact"
-      class="text-zinc-100 px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500"
-      >Contact</a
-    >
+      > -->
+      <li class="relative">
+        <a
+          href="/about"
+          class={`${
+            pathname === "/about" ? "text-primary-400" : "text-zinc-100"
+          } px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
+          >About</a
+        >
+        {
+          pathname === "/about" && (
+            <div transition:name="navIndicator" class={navIndicatorClasses} />
+          )
+        }
+      </li>
+      <li class="relative">
+        <a
+          href="/contact"
+          class={`${
+            pathname === "/contact" ? "text-primary-400" : "text-zinc-100"
+          } px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
+          >Contact</a
+        >
+        {
+          pathname === "/contact" && (
+            <div transition:name="navIndicator" class={navIndicatorClasses} />
+          )
+        }
+      </li>
+    </ul>
   </nav>
 </header>
