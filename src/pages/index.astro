@@ -37,6 +37,26 @@ import Cv from "../components/Cv.astro";
       </div>
     </div>
   </section>
+  <div class="relative w-screen overflow-x-hidden">
+    <section class="w-screen py-12 h-56 section-container">
+      <div
+        class="absolute top-3 bottom-12 flex left-50 -translate-x-1/2 space-x-8"
+      >
+        {
+          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5].map((i) => (
+            <div
+              class={`aspect-1 rounded-md h-48 w-48 overflow-hidden ${
+                i % 2 === 0 ? "rotate-3" : "-rotate-3"
+              }`}
+            >
+              <img src={`https://picsum.photos/200/20${i}`} alt="" class="" />
+              <div class="absolute inset-0 bg-zinc-800/50 " />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </div>
   <section class="section-container">
     <hr class="mx-56 bg-zinc-700" />
   </section>

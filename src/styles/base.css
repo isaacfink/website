@@ -4,7 +4,7 @@
 
 @layer utilities {
   .section-container {
-    @apply bg-zinc-900 mx-auto max-w-md sm:max-w-md md:max-w-2xl xl:max-w-5xl border-x border-zinc-700;
+    @apply bg-zinc-900 mx-auto max-w-md sm:max-w-md md:max-w-2xl xl:max-w-7xl border-x border-zinc-700;
   }
 
   button {
