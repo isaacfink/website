@@ -42,12 +42,12 @@ const navIndicatorClasses =
         <a
           href="/about"
           class={`${
-            pathname === "/about" ? "text-primary-400" : "text-zinc-100"
+            pathname.startsWith("/about") ? "text-primary-400" : "text-zinc-100"
           } px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
           >About</a
         >
         {
-          pathname === "/about" && (
+          pathname.startsWith("/about") && (
             <div transition:name="navIndicator" class={navIndicatorClasses} />
           )
         }
@@ -56,12 +56,14 @@ const navIndicatorClasses =
         <a
           href="/contact"
           class={`${
-            pathname === "/contact" ? "text-primary-400" : "text-zinc-100"
+            pathname.startsWith("/contact")
+              ? "text-primary-400"
+              : "text-zinc-100"
           } px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
           >Contact</a
         >
         {
-          pathname === "/contact" && (
+          pathname.startsWith("/contact") && (
             <div transition:name="navIndicator" class={navIndicatorClasses} />
           )
         }
