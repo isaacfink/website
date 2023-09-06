@@ -4,12 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import portrait from "../images/portrait.jpg";
 ---
 
-<BaseLayout
-  title="About me"
-  description="Get to know me"
-  pubDate={new Date("August 08 2021")}
-  heroImage="/blog-placeholder-about.jpg"
->
+<BaseLayout>
   <main class="section-container px-12 py-12">
     <div
       class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12 mt-12"
@@ -37,31 +32,51 @@ import portrait from "../images/portrait.jpg";
         </h1>
         <div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
           <p>
+            I'm a passionate and dedicated software developer with a love for
+            turning ideas into functional, elegant, and user-friendly digital
+            solutions. With over 5 years of experience in the ever-evolving
+            world of technology, I'm here to share my journey, skills, and the
+            projects that define my career.
+          </p>
+          <h2 class="text-zinc-200 text-lg">Who am I?</h2>
+          <p>
+            I am an enthusiastic problem solver who thrives on the challenges of
+            coding. My journey into the world of software development started
+            when I was 15 years old. Since then, I've had the opportunity to
+            work with a diverse range of technologies, collaborate with amazing
+            teams, and create software that has a real impact.
+          </p>
+          <h2 class="text-zinc-200 text-lg">My journey</h2>
+          <p>
+            My journey into the world of programming began as a curiosity-driven
+            adventure, and it has since evolved into a full-blown passion. I've
+            always been drawn to the endless possibilities that coding offers,
+            and I've had the privilege of working on a diverse range of projects
+            that have challenged me and allowed me to grow both personally and
+            professionally.
+          </p>
+          <p>
             I’ve loved making things for as long as I can remember, and wrote my
-            first program when I was 16 years old, Originally I wanted to become
-            a hacker (remember I was 16) but after learning Python I fell in
+            first program when I was 15 years old, Originally I wanted to become
+            a hacker (remember I was 15) but after learning Python I fell in
             love with the elegance and simplicity of computer programming and
             software development
           </p>
-          <p>
-            I started ouit freelancing building mom and pop websites for friends
+          <!-- <p>
+            I started out freelancing building mom and pop websites for friends
             and family until I decided to take a full time position at a bigger
-            company, i wanted to get the opportunity to learn from more senior
+            company, I wanted to get the opportunity to learn from more senior
             developers and work on bigger projects, this gave me some good
             insight into how to build complex software with high availability
             and scalability.
-          </p>
+          </p> -->
+          <h2 class="text-zinc-200 text-lg">The future...</h2>
           <p>
-            After a while I started wondering how does everything really work,
-            we all know about the 0s and 1s but I wanted to really understand
-            everything, one of the first books I read on the subject is the
-            excellent book Code: the hidden language of computer hardware and
-            software, this book scratched an itch and since then I started
-            reading as much as I can about the software we rely on
-          </p>
-          <p>
-            Right now I am focused on database inetrnals and i am working on my
-            own port of SQLite in Rust
+            The learning journey never really ends and I try to learn something
+            new every day, right now I am focused on database internals which
+            requires a solid fundation of Data structures and Algorithms, this
+            subject is fascinating to me and I am excited to continue exploring
+            more
           </p>
         </div>
       </div>
@@ -69,7 +84,9 @@ import portrait from "../images/portrait.jpg";
         <ul role="list" class="space-y-3">
           <li class="flex">
             <a
-              href="#"
+              href="https://twitter.com/isaacfink123"
+              target="_blank"
+              rel="noopener noreferrer"
               class="group flex text-sm font-medium text-zinc-800 transition hover:text-primary-500 dark:text-zinc-200 dark:hover:text-primary-500"
             >
               <svg
@@ -85,7 +102,7 @@ import portrait from "../images/portrait.jpg";
             </a>
           </li>
 
-          <li class="flex">
+          <!-- <li class="flex">
             <a
               href="#"
               class="group flex text-sm font-medium text-zinc-800 transition hover:text-primary-500 dark:text-zinc-200 dark:hover:text-primary-500"
@@ -104,11 +121,13 @@ import portrait from "../images/portrait.jpg";
               </svg>
               <span class="ml-4">See my work on Instagram</span>
             </a>
-          </li>
+          </li> -->
 
           <li class="flex">
             <a
-              href="#"
+              href="https://github.com/isaacfink"
+              target="_blank"
+              rel="noopener noreferrer"
               class="group flex text-sm font-medium text-zinc-800 transition hover:text-primary-500 dark:text-zinc-200 dark:hover:text-primary-500"
             >
               <svg
@@ -128,7 +147,9 @@ import portrait from "../images/portrait.jpg";
 
           <li class="flex">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/isaacfink123/"
+              target="_blank"
+              rel="noopener noreferrer"
               class="group flex text-sm font-medium text-zinc-800 transition hover:text-primary-500 dark:text-zinc-200 dark:hover:text-primary-500"
             >
               <svg
@@ -146,7 +167,7 @@ import portrait from "../images/portrait.jpg";
 
           <li class="flex">
             <a
-              href="mailto:hello@alufdevs.com"
+              href="mailto:hi@alufdevs.com"
               class="group flex text-sm font-medium text-zinc-800 transition hover:text-primary-500 dark:text-zinc-200 dark:hover:text-primary-500 mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
             >
               <svg
@@ -159,7 +180,7 @@ import portrait from "../images/portrait.jpg";
                   d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
                 ></path>
               </svg>
-              <span class="ml-4">hello@alufdevs.com</span>
+              <span class="ml-4">hi@alufdevs.com</span>
             </a>
           </li>
         </ul>

@@ -5,35 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import StackList from "../components/stack/List.svelte";
 import Newsletter from "../components/Newsletter.astro";
 import Cv from "../components/Cv.astro";
-
-import Image1 from "../images/home-page/1.jpg";
-import Image2 from "../images/home-page/2.jpg";
-import Image3 from "../images/home-page/3.jpg";
-import Image4 from "../images/home-page/4.jpg";
-import Image5 from "../images/home-page/5.jpg";
-import Image6 from "../images/home-page/6.jpg";
-import Image7 from "../images/home-page/7.jpg";
-import Image8 from "../images/home-page/8.jpg";
-import { Image } from "astro:assets";
-
-const images = [
-  Image1,
-  Image2,
-  Image3,
-  Image4,
-  Image5,
-  Image6,
-  Image7,
-  Image8,
-  Image1,
-  Image2,
-  Image3,
-  Image4,
-  Image5,
-  Image6,
-  Image7,
-  Image8,
-];
+import ImageRow from "../components/ImageRow.astro";
 ---
 
 <BaseLayout>
@@ -66,26 +38,7 @@ const images = [
       </div>
     </div>
   </section>
-  <div class="relative w-screen overflow-x-hidden">
-    <section class="w-screen py-12 h-56 section-container">
-      <div
-        class="absolute top-3 bottom-12 flex left-50 -translate-x-1/2 space-x-8"
-      >
-        {
-          images.map((img, i) => (
-            <div
-              class={`aspect-1 rounded-md h-48 w-48 overflow-hidden ${
-                i % 2 === 0 ? "rotate-3" : "-rotate-3"
-              }`}
-            >
-              <Image src={img} alt="'image" class="w-full h-full" />
-              <div class="absolute inset-0 bg-zinc-800/50 " />
-            </div>
-          ))
-        }
-      </div>
-    </section>
-  </div>
+  <!-- <ImageRow /> -->
   <section class="section-container py-12 px-12">
     <h2
       class="text-white text-2xl flex space-x-3 items-center justify-center font-mono"
@@ -114,13 +67,13 @@ const images = [
     </p>
     <StackList client:load />
   </section>
-  <section class="section-container py-12 px-12">
-    <div class="grid grid-cols-3">
+  <!-- <section class="section-container py-12 px-12">
+    <div class="grid grid-cols-1 max-w-3xl mx-auto">
       <div class="col-span-3 lg:col-span-2"></div>
       <div class="space-y-12 col-span-3 lg:col-span-1">
         <Newsletter />
         <Cv />
       </div>
     </div>
-  </section>
+  </section> -->
 </BaseLayout>

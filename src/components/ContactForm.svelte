@@ -38,7 +38,7 @@
       value="5bd044ff-f2c0-4fe4-baac-68b4b4c40c64"
     />
     <div>
-      <label for="first-name" class="block text-sm font-medium text-zinc-300"
+      <label for="first-name" class="block text-sm font-medium text-zinc-400"
         >First name</label
       >
       <div class="mt-1">
@@ -48,12 +48,12 @@
           name="first-name"
           id="first-name"
           autocomplete="given-name"
-          class="block w-full rounded-md border border-zinc-300 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
         />
       </div>
     </div>
     <div>
-      <label for="last-name" class="block text-sm font-medium text-zinc-300"
+      <label for="last-name" class="block text-sm font-medium text-zinc-400"
         >Last name</label
       >
       <div class="mt-1">
@@ -63,12 +63,12 @@
           name="last-name"
           id="last-name"
           autocomplete="family-name"
-          class="block w-full rounded-md border border-zinc-300 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
         />
       </div>
     </div>
     <div>
-      <label for="email" class="block text-sm font-medium text-zinc-300"
+      <label for="email" class="block text-sm font-medium text-zinc-400"
         >Email</label
       >
       <div class="mt-1">
@@ -78,13 +78,13 @@
           name="email"
           type="email"
           autocomplete="email"
-          class="block w-full rounded-md border border-zinc-300 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
         />
       </div>
     </div>
     <div>
       <div class="flex justify-between">
-        <label for="phone" class="block text-sm font-medium text-zinc-300"
+        <label for="phone" class="block text-sm font-medium text-zinc-400"
           >Phone</label
         >
         <span id="phone-optional" class="text-sm text-zinc-500">Optional</span>
@@ -95,13 +95,13 @@
           name="phone"
           id="phone"
           autocomplete="tel"
-          class="block w-full rounded-md border border-zinc-300 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
           aria-describedby="phone-optional"
         />
       </div>
     </div>
     <div class="sm:col-span-2">
-      <label for="subject" class="block text-sm font-medium text-zinc-300"
+      <label for="subject" class="block text-sm font-medium text-zinc-400"
         >Subject</label
       >
       <div class="mt-1">
@@ -110,13 +110,13 @@
           type="text"
           name="subject"
           id="subject"
-          class="block w-full rounded-md border border-zinc-300 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
         />
       </div>
     </div>
     <div class="sm:col-span-2">
       <div class="flex justify-between">
-        <label for="message" class="block text-sm font-medium text-zinc-300"
+        <label for="message" class="block text-sm font-medium text-zinc-400"
           >Message</label
         >
         <span id="message-max" class="text-sm text-zinc-500"
@@ -129,7 +129,7 @@
           id="message"
           name="message"
           rows="4"
-          class="block w-full rounded-md border border-zinc-300 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
           aria-describedby="message-max"
         />
       </div>
