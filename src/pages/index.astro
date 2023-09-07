@@ -1,14 +1,13 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "../styles/base.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import StackList from "../components/stack/List.svelte";
-import Newsletter from "../components/Newsletter.astro";
-import Cv from "../components/Cv.astro";
-import ImageRow from "../components/ImageRow.astro";
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Isaac Finkelstein"
+  description="Passionate, experienced full stack developer, maker of things and learner of new technologies"
+>
   <section class="section-container py-12 px-12">
     <div class="flex flex-col max-w-3xl mx-auto">
       <div class="">
