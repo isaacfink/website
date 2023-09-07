@@ -27,4 +27,23 @@
   .text-wrap-balance {
     text-wrap: balance;
   }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  a,
+  button,
+  input,
+  label,
+  li,
+  td,
+  th,
+  textarea {
+    @apply selection:text-primary-900 selection:bg-main-500;
+  }
 }
