@@ -19,7 +19,7 @@
 <button
   on:click={handleClick}
   class:active={isActive}
-  class="py-3 px-5 bg-zinc-800 hover:bg-zinc-800/75 transition-colors rounded group relative"
+  class="py-3 px-5 bg-main-800 hover:bg-main-800/75 transition-colors rounded group relative"
 >
   <div
     class="flex {isActive
@@ -34,12 +34,12 @@
       {/if}
     </div>
     {#if isActive}
-      <h3 class="text-zinc-300 text-xl">{title}</h3>
+      <h3 class="text-main-300 text-xl">{title}</h3>
       <div class="w-12" />
     {/if}
   </div>
   {#if isActive}
-    <p class="text-zinc-500 mt-3">
+    <p class="text-main-500 mt-3">
       {description}
     </p>
   {/if}

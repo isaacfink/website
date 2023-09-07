@@ -1,3 +1,4 @@
+import { slate } from "tailwindcss/colors";
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -17,6 +18,7 @@ module.exports = {
         },
       },
       colors: {
+        main: slate,
         primary: {
           50: "#f2f9f9",
           100: "#ddeff0",

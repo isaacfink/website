@@ -21,7 +21,7 @@ const { showFooter = true, showHeader = true } = Astro.props;
     <meta name="description" content={SITE_DESCRIPTION} />
     <title>{SITE_TITLE}</title>
   </head>
-  <body class="bg-black relative p-0 dark">
+  <body class="bg-main-950 relative p-0 dark">
     {showHeader && <Header />}
     <slot />
     {showFooter && <Footer />}

@@ -11,14 +11,14 @@ const navIndicatorClasses =
 <div class="absolute inset-x-2 bg-primary-500 h-1 rounded-full blur-2xl"></div>
 <header class="section-container py-3 flex items-center justify-center">
   <nav
-    class="py-1 px-2 rounded-full border border-zinc-700 bg-zinc-800 overflow-hidden"
+    class="py-1 px-2 rounded-full border border-main-700 bg-main-800 overflow-hidden"
   >
     <ul class="flex items-center justify-center space-x-3">
       <li class="relative">
         <a
           href="/"
           class={`${
-            pathname === "/" ? "text-primary-400" : "text-zinc-100"
+            pathname === "/" ? "text-primary-400" : "text-main-100"
           } px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
           >Home</a
         >
@@ -30,19 +30,19 @@ const navIndicatorClasses =
       </li>
       <!-- <a
       href="/blog"
-      class={`${pathname === '/about' ? 'text-primary-600': 'text-zinc-100'} px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
+      class={`${pathname === '/about' ? 'text-primary-600': 'text-main-100'} px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
       >Blog</a
       >
       <a
       href="/projects"
-      class={`${pathname === '/about' ? 'text-primary-600': 'text-zinc-100'} px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
+      class={`${pathname === '/about' ? 'text-primary-600': 'text-main-100'} px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
       >Projects</a
       > -->
       <li class="relative">
         <a
           href="/about"
           class={`${
-            pathname.startsWith("/about") ? "text-primary-400" : "text-zinc-100"
+            pathname.startsWith("/about") ? "text-primary-400" : "text-main-100"
           } px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
           >About</a
         >
@@ -58,7 +58,7 @@ const navIndicatorClasses =
           class={`${
             pathname.startsWith("/contact")
               ? "text-primary-400"
-              : "text-zinc-100"
+              : "text-main-100"
           } px-2 font-light transition-colors duration-150 text-sm hover:text-primary-500`}
           >Contact</a
         >

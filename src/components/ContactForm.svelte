@@ -24,7 +24,7 @@
 </script>
 
 <div class="px-6 py-10 sm:px-10 lg:col-span-2 xl:p-12">
-  <h3 class="text-lg font-medium text-zinc-200">Send me a message</h3>
+  <h3 class="text-lg font-medium text-main-200">Send me a message</h3>
   <form
     on:submit|preventDefault={handleSubmit}
     bind:this={formEl}
@@ -38,7 +38,7 @@
       value="5bd044ff-f2c0-4fe4-baac-68b4b4c40c64"
     />
     <div>
-      <label for="first-name" class="block text-sm font-medium text-zinc-400"
+      <label for="first-name" class="block text-sm font-medium text-main-400"
         >First name</label
       >
       <div class="mt-1">
@@ -48,12 +48,12 @@
           name="first-name"
           id="first-name"
           autocomplete="given-name"
-          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-main-400 px-4 py-3 text-main-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
         />
       </div>
     </div>
     <div>
-      <label for="last-name" class="block text-sm font-medium text-zinc-400"
+      <label for="last-name" class="block text-sm font-medium text-main-400"
         >Last name</label
       >
       <div class="mt-1">
@@ -63,12 +63,12 @@
           name="last-name"
           id="last-name"
           autocomplete="family-name"
-          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-main-400 px-4 py-3 text-main-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
         />
       </div>
     </div>
     <div>
-      <label for="email" class="block text-sm font-medium text-zinc-400"
+      <label for="email" class="block text-sm font-medium text-main-400"
         >Email</label
       >
       <div class="mt-1">
@@ -78,16 +78,16 @@
           name="email"
           type="email"
           autocomplete="email"
-          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-main-400 px-4 py-3 text-main-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
         />
       </div>
     </div>
     <div>
       <div class="flex justify-between">
-        <label for="phone" class="block text-sm font-medium text-zinc-400"
+        <label for="phone" class="block text-sm font-medium text-main-400"
           >Phone</label
         >
-        <span id="phone-optional" class="text-sm text-zinc-500">Optional</span>
+        <span id="phone-optional" class="text-sm text-main-500">Optional</span>
       </div>
       <div class="mt-1">
         <input
@@ -95,13 +95,13 @@
           name="phone"
           id="phone"
           autocomplete="tel"
-          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-main-400 px-4 py-3 text-main-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
           aria-describedby="phone-optional"
         />
       </div>
     </div>
     <div class="sm:col-span-2">
-      <label for="subject" class="block text-sm font-medium text-zinc-400"
+      <label for="subject" class="block text-sm font-medium text-main-400"
         >Subject</label
       >
       <div class="mt-1">
@@ -110,16 +110,16 @@
           type="text"
           name="subject"
           id="subject"
-          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-main-400 px-4 py-3 text-main-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
         />
       </div>
     </div>
     <div class="sm:col-span-2">
       <div class="flex justify-between">
-        <label for="message" class="block text-sm font-medium text-zinc-400"
+        <label for="message" class="block text-sm font-medium text-main-400"
           >Message</label
         >
-        <span id="message-max" class="text-sm text-zinc-500"
+        <span id="message-max" class="text-sm text-main-500"
           >Max. 500 characters</span
         >
       </div>
@@ -129,17 +129,19 @@
           id="message"
           name="message"
           rows="4"
-          class="block w-full rounded-md border border-zinc-400 px-4 py-3 text-zinc-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
+          class="block w-full rounded-md border border-main-400 px-4 py-3 text-main-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-transparent"
           aria-describedby="message-max"
         />
       </div>
     </div>
     <div class="sm:col-span-2 flex items-center justify-between">
-      <p class="text-zinc-200 font-light text-sm pr-12 text-left">{message}</p>
+      <p class="text-main-200 font-light text-sm pr-12 text-left">
+        {message}
+      </p>
       <button
         disabled={loading}
         type="submit"
-        class="mt-2 inline-flex disabled:opacity-50 disabled:cursor-not-allowed w-full items-center justify-center rounded-md border border-transparent bg-primary-500 px-3 py-2 text-sm font-medium text-zinc-100 shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 sm:w-auto"
+        class="mt-2 inline-flex disabled:opacity-50 disabled:cursor-not-allowed w-full items-center justify-center rounded-md border border-transparent bg-primary-500 px-3 py-2 text-sm font-medium text-main-100 shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 sm:w-auto"
         >{loading ? "Submitting..." : "Submit"}</button
       >
     </div>

@@ -93,7 +93,7 @@
       cy="0"
       r="1"
       gradientUnits="userSpaceOnUse"
-      gradientTransform="translate(217.5 73.915) scale(453.822 453.822)"
+      gradientTransform="tranmain(217.5 73.915) scale(453.822 453.822)"
     >
       <stop stop-color="#AEB2D5" />
       <stop offset="0.3" stop-color="#AEB2D5" />

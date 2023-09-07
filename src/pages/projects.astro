@@ -50,11 +50,11 @@ const projects = [
   <main class="section-container py-12 px-12">
     <header class="max-w-2xl">
       <h1
-        class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+        class="text-4xl font-bold tracking-tight text-main-800 dark:text-main-100 sm:text-5xl"
       >
         Things I’ve made trying to put my dent in the universe.
       </h1>
-      <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+      <p class="mt-6 text-base text-main-600 dark:text-main-400">
         worked on tons of little projects over the years but these are the ones
         that I’m most proud of. Many of them are open-source, so if you see
         something that piques your interest, check out the code and contribute
@@ -69,20 +69,20 @@ const projects = [
         projects.map((project) => {
           return (
             <div class="group relative flex flex-col items-start">
-              <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+              <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-main-800/5 ring-1 ring-main-900/5 dark:border dark:border-main-700/50 dark:bg-main-800 dark:ring-0">
                 <img src={project.logo.src} alt="" />
               </div>
-              <h2 class="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+              <h2 class="mt-6 text-base font-semibold text-main-800 dark:text-main-100">
+                <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-main-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-main-800/50 sm:-inset-x-6 sm:rounded-2xl" />
                 <a href={project.link.href}>
                   <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
                   <span class="relative z-10">{project.name}</span>
                 </a>
               </h2>
-              <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <p class="relative z-10 mt-2 text-sm text-main-600 dark:text-main-400">
                 {project.description}
               </p>
-              <p class="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+              <p class="relative z-10 mt-6 flex text-sm font-medium text-main-400 transition group-hover:text-teal-500 dark:text-main-200">
                 <svg
                   viewBox="0 0 24 24"
                   aria-hidden="true"

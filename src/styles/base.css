@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -8,13 +8,16 @@
   *,
   *::before,
   *::after {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: "Inter", sans-serif;
   }
 }
 
 @layer utilities {
+  .font-ibm {
+    font-family: "IBM Plex Sans", sans-serif;
+  }
   .section-container {
-    @apply bg-zinc-900 mx-auto max-w-md sm:max-w-md md:max-w-2xl xl:max-w-7xl border-x border-zinc-700;
+    @apply bg-main-900 mx-auto max-w-md sm:max-w-md md:max-w-2xl xl:max-w-7xl border-x border-main-700;
   }
 
   button {

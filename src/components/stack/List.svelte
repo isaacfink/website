@@ -204,7 +204,7 @@
         activeIndex == index ? (activeIndex = null) : (activeIndex = index);
       }}
       class:active={isActive}
-      class="py-8 px-5 bg-zinc-800 hover:bg-zinc-800/75 transition-colors rounded-md group relative flex flex-col overflow-hidden"
+      class="py-8 px-5 bg-main-800 hover:bg-main-800/75 transition-colors rounded-md group relative flex flex-col overflow-hidden"
     >
       <div
         class="flex w-full {isActive
@@ -223,7 +223,7 @@
         </div>
         {#if isActive}
           <h3
-            class="text-zinc-300 text-3xl text-right md:text-center w-full flex-grow animate-up opacity-0 font-mono"
+            class="text-main-300 text-3xl text-right md:text-center w-full flex-grow animate-up opacity-0 font-mono"
             style="--anim-delay:0.1s"
           >
             {item.title}
@@ -233,7 +233,7 @@
       </div>
       {#if isActive}
         <p
-          class="text-zinc-400 mt-5 animate-up opacity-0 text-left md:text-center w-full text-wrap-balance"
+          class="text-main-400 mt-5 animate-up opacity-0 text-left md:text-center w-full text-wrap-balance"
           style="--anim-delay:0.3s; --anim-duration:0.2s"
         >
           {item.description}
@@ -245,7 +245,7 @@
           <svelte:component this={item.mono} />
         </div>
         <div
-          class="absolute -bottom-[22rem] left-1/2 -translate-x-1/2 w-[46rem] h-96 rounded-[50%] blur-3xl bg-base-color animate-light"
+          class="absolute -bottom-[22rem] left-1/2 -tranmain-x-1/2 w-[46rem] h-96 rounded-[50%] blur-3xl bg-base-color animate-light"
           style={`--base-color: ${item.baseColor}`}
         />
       {/if}
@@ -280,11 +280,11 @@
 
   @keyframes up {
     0% {
-      transform: translateY(1rem);
+      transform: tranmainY(1rem);
       opacity: 0%;
     }
     100% {
-      transform: translateY(0);
+      transform: tranmainY(0);
       opacity: 100%;
     }
   }
