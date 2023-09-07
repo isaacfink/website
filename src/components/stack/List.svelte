@@ -245,7 +245,7 @@
           <svelte:component this={item.mono} />
         </div>
         <div
-          class="absolute -bottom-[22rem] left-1/2 -tranmain-x-1/2 w-[46rem] h-96 rounded-[50%] blur-3xl bg-base-color animate-light"
+          class="absolute -bottom-[22rem] left-1/2 -translate-x-1/2 w-[46rem] h-96 rounded-[50%] blur-3xl bg-base-color animate-light outline outline-white"
           style={`--base-color: ${item.baseColor}`}
         />
       {/if}
@@ -280,11 +280,11 @@
 
   @keyframes up {
     0% {
-      transform: tranmainY(1rem);
+      transform: translateY(1rem);
       opacity: 0%;
     }
     100% {
-      transform: tranmainY(0);
+      transform: translateY(0);
       opacity: 100%;
     }
   }
