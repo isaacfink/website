@@ -17,7 +17,7 @@
     font-family: "IBM Plex Sans", sans-serif;
   }
   .section-container {
-    @apply bg-main-900 mx-auto max-w-md sm:max-w-md md:max-w-2xl xl:max-w-7xl border-x border-main-700;
+    @apply bg-main-900 mx-auto max-w-md sm:max-w-md md:max-w-2xl xl:max-w-7xl;
   }
 
   button {
