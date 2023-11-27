@@ -1,0 +1,72 @@
+---
+title: "OAuth from scratch in Node.JS"
+description: "Let's implement a OAuth client from scratch without using any dependencies"
+pubDate: "Jul 02 2022"
+heroImage: "/src/images/databases.jpg"
+published: false
+---
+
+### What is OAuth?
+
+OAuth is an suthentication standard used to authenticate applications with third party auth providers, to understand what Oauth is and what problems it solves we will first look at how a traditional authentication system works.
+
+In a traditional system we have a client and a server, the client will issue an authentication request to the server, this is usually what happens when you click login on a login page, the job of the server can be defined in two very simple steps
+
+1. Check for the user in the database
+2. Return an identifier token so the user can be identified next time
+
+In a more realistic sense the server will perform the following steps
+
+1. Hash the password
+2. Lookup the user in the database
+3. Compare the credentials to the one in the database
+4. Create a session for the user
+5. Set the session cookie
+
+This is an oversimplified process but it's enough to understand what OAuth does differently, when using OAuth you are not authenticating against your own database but against a provider, in the following examples we will assume google as the provider but there are hundreds of providers you can use.
+
+Let's break down the process in simple steps
+
+1. **Getting a redirect URL** - The first step is providing the user with a url to sign in to the provider
+2. **Accepting the grant token** - after the user completes the sign in they will be redirected to our website, we will then use the grant token to request an access token
+3. **Getting the access token** - The access token is used to make requests to the provider's API, this is how we can get the user's information
+4. **Getting the user's information** - Once we have the access token we can make requests to the provider's API to get the user's information
+5. **Creating a session** - Once we have the user's information we can create a session for the user
+
+We will start with the basic application, create an express application with this boilerplate
+
+```ts
+import express from "express";
+
+const app = express()
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000")
+})
+```
+
+Now we can start adding in the routes required, let's first define all the routes before adding the correct logic to them
+
+```ts
+app.get("/auth/google", (req, res) => {
+    // Redirect to google
+})
+
+app.get("/auth/google/callback", (req, res) => {
+    // Get the grant token and request the access token
+})
+```
+
+Those two routes will be enough to implement OAuth, let's start with the first one
+
+```ts
+app.get("/auth/google", (req, res) => {
+    const redirectUrl = "https://accounts.google.com/o/oauth2/v2/auth?" +
+        "client_id=YOUR_CLIENT_ID" +
+        "&redirect_uri=http://localhost:3000/auth/google/callback" +
+        "&response_type=code" +
+        "&scope=openid%20email%20profile"
+
+    res.redirect(redirectUrl)
+})
+```

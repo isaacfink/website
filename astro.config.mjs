@@ -10,7 +10,8 @@ export default defineConfig({
   site: 'https://example.com',
   markdown: {
     shikiConfig: {
-      theme: 'one-dark-pro'
+      theme: 'one-dark-pro',
+      wrap: false
     }
   },
   integrations: [mdx(), sitemap(), tailwind({

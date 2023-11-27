@@ -12,6 +12,21 @@
   }
 }
 
+code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgba(115, 138, 148, 0.4);
+}
+
 @layer utilities {
   .font-ibm {
     font-family: "IBM Plex Sans", sans-serif;
@@ -46,9 +61,10 @@
   textarea {
     @apply selection:text-primary-900 selection:bg-main-300;
   }
+}
 
-  code,
-  pre {
-    font-family: "Roboto Mono", monospace;
-  }
+code,
+pre,
+code * {
+  font-family: "Roboto Mono", monospace;
 }
