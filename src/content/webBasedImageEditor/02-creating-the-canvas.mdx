@@ -1,0 +1,99 @@
+---
+title: "Creating the canvas"
+description: "In this post we will add the functionality to create models and ustilize it to inetract with the database"
+pubDate: "Jul 02 2022"
+heroImage: "src/images/portrait.jpg"
+---
+
+The '\<canvas\>' component is one the most important components in HTML, it allows us to programatically draw on the screen without any restrictions and is the backbone of our Editor
+
+With the canvas we can do some cool stuff like this
+
+```javascript
+ctx.beginPath();
+ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+ctx.moveTo(110, 75);
+ctx.arc(75, 75, 35, 0, Math.PI, false); // Mouth (clockwise)
+ctx.moveTo(65, 65);
+ctx.arc(60, 65, 5, 0, Math.PI * 2, true); // Left eye
+ctx.moveTo(95, 65);
+ctx.arc(90, 65, 5, 0, Math.PI * 2, true); // Right eye
+ctx.stroke();
+```
+
+If you're intimidated by the code above, don't worry, by the end of this series you'll be at home with the canvas API but for now all you need to know is that the canvas is used to draw pixels on the screen
+
+To use the canvas first you need to define it in your HTML so we will add the following to our file
+
+```html
+<canvas id="canvas" width="500" height="500"></canvas>
+```
+
+For now we are setting the height and width, in the future this will be programatically set to include the user defined canvas size
+
+Now we need to get access to the canvas context, this is the object with all the methods we can use to draw and control the canvas, we get the context using the following code
+
+```javascript
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+```
+
+This is the ctx we were using in the first code block
+
+Now that we have the canvas and the context we will start to familiarize ourselves with the canvas API
+
+The first thing we will do is draw a rectangle on the screen, to do this we will use the following code
+
+```javascript
+ctx.fillStyle = "red";
+ctx.fillRect(10, 10, 100, 100);
+```
+
+Let's see what's hapening here
+
+First we set the `fillStyle` to red, when using the context api there is some styles we can apply, in this case we are setting the fill color to fill our shapes with, it is important to remember that the context will now use this fill color for all future shapes unless we reset it
+
+Now let's see how we can clear the entire canvas
+
+```javascript
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+```
+
+The `clearRect` function takes in 4 arguments to for a rectangle and and clears everything inside this rectangle, in this case we are creating a rectangle as big as the canvas to clear everything inside the canvas
+
+Our editor will loop over all the objects in our scene and draw them on the canvas, instead of figuring out how to draw each object we will add a method to the objects themselves to draw that object, for example our rect object would look like this
+
+```typescript
+class Rect {
+  constructor(props: RectProps) {
+    this.x = props.x;
+    this.y = props.y;
+    this.width = props.width;
+    this.height = props.height;
+    this.fillColor = props.fillColor;
+    this.strokeColor = props.strokeColor;
+    this.strokeWidth = props.strokeWidth;
+    this.rotation = props.rotation;
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.fillStyle = this.fillColor;
+    ctx.strokeStyle = this.strokeColor;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
+}
+```
+
+And we will have a render method like this
+
+```typescript
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const object of objects) {
+    object.draw(ctx);
+  }
+  requestAnimationFrame(render);
+}
+```
+
+If you're not familiar with the `requestAnimationFrame` function this tells the browser to call the function on the next frame, this means our render funciton will be called every frame which would give us the maximum refresh rate the browser supports

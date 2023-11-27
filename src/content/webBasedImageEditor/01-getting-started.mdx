@@ -1,0 +1,72 @@
+---
+title: "Getting started"
+description: "Getting started with a custom image editor"
+pubDate: "2021-03-01"
+heroImage: "../../images/portrait.jpg"
+---
+
+In this series we are going to build a custom image editor from scratch, our browser will run in the browser and will have the following features:
+
+1. add layers to your images
+2. add text
+3. add images
+4. add masks
+5. basic image editing like crop, rotate, resize etc...
+6. basic color manipulation like brightness, contrast, saturation etc...
+7. basic filters like blur, sharpen, grayscale etc...
+8. drawing tools like pen tool
+9. create bezier curves
+
+I will try to minimize the amount of libraries used, but I will use sharp for saving images and tailwindcss for styling, since styling is not the ficus of this series it makes sense to use a framework to minimize the amount of code we have to write
+
+Keep in mind that this is not a beginner friendly series, I will gloss over some concepts so make sure you have:
+
+1. a good understanding and some experience using javascript
+2. an understanding of how svg is constructed, I will go into detail on some of the more advanced concepts and features
+3. experience with HTML and CSS
+
+We will split up the work into the following articles
+
+### [Getting started](/blog/web-based-image-editor/01-getting-started)
+
+In this article we will set up the basic porject structure and install the required dependencies, we will also create the basic layout and some of the somponents needed for the project
+
+### [Creating the canvas](/blog/web-based-image-editor/02-creating-the-canvas)
+
+In this part we will set up the canvas component, this component is like your preview which is where you view your image will be displayed, this is where your users will spend most of there time
+
+### [Creating the layers](/blog/web-based-image-editor/03-building-the-toolbar)
+
+After getting the canvas we will create the toolbar so we can start adding tools to our editor, we will start with some bsic functionality so we can start using the editor
+
+### [Layers tool](/blog/web-based-image-editor/04-adding-the-layers)
+
+Next up will be adding the first tool which is the layers tool, this tool will allow us to add layers to our image
+
+### [Adding images](/blog/web-based-image-editor/05-adding-images)
+
+After this part you will be able to add images to your layers, in this part we will also set up some of our utility functions like selecting, resizing and moving objects
+
+### [Adding text](/blog/web-based-image-editor/06-adding-text)
+
+Next up is adding text, we will create a text tool that will allow us to add text to our image, modify the text, customize fonts and other text properties
+
+### [Shapes](/blog/web-based-image-editor/07-shapes)
+
+This is where we will start using some advanced geometry to control images, we will aadd a shapes panel and tools to add different types of shapes
+
+### [Masks](/blog/web-based-image-editor/08-masks)
+
+Masks are an important part of a feature rich image editor, they allow us to have more control over the images and overall layout of our final image
+
+### [Filters](/blog/web-based-image-editor/09-filters)
+
+Filters are a great way to add some effects to your images, we will add a filter panel and tools to add different types of filters like sepia, grayscale and many more, in this part you'll learn about color theory and image manipulation
+
+### [Drawing](/blog/web-based-image-editor/10-drawing)
+
+Our image editor won't be complete without a drawing tool, we will add a basic pen tool to draw basic freestyle and customize those drawings
+
+### [Exporting](/blog/web-based-image-editor/11-exporting)
+
+The final part will be all about exporting the images and converting between different formats, this is where we will use sharp to export, transcode and resize images

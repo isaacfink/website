@@ -17,6 +17,7 @@ function getBaseConfig() {
           .optional()
           .transform((str) => (str ? new Date(str) : undefined)),
         heroImage: image(),
+        published: z.boolean().optional().default(false),
       }),
   };
 }
@@ -25,8 +26,15 @@ const blog = defineCollection({
   ...getBaseConfig(),
 });
 
-const pythonOrm = defineCollection({
-  ...getBaseConfig(),
-});
+const getSeriesConfig = () => {
+  return defineCollection({
+    ...getBaseConfig(),
+  });
+};
 
-export const collections = { blog, "python-orm": pythonOrm };
+export const collections = {
+  blog,
+  "python-orm": getSeriesConfig(),
+  "js-web-framework": getSeriesConfig,
+  webBasedImageEditor: getSeriesConfig(),
+};
