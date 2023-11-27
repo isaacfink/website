@@ -2,7 +2,8 @@
 title: "SQL Database indexes deep dive"
 description: "A comprehensive explanation on SQL indexes, what is it? why should I use it? how do they work?"
 pubDate: "Jul 02 2022"
-heroImage: "src/images/databases.jpg"
+heroImage: "/src/images/databases.jpg"
+published: true
 ---
 
 Indexes are one of the most imprtant tools when it comes to database optimization, in this post I will explain how they work, why they are so important, how to implement them and the different types of indexes
@@ -58,10 +59,10 @@ This is what a basic `B-Tree` looks like
 
 ![B-Tree](/images/database-indexes/b-tree.png)
 
-The nodes are key value pairs with the key being the `ID` the value is usually the locaiton on disk of the row, sometimes on a query like this
+The nodes are key value pairs with the key being the `ID` the value is usually the location on disk of the row, sometimes on a query like this
 
 ```sql
 SELECT id FROM users WHERE id = 1;
 ```
 
-the database can get all the information just from the index, this is called a `covered index` and it is very performant because the Database doesn't even have to use the disk at all
+The database can get all the information just from the index, this is called a covered index and it is very performant because the Database doesn't even have to use the disk at all
