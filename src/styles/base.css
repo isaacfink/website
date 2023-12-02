@@ -68,3 +68,9 @@ pre,
 code * {
   font-family: "Roboto Mono", monospace;
 }
+
+@layer components {
+  .aoc-cal-square {
+    @apply aspect-square w-1/6 text-main-300 flex items-center justify-center rounded bg-main-700;
+  }
+}
