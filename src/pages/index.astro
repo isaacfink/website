@@ -2,6 +2,7 @@
 import "../styles/base.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import StackList from "../components/stack/List.svelte";
+import AdventOfCode from "../components/AdventOfCode.svelte";
 ---
 
 <BaseLayout
@@ -70,6 +71,7 @@ import StackList from "../components/stack/List.svelte";
       some of the technologies I use to create the magic
     </p>
     <StackList client:load />
+    <AdventOfCode client:load />
   </section>
   <!-- <section class="section-container py-12 px-12">
     <div class="grid grid-cols-1 max-w-3xl mx-auto">

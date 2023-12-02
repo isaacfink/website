@@ -61,11 +61,11 @@ Those two routes will be enough to implement OAuth, let's start with the first o
 
 ```ts
 app.get("/auth/google", (req, res) => {
-    const redirectUrl = "https://accounts.google.com/o/oauth2/v2/auth?" +
-        "client_id=YOUR_CLIENT_ID" +
-        "&redirect_uri=http://localhost:3000/auth/google/callback" +
-        "&response_type=code" +
-        "&scope=openid%20email%20profile"
+    const redirectUrl = new URL("https://accounts.google.com/o/oauth2/v2/auth")
+    redirectUrl.searchParams.append('client_id', process.env.GOOGLE_CLIENT_ID)
+    redirectUrl.searchParams.append('redirect_uri', "http://localhost:3000/auth/google/callback")
+    redirectUrl.searchParams.append('response_type', "code")
+    redirectUrl.searchParams.append('scope', "openid profile email")
 
     res.redirect(redirectUrl)
 })
