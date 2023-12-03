@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Item from "./Item.svelte";
-
   import FastApiMono from "./icons/mono/Fastapi.svelte";
   import JavascriptMono from "./icons/mono/Javascript.svelte";
   import ReactMono from "./icons/mono/React.svelte";
@@ -203,8 +201,9 @@
       on:click={() => {
         activeIndex == index ? (activeIndex = null) : (activeIndex = index);
       }}
-      class:active={isActive}
-      class="py-8 px-5 bg-main-800 hover:bg-main-800/75 transition-colors rounded-md group relative flex flex-col overflow-hidden"
+      class="py-8 px-5 bg-main-800 transition-colors rounded-md group relative flex flex-col overflow-hidden {isActive
+        ? 'col-span-2 row-span-2'
+        : 'hover:bg-main-800/75'}"
     >
       <div
         class="flex w-full {isActive
@@ -262,12 +261,7 @@
   {/each}
 </div>
 
-<style>
-  .active {
-    grid-column: auto / span 2;
-    grid-row: auto / span 2;
-  }
-
+<style lang="postcss">
   .animate-up {
     animation: up var(--anim-duration, 0.36s) ease-in-out forwards;
     animation-delay: var(--anim-delay);
