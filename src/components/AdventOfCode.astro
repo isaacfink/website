@@ -1,3 +1,33 @@
+---
+const days = [
+  { text: "01", done: true },
+  { text: "02", done: true },
+  { text: "03", done: false },
+  { text: "04", done: false },
+  { text: "05", done: false },
+  { text: "06", done: false },
+  { text: "07", done: false },
+  { text: "08", done: false },
+  { text: "09", done: false },
+  { text: "10", done: false },
+  { text: "11", done: false },
+  { text: "12", done: false },
+  { text: "13", done: false },
+  { text: "14", done: false },
+  { text: "15", done: false },
+  { text: "16", done: false },
+  { text: "17", done: false },
+  { text: "18", done: false },
+  { text: "19", done: false },
+  { text: "20", done: false },
+  { text: "21", done: false },
+  { text: "22", done: false },
+  { text: "23", done: false },
+  { text: "24", done: false },
+  { text: "25", done: false },
+];
+---
+
 <div
   class="rounded-md bg-main-800 p-5 mt-12 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2"
 >
@@ -25,31 +55,24 @@
       <span>Github repo</span>
     </a>
   </div>
-  <div class="flex flex-wrap items-center justify-center gap-1">
-    <div class="aoc-cal-square bg-green-700">01</div>
-    <div class="aoc-cal-square bg-green-700">02</div>
-    <div class="aoc-cal-square">03</div>
-    <div class="aoc-cal-square">04</div>
-    <div class="aoc-cal-square">05</div>
-    <div class="aoc-cal-square">06</div>
-    <div class="aoc-cal-square">07</div>
-    <div class="aoc-cal-square">08</div>
-    <div class="aoc-cal-square">09</div>
-    <div class="aoc-cal-square">10</div>
-    <div class="aoc-cal-square">11</div>
-    <div class="aoc-cal-square">12</div>
-    <div class="aoc-cal-square">13</div>
-    <div class="aoc-cal-square">14</div>
-    <div class="aoc-cal-square">15</div>
-    <div class="aoc-cal-square">16</div>
-    <div class="aoc-cal-square">17</div>
-    <div class="aoc-cal-square">18</div>
-    <div class="aoc-cal-square">19</div>
-    <div class="aoc-cal-square">20</div>
-    <div class="aoc-cal-square">21</div>
-    <div class="aoc-cal-square">22</div>
-    <div class="aoc-cal-square">23</div>
-    <div class="aoc-cal-square">24</div>
-    <div class="aoc-cal-square">25</div>
+  <div class="calendar-graphic-wrapper">
+    <div
+      class="flex flex-wrap items-center justify-center gap-1 calendar-graphic"
+    >
+      {
+        days.map((day) => {
+          return day.done ? (
+            <a
+              href={`https://github.com/isaacfink/advent-of-code-2023/tree/master/day-${day.text}`}
+              class="aoc-cal-square aoc-cal-done"
+            >
+              {day.text}
+            </a>
+          ) : (
+            <div class="aoc-cal-square">{day.text}</div>
+          );
+        })
+      }
+    </div>
   </div>
 </div>

@@ -73,4 +73,21 @@ code * {
   .aoc-cal-square {
     @apply aspect-square basis-1/6 flex-grow text-main-300 flex items-center justify-center rounded bg-main-700;
   }
+
+  .aoc-cal-done {
+    @apply bg-green-700 hover:scale-105 transition-transform;
+  }
+
+  .calendar-graphic-wrapper {
+    perspective: 1188px;
+    perspective-origin: 50% 50%;
+  }
+
+  @media (min-width: 1280px) {
+    .calendar-graphic {
+      transform: scaleX(1) scaleY(1) scaleZ(3) rotateX(12deg) rotateY(-25deg)
+        rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px)
+        skewX(-17deg) skewY(10deg);
+    }
+  }
 }
