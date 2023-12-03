@@ -29,18 +29,28 @@ const days = [
 ---
 
 <div
-  class="rounded-md bg-main-800 p-5 mt-12 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2"
+  class="rounded-md bg-main-800 p-5 mt-12 max-w-3xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-2"
   id="advent-of-code"
 >
-  <div class="xl:col-span-2 mb-5">
+  <div
+    class="lg:col-span-2 mb-5 md:mb-0 flex flex-col items-start justify-between"
+  >
     <h3 class="text-main-300 text-2xl">Advent of Code</h3>
-    <p class="text-main-500 mt-3">
-      Advent of Code is an online challenge where programmers compete to solve a
-      new challenge every day in December
-    </p>
-    <p class="text-main-500 mt-3">
-      Check out my solutions for the 2023 edition below
-    </p>
+    <div class="">
+      <p class="text-main-500 mt-4 md:mt-0">
+        <span>
+          <a
+            class="text-main-400 hover:underline"
+            href="https://adventofcode.com/">Advent of Code</a
+          >
+        </span>
+         is an online challenge where programmers compete to solve a new
+        challenge every day in December
+      </p>
+      <p class="text-main-500 mt-3">
+        Check out my solutions for the 2023 edition below
+      </p>
+    </div>
 
     <a
       href="https://github.com/isaacfink/advent-of-code-2023"
@@ -58,9 +68,9 @@ const days = [
       <span>Github repo</span>
     </a>
   </div>
-  <div class="calendar-graphic-wrapper">
+  <div class="calendar-graphic-wrapper my-6 lg:my-0">
     <div
-      class="flex flex-wrap items-center justify-center gap-1 calendar-graphic"
+      class="grid grid-cols-5 mx-auto max-w-[20rem] mt-5 lg:mt-0 flex-wrap items-center justify-center gap-1 calendar-graphic"
     >
       {
         days.map((day) => {
