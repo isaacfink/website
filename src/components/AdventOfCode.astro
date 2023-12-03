@@ -39,11 +39,13 @@ const days = [
       new challenge every day in December
     </p>
     <p class="text-main-500 mt-3">
-      Checkout my solutions for the 2023 edition below
+      Check out my solutions for the 2023 edition below
     </p>
 
     <a
       href="https://github.com/isaacfink/advent-of-code-2023"
+      target="_blank"
+      rel="noopener noreferrer"
       class="py-1 px-3 text-sm inline-flex rounded-full items-center gap-x-2 text-main-500 border border-main-500 mt-5 hover:text-main-400 hover:border-main-400 transition-colors"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" class="w-6 h-6 fill-current">
@@ -64,6 +66,8 @@ const days = [
         days.map((day) => {
           return day.done ? (
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href={`https://github.com/isaacfink/advent-of-code-2023/tree/master/day-${day.text}`}
               class="aoc-cal-square aoc-cal-done"
             >
