@@ -90,4 +90,8 @@ code * {
         skewX(-17deg) skewY(10deg);
     }
   }
+
+  .cursor-link {
+    cursor: url("/cursors/link.svg"), pointer;
+  }
 }
