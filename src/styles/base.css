@@ -88,6 +88,14 @@ code * {
       transform: scaleX(1) scaleY(1) scaleZ(3) rotateX(12deg) rotateY(-25deg)
         rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px)
         skewX(-17deg) skewY(10deg);
+      transition: transform 0.2s ease-out;
+    }
+
+    .calendar-graphic:hover {
+      transform: scaleX(calc(1 * 1.04)) scaleY(calc(1 * 1.04))
+        scaleZ(calc(3 * 1.04)) rotateX(12deg) rotateY(-25deg) rotateZ(0deg)
+        translateX(0px) translateY(0px) translateZ(0px) skewX(-17deg)
+        skewY(10deg);
     }
   }
 
