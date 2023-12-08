@@ -1,30 +1,30 @@
 ---
-const days = [
-  { text: "01", done: true },
-  { text: "02", done: true },
-  { text: "03", done: true },
-  { text: "04", done: true },
-  { text: "05", done: true },
-  { text: "06", done: true },
-  { text: "07", done: true },
-  { text: "08", done: true },
-  { text: "09", done: false },
-  { text: "10", done: false },
-  { text: "11", done: false },
-  { text: "12", done: false },
-  { text: "13", done: false },
-  { text: "14", done: false },
-  { text: "15", done: false },
-  { text: "16", done: false },
-  { text: "17", done: false },
-  { text: "18", done: false },
-  { text: "19", done: false },
-  { text: "20", done: false },
-  { text: "21", done: false },
-  { text: "22", done: false },
-  { text: "23", done: false },
-  { text: "24", done: false },
-  { text: "25", done: false },
+const days: { text: string; done: 0 | 1 | 2 }[] = [
+  { text: "01", done: 2 },
+  { text: "02", done: 2 },
+  { text: "03", done: 2 },
+  { text: "04", done: 2 },
+  { text: "05", done: 1 },
+  { text: "06", done: 2 },
+  { text: "07", done: 2 },
+  { text: "08", done: 2 },
+  { text: "09", done: 0 },
+  { text: "10", done: 0 },
+  { text: "11", done: 0 },
+  { text: "12", done: 0 },
+  { text: "13", done: 0 },
+  { text: "14", done: 0 },
+  { text: "15", done: 0 },
+  { text: "16", done: 0 },
+  { text: "17", done: 0 },
+  { text: "18", done: 0 },
+  { text: "19", done: 0 },
+  { text: "20", done: 0 },
+  { text: "21", done: 0 },
+  { text: "22", done: 0 },
+  { text: "23", done: 0 },
+  { text: "24", done: 0 },
+  { text: "25", done: 0 },
 ];
 ---
 
@@ -74,12 +74,14 @@ const days = [
     >
       {
         days.map((day) => {
-          return day.done ? (
+          return day.done > 0 ? (
             <a
               target="_blank"
               rel="noopener noreferrer"
               href={`https://github.com/isaacfink/advent-of-code-2023/tree/master/day-${day.text}`}
-              class="aoc-cal-square aoc-cal-done"
+              class={`aoc-cal-square aoc-cal-done ${
+                day.done === 1 ? "aoc-cal-1" : "aoc-cal-2"
+              }`}
             >
               {day.text}
             </a>

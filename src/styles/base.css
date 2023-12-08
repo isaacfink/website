@@ -75,7 +75,15 @@ code * {
   }
 
   .aoc-cal-done {
-    @apply bg-green-700 hover:scale-105 transition-transform;
+    @apply hover:scale-105 transition-transform;
+  }
+
+  .aoc-cal-2 {
+    @apply bg-green-700;
+  }
+
+  .aoc-cal-1 {
+    @apply bg-yellow-700;
   }
 
   .calendar-graphic-wrapper {
