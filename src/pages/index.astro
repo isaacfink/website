@@ -3,6 +3,7 @@ import "../styles/base.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import StackList from "../components/stack/List.svelte";
 import AdventOfCode from "../components/AdventOfCode.astro";
+import QrCodeSvelte from "../components/QrCodeSvelte.astro";
 ---
 
 <BaseLayout
@@ -71,7 +72,7 @@ import AdventOfCode from "../components/AdventOfCode.astro";
       some of the technologies I use to create the magic
     </p>
     <StackList client:load />
-    <AdventOfCode />
+    <QrCodeSvelte />
   </section>
   <!-- <section class="section-container py-12 px-12">
     <div class="grid grid-cols-1 max-w-3xl mx-auto">
