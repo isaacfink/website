@@ -1,0 +1,151 @@
+---
+title: "Implementing a QR code encoder with JavaScript, no libraries"
+description: "How to implement a QR encoder in JavaScript without any libraries, learn about error correction and different versions"
+pubDate: "Jan 01 2024"
+heroImage: "/src/images/databases.jpg"
+published: true
+---
+
+QR codes are one of the most amazing technologies available, it allows us to quickly pass information from one device to the other using a standard interface, the camera, but there is a lot going on under the hood, in this article we will learn how to build a QR code encoder in JavaScript without any libraries, we will implement border, error correction and versioning
+
+### What is QR code?
+
+First we need to examine a QR code, you've probably seen them before on advertisements or billboards, they typically look like a big white square with a bunch of smaller black squares arranged in a grid, QR codes are similar to barcodes but they can store more information which means there are also more things to encoder
+
+You might think that encoding a QR code is simply a matter of drawing the squares as a binary representation of the data, and this is true but we also need to add additional information, the nature of QR codes means that it is not reliable, physical images can get distorted and damaged, slight variations in the camera angle can drastically change the way the reader interprets the code which is why QR codes enforce certain rules to get around this
+
+The following data needs to be encoded along with the data, click on each button to see a visual image with the data encoded
+
+<div class="grid grid-cols-4 gap-x-3">
+  <img src="/blog/qr-codes/images/position-detection.png" class=""/>
+  <div class="col-span-3 mt-10">
+    <h3 class="my-0">Position detection markers</h3>
+    <p class="col-span-3 mt-0">These are the large square markers located at three corners of the QR code. They allow scanners to identify the orientation and size of the QR code, ensuring it can be decoded correctly no matter the angle it's scanned from.</p>
+  </div>
+</div>
+
+<div class="grid grid-cols-4 gap-x-3">
+  <div class="col-span-3 mt-10">
+    <h3 class="my-0">Alignment markers</h3>
+    <p class="col-span-3 mt-0">Smaller than the position detection markers, these appear in larger QR codes to help correct for distortion. They assist in maintaining the data's integrity, especially when the code is on a curved surface or viewed from an angle.</p>
+  </div>
+  <img src="/blog/qr-codes/images/alignment.png" class=""/>
+</div>
+
+<div class="grid grid-cols-4 gap-x-3">
+  <img src="/blog/qr-codes/images/timing.png" class=""/>
+  <div class="col-span-3 mt-10">
+    <h3 class="my-0">Timing</h3>
+    <p class="col-span-3 mt-0">These are alternating dark and light cells extending from the position detection markers. They provide a reference for identifying individual cells in the QR code, helping to determine how data is arranged within it.</p>
+  </div>
+</div>
+
+<div class="grid grid-cols-4 gap-x-3">
+  <div class="col-span-3 mt-10">
+    <h3 class="my-0">Version</h3>
+    <p class="col-span-3 mt-0">This determines the size and storage capacity of the QR code. As the version increases, so does the size of the QR code and its ability to store more data. This information is encoded within the QR code itself.</p>
+  </div>
+  <img src="/blog/qr-codes/images/version.png" class=""/>
+</div>
+
+<div class="grid grid-cols-4 gap-x-3">
+  <img src="/blog/qr-codes/images/format.png" class=""/>
+  <div class="col-span-3 mt-10">
+    <h3 class="my-0">Format</h3>
+    <p class="col-span-3 mt-0">This contains details about the error correction level and the mask pattern used for the particular QR code. It helps in ensuring the data can be accurately decoded even if the code is dirty or damaged.</p>
+  </div>
+</div>
+
+<div class="grid grid-cols-4 gap-x-3">
+  <div class="col-span-3 mt-10">
+    <h3 class="my-0">Error correction</h3>
+    <p class="col-span-3 mt-0">QR codes use Reed-Solomon error correction to restore data if the code is dirty or damaged. The level of error correction (Low, Medium, Quartile, High) dictates how much of the QR code can be obscured or damaged while still being readable.</p>
+  </div>
+  <img src="/blog/qr-codes/images/data-error-correction.png" class=""/>
+</div>
+
+<div class="grid grid-cols-4 gap-x-3">
+  <img src="/blog/qr-codes/images/quiet-zone.png" class=""/>
+  <div class="col-span-3 mt-10">
+    <h3 class="my-0">Quiet zone</h3>
+    <p class="col-span-3 mt-0">This is the margin or white space around the QR code. It's essential for scanners to recognize the QR code as a separate entity from other surrounding images or text. A quiet zone that's too small might cause scanning issues.</p>
+  </div>
+</div>
+
+So now we understand the different parts that make up a QR coe we can start working on our implementation, we will first define a function as our starting point, for clarity we will write everything in typescript but the logic should be the same in any language, let's start with a basic function
+
+```ts
+export function generateQrCode(data:string){
+
+}
+```
+
+It's a good idea to start organizing our logic now so create a file called `segments.ts` and add the following function
+
+```ts
+export function makeSegments(text: string) {
+    // Select the most efficient segment encoding automatically
+
+    switch (getType(text)) {
+        case 'numeric':
+            return [makeNumeric(text)]
+            break;
+
+        case 'alphanumeric':
+            return [makeAlphanumeric(text)]
+            break;
+
+        case 'byte':
+            return [makeBytes(toUtf8ByteArray(text))]
+            break;
+    }
+}
+```
+
+This function generates the correct segments based on the type of the text, to get the type we use the `getType` function which we define in the `validators.ts` file, paste the following in the file, we will go oevr it line by line
+
+```ts
+export const NUMERIC_REGEX = /^[0-9]*$/;
+export const ALPHANUMERIC_REGEX = /^[A-Z0-9 $%*+./:-]*$/;
+export const ALPHANUMERIC_CHARSET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:";
+
+export function isNumeric(text: string): boolean {
+    return NUMERIC_REGEX.test(text);
+}
+
+export function isAlphanumeric(text: string): boolean {
+    return ALPHANUMERIC_REGEX.test(text);
+}
+
+export type SegmentType = "numeric" | "alphanumeric" | "byte";
+
+export function getType(text: string): SegmentType {
+    if (isNumeric(text)) {
+        return "numeric";
+    } else if (isAlphanumeric(text)) {
+        return "alphanumeric";
+    } else {
+        return "byte";
+    }
+}
+```
+
+The first 3 lines is creating regular expressions to check if a string includes alphanumeric characters or only numeric, the `isNumeric` and `isAlphanumeric` functions simply check if the string matches the regular expression, the `getType` function uses these functions to determine the type of the starting
+
+Create a file `utils.ts` for all the extra functions, paste the following funciton inside
+
+```ts
+export function appendBits(val: number, len: number, bb: Array<number>): void {
+    if (len < 0 || len > 31 || val >>> len != 0)
+        throw new RangeError("Value out of range");
+    for (let i = len - 1; i >= 0; i--)  // Append bit by bit
+        bb.push((val >>> i) & 1);
+}
+```
+
+Let's examine line 5, this can be a bit confusing if you're not familiar with bit operations in JavaScript, the `>>>` operator is a bitwise operator that shifts the bits of the number to the right, for example `5 >>> 1` will shift the bits of `5` to the right by `1` which will result in `2`, the `&` operator is a bitwise operator that performs a bitwise AND operation on each bit of the number, for example `5 & 1` will perform a bitwise AND operation on the bits of `5` and `1` which will result in `1`, the `&` operator is used to get the last bit of a number, for example `5 & 1` will result in `1` and `4 & 1` will result in `0`, the `appendBits` function uses these operators to append the bits of a number to an array
+
+Back to the `makeSegments` function, now that we know the type we can implement the `make` functions, we will need 3 functions for the 3 data types, paste the following in the `segments.ts` file
+
+```ts
+```
