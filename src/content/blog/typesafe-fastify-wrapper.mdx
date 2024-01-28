@@ -10,7 +10,7 @@ In this article we will build a type safe wrapper for fastify, if you're familia
 
 ## Why?
 
-We all know the reasons to use type safe languages like typescript to avoid bugs and make our development experience better, but one area has always been lalcking and this is communicating with APIs, when we write funcitons we can ensure the correct types but when querying an API there is no way for us to know the shape of the data returned, there are a few projects aiming to solve this issue and in general there are two approaches
+We all know the reasons to use type safe languages like typescript to avoid bugs and make our development experience better, but one area has always been lacking and this is communicating with APIs, when we write funcitons we can ensure the correct types but when querying an API there is no way for us to know the shape of the data returned, there are a few projects aiming to solve this issue and in general there are two approaches
 
 1. Code generation, this is the approach taken by projects like [OpenAPI](https://swagger.io/specification/) and [gRPC](https://grpc.io/), this approach works well but requires a lot of boilerplate and is not very flexible, it also requires a lot of tooling to be setup and maintained.
 
@@ -362,6 +362,83 @@ Congratulations we are now done with the backend part, the only thing left to do
 
 ## Client
 
-The client is very simple, we will create a function that takes in a list of routes and returns a type, let's define the function
+The client is very simple, we will create a function that takes in a list of routes and returns a type, let's define a utility type to extract types from a Route
+
+```ts
+type ExtractTypesFromRoute<T extends Route> = T extends Route<infer U> ? {
+    body:z.infer<U['body']>,
+    queryString:z.infer<U['queryString']>,
+    params:z.infer<U['params']>,
+    headers:z.infer<U['headers']>,
+} : never;
+```
+This type just accepts a Route as a generic and uses the zod `infer` utility to extract the types from the validators
+
+We can now export a type like this
+
+```ts
+export type ApiType<T extends readonly Route[]> = { [KV in T[number] as KV['nameType']]: ExtractTypesFromRoute<KV> };
+```
+
+in your server you can export a type for the client, we first need to create a list of routes.
+
+```ts
+const routes = [
+    Route.route('users:get').get('users').query(paginationValidator).handler(...),
+    Route.route('users:post').post('users').body(userValidator).handler(...),
+    Route.route('users:put').put('users/:id').params(idValidator).body(userValidator).handler(...),
+    Route.route('users:delete').delete('users/:id').params(idValidator).handler(...),
+]
+
+// and export the types like this
+
+export type Api = ApiType<typeof routes>;
+```
+In yoyur client you can use the types like this
+
+```ts
+type CreateUserBody = Api['users:post']['body'];
+```
+
+And so on, you can also create a little utility to query the API from the client with full type safety
+
+```ts
+type FetchArgs = Omit<RequestInit, "body" | "headers">;
+
+const baseUrl = "http://localhost:3000"; // add your base url or load from environment file
+async function api<T extends Api[keyof Api]>(
+  args: { body: T["body"]; headers: T["headers"]; query: T["query"] },
+  fetchArgs: FetchArgs & {url:string}
+): Promise<T["response"]> {
+  // Construct the full fetch arguments
+
+  const url = new URL(fetchArgs.url);
+  for (const [key, value] of Object.entries(args.query)) {
+    if (typeof value === "string") url.searchParams.append(key, value);
+    else for (const v of value){
+        url.searchParams.append(key, v);
+    }
+  }
+  const fullFetchArgs: RequestInit = {
+    ...fetchArgs,
+    body: JSON.stringify(args.body),
+    headers: args.headers,
+  };
+
+  // Perform the fetch operation
+  const res = await fetch(url, fullFetchArgs);
+
+  // Cast the response to the correct type
+  return (await res.json()) as T["response"];
+}
+```
+
+And use it like this
+
+```ts
+api<Api['test:get']>({body:{array:[], number:1, string:'string'}, headers:{}, query:{}}, {url:'/users'}).then((res) => {
+    res // is typed correctly
+});
+```
 
 In progress 🚧🚧
