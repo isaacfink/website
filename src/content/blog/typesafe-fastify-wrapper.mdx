@@ -78,9 +78,7 @@ Our project is going to require some utility types, let's start by creating some
 ```ts
 type ZodValidator = z.ZodType<any, any, any>;
 
-type ReplaceKey<TRouteType extends Partial<RouteType<RouteGeneric>>, TKey extends keyof TRouteType, TType> = {
-    [K in keyof TRouteType]: K extends TKey ? TType : TRouteType[K]
-};
+type ReplaceKey<T, K extends string, V> = Omit<T, K> & Record<K, V>
 
 type RouteMethod = 'post' | 'get' | 'put' | 'delete' | 'patch';
 ```
