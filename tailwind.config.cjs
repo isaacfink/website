@@ -17,6 +17,9 @@ module.exports = {
           },
         },
       },
+      fontFamily: {
+        nunito: ['Nunito', 'sans-serif'],
+      },
       colors: {
         main: slate,
         primary: {

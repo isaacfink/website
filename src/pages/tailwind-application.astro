@@ -2,158 +2,254 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout showFooter={false} showHeader={false}>
-  <section
-    class="max-w-prose mx-auto py-3 flex items-center justify-center md:gap-x-4 gap-y-2 mt-12 flex-col md:flex-row"
-  >
-    <a href="#experience" class="text-slate-200 hover:underline"
-      >My experience</a
-    >
-    <a href="#abilities" class="text-slate-200 hover:underline">My abilities</a>
-    <a href="#contributing" class="text-slate-200 hover:underline"
-      >What's in it for you</a
-    >
-    <a
-      href="/resume-isaac-finkelstein.pdf"
-      download=""
-      class="rounded-full flex items-center gap-x-2 bg-slate-200 hover:bg-slate-100 transition px-3 py-1 m-0 text-slate-800 no-underline"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.8"
-        stroke="currentColor"
-        class="w-5 h-5"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-        ></path>
-      </svg>
+<BaseLayout showFooter={false} showHeader={false} loadNunito>
+  <section class="max-w-5xl mx-auto px-5 text-slate-200 font-nunito pb-12">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 items-center">
+      <div class="rounded-3xl overflow-hidden aspect-square">
+        <img src="https://picsum.photos/1080/1080" alt="" />
+      </div>
+      <div class="flex flex-col gap-y-3 col-span-2">
+        <h1 class="text-5xl font-bold font-nunito">Hello Tailwind Team 👋</h1>
+        <h3 class="text-2xl font-nunito font-semibold">
+          I am Isaac Finkelstein, A full stack web developer with over 5 years
+          experience
+        </h3>
+        <hr class="border-slate-500" />
+        <div class="flex items-center gap-x-3">
+          <a
+            href="/resume-isaac-finkelstein.pdf"
+            download=""
+            class="rounded-xl flex items-center gap-x-2 bg-slate-200 hover:bg-slate-100 transition px-3 py-1 m-0 text-slate-800 no-underline"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.8"
+              stroke="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+              ></path>
+            </svg>
 
-      My Resume
-    </a>
-  </section>
-  <section class="mx-auto prose mt-6 prose-invert mb-5 px-5">
-    <h1 class="text-4xl font-bold mb-4 text-slate-100">Hello Tailwind team</h1>
-    <p class="">
-      I am Isaac Finkelstein, a developer with over five years of experience in
-      full-stack web development. In this application, I aim to convince you to
-      hire me by showcasing how I can contribute to your team. First, however,
-      I'd like to share why I want to work for Tailwind. I promise to keep it
-      brief.
+            My Resume
+          </a>
+        </div>
+      </div>
+    </div>
+    <h3 class="text-3xl tracking-wide font-nunito mt-12">My journey</h3>
+    <p class="mt-6 tracking-wide font-nunito">
+      My journey, like all the great ones, starts with the movies. As a kid, I
+      was totally into those hacker movies and decided at 15 that I was going to
+      learn how to hack. It didn't take long to figure out that movies stretched
+      the truth, but by then, I was already hooked on programming.
     </p>
-    <p class="">
-      Tailwind has revolutionized my approach to design and design systems. As
-      an early adopter, I have assisted several teams in transitioning to
-      Tailwind, significantly boosting developer productivity.
+    <p class="mt-3 tracking-wide font-nunito">
+      Python was my first step into the coding world. I used it to automate
+      simple stuff, but what really got me was the thrill of creating something
+      from nothing. Given my limited time and almost no internet access,
+      creativity wasn't just an asset; it was a necessity. For the first few
+      years, a local library was my go-to source for learning. I'd then practice
+      on a computer whenever I could. I remember coding on an old Samsung Galaxy
+      Duo, transferring the code to an SD card, and later running it on an
+      online interpreter.
     </p>
-    <p class="">
-      Although my focus has always been on web development, I've recently
-      developed an interest in tooling. This includes developer tools and some
-      internal tools for companies. I appreciate the complexity involved in
-      building these tools and find the challenges they present to be
-      particularly rewarding.
-    </p>
-
-    <h3 id="experience" class="">My experience</h3>
-    <p class="">
-      Throughout my five-plus years in the field, I have primarily worked with
-      JavaScript/TypeScript and Python. My experience spans the entire web
-      stack, including various databases, DevOps, cloud providers, and numerous
-      other web-related technologies.
+    <p class="mt-3 tracking-wide font-nunito">
+      Things kicked into high gear when I got my own laptop. That's when I dived
+      deep into YouTube tutorials and started playing around with different
+      programming languages.
     </p>
 
-    <p class="">
-      I have always prioritized perfecting my skills and learning new things.
-      Often, I have chosen roles that pushed me to grow rather than those that
-      seemed more comfortable. I believe in contributing more effectively when
-      challenged to explore new ideas rather than relying solely on my existing
-      skills. This position excites me not because I am already proficient but
-      because I see the potential for excellence.
+    <p class="font-nunito tracking-wide mt-3">
+      Web development eventually caught my eye, and Django was my first real
+      dive into that world. I worked on some cool projects, but the highlight
+      was this gig I landed for a local restaurant. What started as a custom
+      Shopify template for their online orders quickly evolved into a full-blown
+      custom POS system. This project was my introduction to Tailwind, and
+      honestly, it was a game-changer. As the project's demands and designs kept
+      shifting, Tailwind's flexibility allowed me to adapt quickly and
+      efficiently.
     </p>
-    <h3 id="abilities" class="">My abilities</h3>
-    <p class="">
+    <h3 class="text-2xl tracking-wide font-nunito mt-6">My abilities</h3>
+    <p class="mt-4 font-nunito tracking-wide">
       Upon seeing the list of previous tasks for this role, my initial thought
       was that I might not be qualified enough to handle all that. However,
       reflecting on my previous experiences, this opportunity began to seem like
       the ideal new chapter for me. I recognize the need to elevate my skills,
       but I am confident in my ability to adapt swiftly and embrace new
-      challenges. Up to this point, my experience has spanned the entire web
-      spectrum, including database management, frontend development, and complex
-      backend projects. While I have a stronger preference for, and greater
-      proficiency in, backend development—which closely aligns with tooling and
-      working directly on Tailwind—I also find joy in frontend projects that
-      present creative and genuine challenges.
+      challenges, which when given the opportunity to do I not only enjoy it but
+      also am much more productive. Up to this point, my experience has spanned
+      the entire web spectrum, including database management, frontend
+      development, and complex backend projects. While I have a stronger
+      preference for, and greater proficiency in, backend development—which
+      closely aligns with tooling and working directly on Tailwind—I also find
+      joy in frontend projects that present creative and genuine challenges.
     </p>
-    <p class="">
-      For more detailed information about my experiences and skills, please
-      refer to my resume attached below.
+    <p class="mt-2 font-nunito tracking-wide">
+      I have experience with multiple languages and frameworks, including
+      Python, PHP, and JavaScript, and have utilized Django, Laravel, Svelte,
+      and React in various projects. My work with databases extends to Postgres,
+      MySQL, and SQLite, as well as no-sql options like MongoDB and Bigtable,
+      alongside proficiency with tools such as Docker, Git, and various cloud
+      services.
     </p>
-    <div class="rounded p-3 border flex items-center justify-between">
-      <h3 class="my-0">My resume</h3>
-      <a
-        href="/resume-isaac-finkelstein.pdf"
-        download=""
-        class="rounded-full flex items-center gap-x-2 bg-slate-200 hover:bg-slate-100 transition px-3 py-1 m-0 text-slate-800 no-underline"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.8"
-          stroke="currentColor"
-          class="w-5 h-5"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-          ></path>
-        </svg>
+    <p class="mt-2 font-nunito tracking-wide">
+      Most of my pro work has been with React and Vue, but if I had to pick a
+      fav, it's Svelte all the way. Svelte's been my sidekick for personal and
+      client projects for a while now. There's something about its simplicity
+      and speed that just gets me.
+    </p>
+    <h3 class="text-2xl tracking-wide font-nunito mt-6">
+      My experiences with teams
+    </h3>
+    <p class="mt-4 font-nunito tracking-wide">
+      Throughout my career, I've had the opportunity to collaborate with teams
+      of various sizes across multiple organizations. My journey began at a
+      local payment processing company, which, at the time, was coordinating
+      with an offshore team to meet some pressing deadlines. The urgency was due
+      to some of our vendors updating their APIs and their encryption protocols,
+      and the company needed someone on-site to address this swiftly.
+    </p>
 
-        Download
-      </a>
-    </div>
-    <p class="">
-      My preferred language for web-related projects is JavaScript/TypeScript.
-      Initially, I was not a fan of JavaScript, but working with TypeScript has
-      changed my perspective. My brief experience with Rust provided a similar
-      satisfaction, largely due to the strong typing system which enhances the
-      developer experience.
+    <p class="mt-2 font-nunito tracking-wide">
+      The primary technology stack at this company was PHP/Laravel, with which I
+      had no prior experience (a fact the company was aware of). Despite this, I
+      quickly familiarized myself with both the technologies and the existing
+      codebase, contributing meaningfully within my first week.
     </p>
-    <p class="">
-      For data-related tasks, Python is my go-to due to its simplicity and
-      efficiency in prototyping and iterating without excessive tooling.
+    <p class="mt-2 font-nunito tracking-wide">
+      My next job was working for a startup called <a
+        href="https://www.triplewhale.com/">Triple whale</a
+      > the focus was to build a financial analytics platform, I was put on the team
+      in the very early stages of the product and I was involved in some early decisions
     </p>
-    <p class="">
-      Seeking to challenge myself, I took a position working with PHP/Laravel
-      two years ago, despite having no prior experience with either. The company
-      was aware of this. Despite the steep learning curve and a strict deadline
-      from one of our vendors, I quickly adapted and contributed within my first
-      week. While I have not extensively worked with PHP since, I include it
-      here because of the valuable experience gained.
+
+    <p class="mt-3 font-nunito tracking-wide">
+      My subsequent role was with a startup named <a
+        href="https://www.triplewhale.com/">Triple whale</a
+      >, where I was tasked with contributing to the development of a financial
+      analytics platform. Joining the team in the early stages of the product, I
+      played a part in some of the foundational decisions.
     </p>
-    <h3 id="contributing" class="">What can I do for you?</h3>
-    <p class="">
-      I may not have direct experience with all the technologies required for
-      this job, but I compensate with a keen eagerness to learn and grow. I
-      believe I can make significant contributions to the team and to the future
-      of Tailwind.
+
+    <p class="mt-2 font-nunito tracking-wide">
+      A standout moment during my time at Triple Whale involved tackling the
+      categorization of transactions—a component the project manager identified
+      as particularly challenging due to several unique obstacles:
     </p>
-    <p class="">
-      I excel at researching solutions independently and taking ownership of
-      products or features with minimal oversight. I also enjoy collaborating
-      and assisting teammates to overcome challenges. I am at my best when there
-      is a balance between autonomy and collaboration. Based on what I've
-      learned about your team, I believe this environment will enable me to
-      thrive and, in turn, contribute to the team's success.
+    <ul class="ml-6 list-disc">
+      <li class="mt-2 font-nunito tracking-wide">
+        The data was coming in from multiple sources which required some extra
+        steps to normalize everything.
+      </li>
+      <li class="mt-2 font-nunito tracking-wide">
+        Merchant names were inconsistent, with some in foreign languages.
+      </li>
+      <li class="mt-2 font-nunito tracking-wide">
+        The provided categories, when available, did not match our intended
+        framework.
+      </li>
+    </ul>
+    <p class="mt-2 font-nunito tracking-wide">
+      As the newest member of the team, I volunteered to spearhead this
+      challenge. My solution incorporated setting sensible defaults (with
+      options for admin adjustments) and soliciting user input for
+      unclassifiable transactions. Although effective, this approach initially
+      placed a heavy load on the browser due to real-time category regeneration
+      with each user modification. To address this, I reevaluated our strategy
+      and transitioned most of the categorization logic to Postgres. This
+      adjustment significantly improved performance by enabling caching at the
+      API level, thereby optimizing the user experience.
     </p>
-    <p class="">
-      I look forward to the possibility of working together to make the frontend
-      world a better space, one feature at a time.
+    <h3 class="text-2xl tracking-wide font-nunito mt-6">My freelancer days</h3>
+    <p class="mt-4 font-nunito tracking-wide">
+      During my time as a freelancer, I've had the pleasure of working on a
+      variety of projects for a diverse set of clients. My most memorable is
+      definitely the POS mentioned above (You never forget your first), there
+      have been several other noteworthy ventures:
+    </p>
+    <ul class="ml-6 list-disc">
+      <li class="mt-2 font-nunito tracking-wide">
+        <span class="font-semibold"
+          >An Invitations Platform with a Custom Image Editor:</span
+        > This project was particularly memorable because of the unique challenge
+        it presented in integrating a user-friendly yet powerful image editing tool
+        within the platform.
+      </li>
+      <li class="mt-3 font-nunito tracking-wide">
+        <span class="font-semibold"
+          >A Portfolio Website for a Local Photographer:</span
+        > This task was both challenging and exhilarating, as the client had very
+        specific design and style preferences for their website. Striving for pixel-perfect
+        design and adhering closely to Figma designs taught me a great deal about
+        meticulous attention to detail in web design.
+      </li>
+      <li class="mt-3 font-nunito tracking-wide">
+        <span class="font-semibold"
+          >Various Automations and Solutions for Businesses:</span
+        > These projects were invaluable in teaching me about building scalable solutions
+        and collaborating closely with stakeholders to precisely define project requirements.
+      </li>
+    </ul>
+    <h3 class="text-2xl tracking-wide font-nunito mt-6">Soft skills</h3>
+    <p class="mt-4 font-nunito tracking-wide">
+      Working with clients as a freelancer has been instrumental in developing
+      my communication skills to an excellent level. These skills have proven
+      invaluable in various aspects of my work, enabling me to communicate
+      effectively with both clients and product managers. Additionally, they
+      have been crucial in my ability to write clear and concise internal
+      documentation, ensuring that project goals, processes, and outcomes are
+      well understood by all team members. This skill set has not only
+      facilitated smoother project management and execution but has also
+      enhanced collaboration and teamwork, making it easier to align project
+      objectives with client expectations and team capabilities.
+    </p>
+    <p class="mt-3 font-nunito tracking-wide">
+      I have always had a knack for quick learning and problem solving, my
+      favorite projects were the ones that challenged me to learn something new,
+      I have picked up new technologies and codebases fast and I am looking
+      forward to doing the same with Tailwind
+    </p>
+    <h3 class="text-2xl tracking-wide font-nunito mt-6">The future</h3>
+    <p class="mt-4 font-nunito tracking-wide">
+      The evolving landscape of frontend development excites me, particularly
+      the strategic shifts Tailwind is making—moving away from JavaScript-based
+      configuration and runtime. This pivot promises to broaden Tailwind's
+      applicability, enabling its integration into a variety of frameworks
+      without the necessity of initiating a Vite project. My enthusiasm extends
+      beyond merely contributing to such a pioneering product; I foresee
+      opportunities for expansion beyond typical frontend territories.
+    </p>
+    <p class="mt-3 font-nunito tracking-wide">
+      I envision creating adapters for frameworks like Django, which would
+      incorporate the Tailwind compiler within their development and build
+      scripts. This adaptation would streamline the process, making Tailwind
+      more accessible to a wider range of developers.
+    </p>
+    <p class="mt-3 font-nunito tracking-wide">
+      I also see the potential for a more robust ecosystem, extending headlessui
+      to include frameworks like svelte and even vanilla JS components which
+      will make tailwindui/catalyst easier for more developers to use.
+    </p>
+    <p class="mt-3 font-nunito tracking-wide">
+      Beyond viewing Tailwind as merely a CSS framework, I believe there are
+      opportunities to enhance the overall developer experience for frontend
+      teams. The control over generated CSS that Tailwind offers opens up
+      exciting possibilities for testing utilities. These could prove to be
+      transformative, especially for larger teams, by facilitating more
+      efficient and effective development processes. My aim is to explore these
+      avenues, contributing to the innovation and expansion of Tailwind's
+      capabilities.
+    </p>
+    <h3 class="text-2xl tracking-wide font-nunito mt-6">In conclusion</h3>
+    <p class="mt-4 font-nunito tracking-wide">
+      I am excited about the possibility of joining such a high impact team and
+      I believe I could be a valuable asset, I am looking forward to hearing
+      back from you, let's make the web a better place, one feature at a time
     </p>
   </section>
 </BaseLayout>
