@@ -77,7 +77,7 @@
       here to share my journey, skills, and how I can contribute to the success
       of Tailwind and other tailwind labs projects.
     </p>
-    <h3 class="font-bold">Some hightlighted memories</h3>
+    <h3 class="font-bold">Some highlighted memories</h3>
     <div class="grid grid-cols-2 gap-4">
       <div class="rounded-xl p-3 bg-slate-800">
         <p class="leading-relaxed font-nunito tracking-wide">
