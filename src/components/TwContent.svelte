@@ -67,7 +67,7 @@
     </div>
   </div>
   <div
-    class="mt-6 space-y-7 text-base text-main-600 dark:text-main-400 col-span-3"
+    class="mt-6 space-y-7 text-base text-main-400 dark:text-main-300 col-span-3"
   >
     <h2 class="text-main-200 text-lg font-ibm">Who am I?</h2>
     <p class="leading-relaxed font-nunito tracking-wide">
@@ -298,14 +298,14 @@
     </p>
     <ul class="ml-6 list-disc">
       <li class="leading-relaxedfont-nunito tracking-wide">
-        <span class="font-semibold"
+        <span class="font-bold"
           >An Invitations Platform with a Custom Image Editor:</span
         > This project was particularly memorable because of the unique challenge
         it presented in integrating a user-friendly yet powerful image editing tool
         within the platform.
       </li>
       <li class="mt-2 leading-relaxed font-nunito tracking-wide">
-        <span class="font-semibold"
+        <span class="font-bold"
           >A Portfolio Website for a Local Photographer:</span
         > This task was both challenging and exhilarating, as the client had very
         specific design and style preferences for their website. Striving for pixel-perfect
@@ -313,7 +313,7 @@
         meticulous attention to detail in web design.
       </li>
       <li class="leading-relaxed mt-2 font-nunito tracking-wide">
-        <span class="font-semibold"
+        <span class="font-bold"
           >Various Automations and Solutions for Businesses:</span
         > These projects were invaluable in teaching me about building scalable solutions
         and collaborating closely with stakeholders to precisely define project requirements.
@@ -343,6 +343,84 @@
       I am a motivated developer with a passion for learning and growing, I
       believe my experience and speed of learning will help me contribute to the
       success of tailwind and future projects
+    </p>
+    <h3 class="font-bold">
+      A perfect fit: My skills and the application requirements:
+    </h3>
+    <ul class="ml-6 list-disc">
+      <li class="leading-relaxedfont-nunito tracking-wide">
+        <span class="font-semibold">You like to pair on problems.</span> At triple
+        whale I got the opportunity to pair program with some team members, this
+        was my own initiative after seeing the benefits, we would usually jump on
+        a call for a couple of hours and knock out bug after bug, I found it enjoyable
+        as well as extremely productive, as much as I like coding on my own this
+        realization made me appreciate the benefits of pair programming and I worked
+        on some of the skills required to do so effectively like better communication
+        and effective documentation
+      </li>
+      <!-- <li class="mt-2 leading-relaxed font-nunito tracking-wide">
+        <span class="font-bold"
+          >You hold people to a high standard, and inspire them to do their best
+          work.</span
+        > I like to think I have high standards for myself, while I don't expect
+        anyone to do their best work I do expect people to try their best and reach
+        out when they need some guidance, I do appreciate well written code and briliant
+        solutions to problems.
+      </li> -->
+      <li class="leading-relaxed mt-2 font-nunito tracking-wide">
+        <span class="font-bold">You're fanatical about polish.</span> I have worked
+        with professional designers and experienced tech leads who wouldn't let a
+        single pixel be off, I have learned to appreciate the difference between
+        99% and 100% and I always strive to get as close to 100% as possible, in
+        the past this has been a source of feedback from my managers when sometimes
+        they felt (rightfully so) that I was spending too much time on finishing
+        touches
+      </li>
+      <li class="leading-relaxed mt-2 font-nunito tracking-wide">
+        <span class="font-bold">You miss when software used to be fast.</span> Recently
+        I have been studying up on how to make software more efficient, I had the
+        opportunity to put this to work when I had to optimize some internal tools
+        for a company that was processing close to a million files a day on a very
+        low budget setup, it was a challenge which I appreciated and I learned a
+        lot from it
+      </li>
+      <li class="leading-relaxed mt-2 font-nunito tracking-wide">
+        <span class="font-bold">You're energized by unfamiliar territory.</span>
+        Very few things excite me more than jumping into an unfamiliar codebase,
+        add an unfamiliar stack on top and I am in heaven, my best experiences involved
+        unfamiliar territory including a job I took which required PHP and Laravel
+        and I didn't know either, those two days I spent learning PHP and going through
+        the codebase were some of the best of my entire career
+      </li>
+      <!-- <li class="leading-relaxed mt-2 font-nunito tracking-wide">
+        <span class="font-bold">You're a great writer.</span> I have always enjoyed
+        writing, especially technical writing, english is not my first language but
+        I am fluent in both writing and speaking, I sometimes require a little help
+        from tools like ChatGPT for finishing touchups but I am always looking to
+        improve
+      </li> -->
+      <li class="elading-relaxed font-nunito mt-2 tracking-wide">
+        <span class="font-bold">You're good at breaking down projects.</span> My
+        experience freelancing has taught me how to break down a project in way that
+        is clear from a technical perspective but also easy for stakeholders to understand,
+        when freelancing this is one of the most important skills, one of my gigs
+        had a very simple requirement, they wanted a feature that would allow them
+        to add features to their software without wiriting code (?) I had no idea
+        what that even means but after a couple of hours with the client we were
+        able to break the porject down and after a few months they got exactly that
+      </li>
+      <li class="leading-relaxed mt-2 font-nunito tracking-wide">
+        <span class="font-bold">You love great design.</span> Who doesn't? but besides
+        loving the final design i enjoy the process of refining a web page until
+        it is perfect, I have worked with some amazing designers who have taught
+        me a lot about design and I have learned to appreciate the difference between
+        a good design and a great one, i took some courses on UX to learn basic theory
+        but I am by no means a designer, I stick to what I am good at which is to
+        make the designers look good
+      </li>
+    </ul>
+    <p class="leading-relaxed">
+      And I am a fast learner which will help me quickly fill the gaps
     </p>
     <!-- the future -->
     <h2 id="the-future" class="text-main-200 text-lg font-ibm">
