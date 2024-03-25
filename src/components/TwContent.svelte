@@ -80,18 +80,18 @@
     <h3 class="font-bold">Some highlighted memories</h3>
     <div class="grid lg:grid-cols-2 gap-4">
       <div class="rounded-xl p-3 bg-slate-800">
-        <p class="leading-relaxed font-nunito tracking-wide">
+        <p class="leading-relaxed font-nunito tracking-wide text-sm">
           The time I learned PHP and Laravel in two days for a pressing
           deadline, that is when I realized that I work best when I need to
           study and adapt quickly
         </p>
       </div>
       <div class="rounded-xl p-3 bg-slate-800">
-        <p class="leading-relaxed font-nunito tracking-wide">
-          A complete reatsaurant management system built for a client, the
+        <p class="leading-relaxed font-nunito tracking-wide text-sm">
+          A complete restaurant management system built for a client, the
           requirements kept changing and went from a shopify template to a full
           blown toast like system, interestingly Tailwind was the only tech that
-          kept upu with the changing requirements
+          kept up with the changing requirements
         </p>
       </div>
     </div>
