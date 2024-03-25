@@ -140,8 +140,8 @@
       My experience has spanned the entire web spectrum, including database
       management, frontend development, and complex backend projects. While I
       have a stronger preference for, and greater proficiency in, backend
-      development—which closely aligns with tooling and working directly on
-      Tailwind—I also find joy in frontend projects that present creative and
+      development — which closely aligns with tooling and working directly on
+      Tailwind — I also find joy in frontend projects that present creative and
       genuine challenges.
     </p>
 
@@ -419,7 +419,7 @@
         had a very simple requirement, they wanted a feature that would allow them
         to add features to their software without wiriting code (?) I had no idea
         what that even means but after a couple of hours with the client we were
-        able to break the porject down and after a few months they got exactly that
+        able to break the project down and after a few months they got exactly that
       </li>
       <li class="leading-relaxed mt-2 font-nunito tracking-wide">
         <span class="font-bold">You love great design.</span> Who doesn't? but besides
@@ -440,10 +440,11 @@
     </h2>
     <p class="leading-relaxed font-nunito tracking-wide">
       The evolving landscape of frontend development excites me, particularly
-      the strategic shifts Tailwind is making—moving away from JavaScript-based
-      configuration and runtime. This could lead to much wider adaptation and
-      usage for developers working outside the typical React/Vue space, my time
-      working with Django has shown me the need for something like this
+      the strategic shifts Tailwind is making — moving away from
+      JavaScript-based configuration and runtime. This could lead to much wider
+      adaptation and usage for developers working outside the typical React/Vue
+      space, my time working with Django has shown me the need for something
+      like this
     </p>
     <p class="leading-relaxed font-nunito tracking-wide">
       I envision creating adapters for frameworks like Django, which would
