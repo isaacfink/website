@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout showFooter={false} showHeader={false}>
+  <section
+    class="max-w-prose mx-auto py-3 flex items-center justify-center md:gap-x-4 gap-y-2 mt-12 flex-col md:flex-row"
+  >
+    <a href="#experience" class="text-slate-200 hover:underline"
+      >My experience</a
+    >
+    <a href="#abilities" class="text-slate-200 hover:underline">My abilities</a>
+    <a href="#contributing" class="text-slate-200 hover:underline"
+      >What's in it for you</a
+    >
+    <a
+      href="/resume-isaac-finkelstein.pdf"
+      download=""
+      class="rounded-full flex items-center gap-x-2 bg-slate-200 hover:bg-slate-100 transition px-3 py-1 m-0 text-slate-800 no-underline"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.8"
+        stroke="currentColor"
+        class="w-5 h-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+        ></path>
+      </svg>
+
+      My Resume
+    </a>
+  </section>
+  <section class="mx-auto prose mt-6 prose-invert mb-5 px-5">
+    <h1 class="text-4xl font-bold mb-4 text-slate-100">Hello Tailwind team</h1>
+    <p class="">
+      I am Isaac Finkelstein, a developer with over 5 years experience in full
+      stack web development, In this application I am supposed to convince you
+      to hire me by telling you how much I can help you guys out, but first I
+      want to write a bit about why I would like to work for tailwind, I won't
+      be long
+    </p>
+    <p class="">
+      Tailwind changed the way I am thinking about design and desgin systems, I
+      was an early adapter and I have since helped a couple of teams move to
+      tailwind which dramatically increased developer productivity
+    </p>
+    <p class="">
+      I have always been focused on web development but lately I have taken an
+      interest in tooling (mostly developer tooling but also some internal tools
+      for companies) I like the complexity that comes with building tools and I
+      find it harder and therefore more rewarding
+    </p>
+
+    <h3 id="experience" class="">My experience</h3>
+    <p class="">
+      I have over 5 years experience during which I have worked primarily with
+      JavaScript/typeScript and Python, I also have experience with the complete
+      web stack like different databases, devops and different cloud providers
+      and many other web related technologies
+    </p>
+
+    <p class="">
+      Throughout my career I have always tried to perfect my skill set and learn
+      new things, this is why I have often taken on jobs where I felt it would
+      force me to grow instead of ones that would have been more comfortable, I
+      find that I am able to contribute better when I am pushed to explore new
+      ideas instead of using what I am already good at, which is why this
+      position is so exciting to me not because I am good at it but because I
+      could be excelent at it
+    </p>
+    <h3 id="abilities" class="">My abilities</h3>
+    <p class="">
+      When I saw the list of jobs my first thought was that I am not good enough
+      to do all that, but than I remembered how I felt about any of my previous
+      jobs and suddenly this started feeling like the perfect new chapter for
+      me, I will definitely need to up my game but I am confident in my ability
+      to adapt quickly and learn new things, up until now I have worked on the
+      full web spectrum incluuding some database work, frontend and complex
+      backend stuff, I definitely enjoy (and am better at) the backend stuff,
+      which aligns more with the tooling part and working on tailwind itself but
+      I do enjoy frontend provided that the design is creative and is actually
+      challenging me
+    </p>
+    <p class="">
+      Please see my resume for more information about my experiences and
+      knowledge but here is a quick rundown
+    </p>
+    <div class="rounded p-3 border flex items-center justify-between">
+      <h3 class="my-0">My resume</h3>
+      <a
+        href="/resume-isaac-finkelstein.pdf"
+        download=""
+        class="rounded-full flex items-center gap-x-2 bg-slate-200 hover:bg-slate-100 transition px-3 py-1 m-0 text-slate-800 no-underline"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.8"
+          stroke="currentColor"
+          class="w-5 h-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+          ></path>
+        </svg>
+
+        Download
+      </a>
+    </div>
+    <p class="">
+      My language of choice for web related stuff is JavaScript/TypeScript, I
+      used to not like JS too much but since I started working with TypeScript I
+      have come to love it, in the little time I have spent with Rust I got the
+      same feeling, I think it's because of the strong typing which makes for a
+      good developer experience
+    </p>
+    <p class="">
+      When it comes to data stuff I prefer python, I find it easier and faster
+      to prototype and iterate without getting bogged down with tooling
+    </p>
+    <p class="">
+      In the past couple of years I have often tried to challenge myself which
+      is why two years ago I took a job working with PHP/Laravel without any
+      prior knowledge in either the language or the framework (The company knew
+      that of course), I was thrown in the deep end with a strict deadline
+      imposed by one of our vendors, it was hard but also one of my best
+      memories, I was able to pick up the language and contribute on my first
+      week, I haven't done much with PHP since but I am putting it on the list
+      because of the backstory
+    </p>
+    <h3 id="contributing" class="">What can I do for you?</h3>
+    <p class="">
+      This is the part I am not sure about, I know in the past I have been able
+      to contribute to big codebases and help out team members, I may not have
+      the experience with the eact technologies needed for this job but I make
+      up for it with an eagerness to learn and grow, I believe I could
+      contribute to the team and the future of tailwind
+    </p>
+    <p class="">
+      I enjoy (and by extension am good at) researching my own solutions and
+      taking ownership of a product or feature with minimal oversight, I also
+      enjoy collaborating and lending a hand or ear to help teammates move
+      forward when they get stuck, I am at my best when I find the right balance
+      between autonomy and collaboration and from what I read about your team it
+      looks like the kind of setup that will bring out the best in me which will
+      in turn bring out the best in the team
+    </p>
+    <p class="">
+      I am looking forward to hearing back from you, let's make the frontedn
+      world a great space one feature at a time
+    </p>
+  </section>
+</BaseLayout>

@@ -1,446 +1,154 @@
 ---
-title: "Type safe fastify wrapper"
-description: "Let's build a TRPC style wrapper for fastify with full end to end type safety and REST standards"
+title: "Building Type-Safe API wrapper for Fastify"
+description: "Type Safety for Fastify APIs: A Hybrid Solution for Flexibility"
 pubDate: "Jan 28 2024"
 heroImage: "/src/images/databases.jpg"
 published: true
 ---
 
-In this article we will build a type safe wrapper for fastify, if you're familiar with TRPC this might sound familiar but unlike TRPC we will not be handling the requests and routing, only validation and type safety.
+In this article, we are going to build a streamlined solution for achieving type safety in Fastify APIs, taking inspiration from TRPC while maintaining the freedom of REST.
 
-## Why?
+## The Challenge of API Type Safety
+Type safety is a cornerstone of robust software development, especially when working with TypeScript. Yet, a persistent challenge lies in ensuring type safety when communicating with APIs.  Traditional approaches like code generation (OpenAPI, gRPC) or runtime validation come with limitations in flexibility, maintainability, and performance.
 
-We all know the reasons to use type safe languages like typescript to avoid bugs and make our development experience better, but one area has always been lacking and this is communicating with APIs, when we write funcitons we can ensure the correct types but when querying an API there is no way for us to know the shape of the data returned, there are a few projects aiming to solve this issue and in general there are two approaches
+## A Hybrid Approach Inspired by TRPC
 
-1. Code generation, this is the approach taken by projects like [OpenAPI](https://swagger.io/specification/) and [gRPC](https://grpc.io/), this approach works well but requires a lot of boilerplate and is not very flexible, it also requires a lot of tooling to be setup and maintained.
+Inspired by the elegant type-handling of TRPC, we'll craft a type-safe wrapper for Fastify that prioritizes flexibility for RESTful APIs. Our solution will avoid the lock-in of TRPC's POST-only approach, allowing seamless integration with other services that adhere to REST conventions.
 
-2. Runtime validation, this means we validate our responses at runtime, this has some obvious downsides, we don't have type safety for the requests and it can also become a performance bottleneck when dealing wih bigger responses.
+### The Principle
 
-3. Projects like [TRPC](https://trpc.io/) take a different approach which is actually almost perfect, they export a type from the API which includes information about both the requests (body etc...) and responses, this is a great way of handling type safety without extra tooling or runtime validation, the only downside is that it doesn't allow for RestFull APIs, REST is the most commonly used standard for API design and if you ever want to expand your project, maybe add a python service to process some data, you will have to deal with the TRPC standard instead of the known Rest, one major difference is that with TRPC there are only `POST` requests
+At its core, our approach involves:
 
-The way our project will work is simple, we will define our routes using a builder, this builder will allow us to add validators for the request body, headers, query paramaters and paramaters added by fastify, we can also pass a callback function which will be fully typed and we will create a utility function to extract the types from a list of routes, the actual routing is handled by fastify and any existing tooling like swagger can still be used.
+1. **Route Definition:** We'll use a builder pattern to define routes, attaching validators for request components (body, headers, query parameters, Fastify-specific parameters).
+2. **Typed Callbacks:** Callback functions handling requests will benefit from complete type safety.
+3. **Utility for Type Extraction:** A utility function will streamline the extraction of types from the defined routes.
 
-For the validators we will use [zod](https://zod.dev/), zod is a popular validation library that also uses the builder pattern so it should feel similar to our own builders, we use zod for two reasons
+### Why Zod and Fastify?
 
-1. To validate the requests
-2. To extract the types, zod has utility types to extract types from a validator which is useful to us
+1. **Zod:** This powerful validation library serves two purposes:
+    - Request validation
+    - Type extraction for streamlined type safety
+2. **Fastify:** Its speed and feature set make it an excellent choice for API development. While we'll use Fastify-specific code, the core principles are adaptable to your preferred framework (Express, Koa, etc.).
 
-You don't need to use zod if you don't want to, you don't even need to use a validation library, but using one makes life easier for us
+## Understanding the Builder Pattern
 
-We will also be using [fastify](https://www.fastify.io/) as our server, fastify is a great framework for building APIs, it's fast and has a lot of great features, but just like zod you don't have to use fastify, we will write some fastify specific code to handle registering routes but you can do that in any framework so if you like express or koa you can use those instead
-
-## Builder pattern
-
-Our wrapper is going to use the builder pattern, the builder pattern is used when we have to create a complex object with a lot of paramaters, the builder pattern allows us to pass one part at a time, for example in our case we can have a separate function for headers, params, handler etc..., it will become clearer how the buiulder pattern works as we write our code but here is how our final APi will look like
+The builder pattern is a popular paradigm for building utility libraries and functionality, with the builder pattern we expose a function and call additional functions on the original object to add functionality, for exmaple our final api could look something like this
 
 ```ts
-import {Route} from './router'
-import {z} from 'zod'
-const validator = z.object({
-    string:z.string(),
-    number:z.number(),
-    array:z.array(z.string()),
-})
+const route = route('/user').post('create_user').body(bodyValidator).headers(headersValidator).handler(usersHandler)
 
-const headersValidator = z.object({
-    'x-test':z.string()
-})
-const r  = Route.route('test:post')
-            .post('users')
-            .body(validator)
-            .headers(headersValidator)
-            .handler(({data}) => {
-                const {string,number,array} = data.body
-                return []
-            })
-
+route.register(app)
 ```
 
-This is what the builder pattern looks like, in our code, it first create a route using the `Route.route()` method, we pass a name which is what we will use in the client to get the types
+This approach allows us to add more functionality without complicating the api, we will use the builder pattern and I will explain how it works along the way
 
-The next part is the method, we pass the route in the `post()` method, this is the http method, we can also use `get()` or `put()` or any other method
+## The boring stuff
 
-Next we have the body, we pass a validator to the body, same for headers, we can also use `.query()` for query paramaters and `.params()` for paramaters added by fastify.
+We will get to the exciting stuff in a minute but first we need to get the basic setup out of the way, you can get the starter code from this repository [here](https://github.com/isaacfink/typify/tree/starter)
 
-Finally we have the `handler()` method, this method takes in a callback which is where the route is handled, the data returned from this callback is the data returned to the user, the arguments passed to the handler function are also fully typed so in our case `string`, `number` and `array` are all typed correctly based on the body validator
+LEt's walk through the setup, if you are using the repository you can skip to the next section
 
-## Utility types
+### Create a typescript project
 
-Now let's start coding, for simplicity we will keep everything in one file, let's create a file and paste the following code
+Create a directory and run `pnpm init` we will be using pnpm in this project but you can use any package manager
 
-```ts
-import * as z from 'zod'
-```
-For now we are importing everything, you can import only what you need at the end when we know what we will need
+Install the dependencies
 
-Our project is going to require some utility types, let's start by creating some types, paste the following in your file and I will explain everything in the next specification
-
-```ts
-type ZodValidator = z.ZodType<any, any, any>;
-
-type ReplaceKey<T, K extends string, V> = Omit<T, K> & Record<K, V>
-
-type RouteMethod = 'post' | 'get' | 'put' | 'delete' | 'patch';
+```bash
+pnpm add fastify zod
+pnpm add -D tsx nodemon
 ```
 
-the first two types are relatively simple, the first typoe is just an alias so we don't have to type `z.ZodType<any, any, any>` every time, the second type is a bit more complex, it takes in a route type, a key and a type, it then returns a new route type with the key replaced with the type, let's see how we can use this type
-We also added a type for HTTP verbs, this is just a union of all the verbs we will support
+Create a 'server.ts' file and paste the following
 
 ```ts
-type Test = {
-    a:string
-    b:number
-}
+import Fastify from "fastify";
 
-type Test2 = ReplaceKey<Test,'a',number>
+const app = Fastify();
 
-// Test2 is now
-// {
-//     a:number
-//     b:number
-// }
-```
-
-The second type is a utility type, we use it to manipulate other types
-
-## Zod types
-
-We also need some narrowed down zod types, our `ZodValidator` accepts any zod validator but for some validators we want to narrow this down a bit, let's start with the headers validator, we only want to accept an object with strings
-
-```ts
-type ZodValidatorObjectString = z.ZodObject<{ [k: string]: z.ZodString }>;
-```
-
-We name this type `ZodValidatorObjectString` because we might want to reuse it on another validator, this type will accept any validator that is an object with strings, let's see some valid and invalid validators
-
-```ts
-const valid:ZodValidatorObjectString = z.object({
-    a:z.string(),
-    b:z.string()
-})
-
-const invalid:ZodValidatorObjectString = z.object({
-    a:z.number(),
-    b:z.string()
-})
-
-const invalidTwo:ZodValidatorObjectString = z.arra({
-    b:z.string()
-})
-```
-
-Now let's create a type for the query validator, this validator will be similar to the headers validator type but it also accepts arrays of strings not just strings
-
-```ts
-type ZodStringArrayObjectSchema = {
-    [k: string]: z.ZodString | z.ZodArray<z.ZodString>;
-};
-```
-
-This is basically the same as the previous type but instead of only accepting `z.ZodString()` we are also accepting `z.ZodArray<z.ZodString>`
-
-## Route types
-
-For the request body we want to accept any type because we don't want to limit the capability of the wrapper, so we now have all of our types defined we are ready to move on to the `Route` type which is the most important type in this project, let's define a type like this
-
-```ts
-type RouteType<TType extends RouteGeneric> = {
-    body:TType['body'],
-    queryString:TType['queryString'],
-    params:TType['params'],
-    headers:TType['headers'],
-    url:string,
-    method:RouteMethod,
-    response:TType['response'],
-    name:TType['name']
-    handler:(props:{data:{
-        body:z.infer<TType['body']>,
-        queryString:z.infer<TType['queryString']>,
-        params:z.infer<TType['params']>,
-        headers:z.infer<TType['headers']>
-    }}) => any
-};
-```
-
-Our type has many properties but most of them just inherit from the generic type, the generic type is just like the `RouteType` but without a generic just some defaults, let's define it now
-
-```ts
-type RouteGeneric = {
-    body:ZodValidator,
-    queryString:ZodValidatorObjectStringOrArrayStrings,
-    params:ZodValidatorObjectString,
-    headers:ZodValidatorObjectString,
-    url:string,
-    method:RouteMethod,
-    response:any,
-    name:string,
-    handler:(props:{data:{
-        body:z.infer<ZodValidator>,
-        queryString:z.infer<ZodValidatorObjectStringOrArrayStrings>,
-        params:z.infer<ZodValidatorObjectString>,
-        headers:z.infer<ZodValidatorObjectString>
-    }}) => any
-};
-```
-
-Looks almost the same but with one difference, the `RouteGeneric` type is the same no matter how you define it, the `RouteType` type is different based on the generic
-
-## Route class
-
-You can start to see our project taking shape, let's declare a class called `Router` we are using classes because it makes it easier to keep track of state, but our users won't use the class directly
-
-```ts
-export class Route<TRouteType extends RouteType<RouteGeneric>= RouteType<RouteGeneric>>{
-    #method: TRouteType['method'];
-    #path: TRouteType['url'];
-    #body: TRouteType['body'];
-    #queryString: TRouteType['queryString'];
-    #headers: TRouteType['headers'];
-    #params: TRouteType['params'];
-    #handler: TRouteType['handler'];
-    #name: TRouteType['name'];
-};
-```
-
-The class also has a generic paramater which is used to type the properties in the class
-
-> If you're not familiar with the `#` symbol it is a feature in JavaScript that marks this field as private, we don't want users directly manipulating the properties of the class
-
-when you defined a simple `Router` instance the properties will be typed based on the `RouteGeneric` type, this is because we don't pass a generic to the class so it uses the defaults, Now we are going to add the constructor and the `route` method
-
-```ts
-private constructor({method, name}:{method:TRouteType['method'], name:TRouteType['name']}){
-        this.#method = method;
-        this.#name = name;
-        this.#path = '';
-        this.#body = z.any();
-        this.#queryString = z.object({});
-        this.#headers = z.object({});
-        this.#params = z.object({});
-        this.#handler = (prop) => ({})
-    }
-```
-
-As with the properties we mark this as private so users can't directly create instances of this class, this way we can control the types, we are gonna use the constructor internally so let's create that function next
-
-```ts
-static route<TRouteName extends string>(name:TRouteName){
-        const createMethod = <TMethod extends RouteMethod, TName extends TRouteName>(method:TMethod, name:TName, path:string) => {
-            const route = new Route({name:name, method:method});
-            route.#method = method;
-            route.#path = path;
-            return route as unknown as Route<RouteType<RouteGeneric> & {method:TMethod} & {name:TName}>;
-        }
-        return {
-            post: (path:string) => createMethod('post', name, path),
-            get: (path:string) => createMethod('get', name, path),
-            put: (path:string) => createMethod('put', name, path),
-            delete: (path:string) => createMethod('delete', name, path),
-            patch: (path:string) => createMethod('patch', name, path),
-
-        }
-    }
-```
-
-This function might look complex but let's break it down
-
-First we declare the function as static, this means that the function is called from the class not a class instance.
-
-We also pass a generic for the name of the route, this generic is inferred from the paramater passed, so if you call the function like this `Rout.route('test')` the `TRouteName` type will be `test` not just `string`
-
-Next we create a method to quickly create routes, just like with the name we pass a generic for the method, unlike the name this generic extends `RouteMethod` and not string, this means we can only pass valid HTTP verbs
-
-In this function we create a new route passing in the name and method, we also set the path to the path passed in, you can see that we are not creating any generics for the path argument because we don't need this to by typed
-
-We then return the route and cast it to the correct type, we need to cast it because typescript doesn't know that we don't allow users to modify properties so there is no way to ensure integrity
-
-Now that we have a way to create a route you can start to see how the builder pattern works, each step will be a class method that returns the class instance so we can chain functions together, the tricky part for us is to narrow down the types based on the validators passed with each function
-
-Let's start vy creating a method to register a body validator
-
-In your class add the following method
-
-```ts
-body<TType extends TRouteType, TArg extends TType['body']>(schema:TArg): Route<ReplaceKey<TType, 'body', TArg>> {
-        this.#body = schema;
-        return this as unknown as Route<ReplaceKey<TType, 'body', TArg>>;
-    };
-```
-
-This is a simple method that only does one thing, it adds the validator to the class instance to be used later, the interesting part is in the generics passed around
-
-Remember earlier when we defined the class we are accepting a generic and all the properties are typed based on that, now we can return the same class instance with a different generic which will modify the types
-
-The first generic we accept is the `TType` generic this is the current type of the class, we also accept a generic for the validator called `TArg`
-
-The `ReplaceKey` type takes care of producing the new type, it overwrites the `body` key with the validator passed, we then return the class instance with the new generic
-
-We can now add the rest of the validators
-
-```ts
- // Query string validator
-queryString<TType extends TRouteType, TArg extends TType['queryString']>(schema:TArg): Route<ReplaceKey<TType, 'queryString', TArg>> {
-    this.#queryString = schema;
-    return this as unknown as  Route<ReplaceKey<TType, 'queryString', TArg>>;
-}
-
-// Headers validator
-headers<TType extends TRouteType, TArg extends TType['headers']>(schema:TArg): Route<ReplaceKey<TType, 'headers', TArg>> {
-    this.#headers = schema;
-    return this as unknown as  Route<ReplaceKey<TType, 'headers', TArg>>;
-}
-
-// Params validator
-params<TType extends TRouteType, TArg extends TType['params']>(schema:TArg): Route<ReplaceKey<TType, 'params', TArg>> {
-    this.#params = schema;
-    return this as unknown as  Route<ReplaceKey<TType, 'params', TArg>>;
-}
-```
-
-As you can see they are all the same function, we can probably abstract this into a utility function but I will leave this for you as homework
-
-Now we have a fully type safe wrapper but it is not functional, we need to actually validate the requests to ensure it is the correct type, this step is not important if you don't want it, for example let's say you want the ability to pass any argument regardless of the validator type you can simply not add the validators at runtime, this wrapper will still be useful to type the request in your client code but you can choose to ignore it
-
-Let's add the runtime validation, if you recall we are also passing a handler callback which is where we handle the request (we are gonna implement this in the next step), this callback should be passed to fastify and will be called when this route is hit, but if we want to add validation we need to wrap this function in another funuction, let's define this as a private function
-
-```ts
-#handleRequest = async (request:FastifyRequest, reply:FastifyReply) => {
-        try {
-            const body = this.#body.parse(request.body)
-            const params = this.#params.parse(request.params)
-            const queryString = this.#queryString.parse(request.query)
-            const headers = this.#headers.parse(request.headers)
-
-            const res = await this.#handler({data:{body, params, queryString, headers}})
-            return reply.send(res)
-        } catch (error) {
-            if(error instanceof z.ZodError){
-                return reply.code(400).send(error.flatten())
-            }
-        }
-    }
-```
-
-The code is self explanatory and if yoyu're familiar with zod you probably don't need any explanation, we simply parse the request and call the handler, if there is an error we return a 400 error with the zod error
-
-Now we will add a method to reggister the class with fastify, define a method like this
-
-```ts
-// in the top of your file
-import {FastifyInstance} from 'fastify'
-
-// in the Route class
-register = (app:FastifyInstance) => {
-        app.route({
-            handler:this.#handleRequest,
-            method:this.#method,
-            url:this.#path
-        })
-    }
-```
-This will handle registering the routes, we simple pass an array of routes to utility funciton and for each route we call the `register` method, this handles the fastify integration
-
-## Handling handler callback
-
-Now we can add the callback handler, callbacks are just another property like the validators but it is a bit more complex because the handler type depends on the validators, define it like this
-
-```ts
-handler<TType extends TRouteType, TArg extends (props:{data:{
-        body:z.infer<TType['body']>,
-        queryString:z.infer<TType['queryString']>,
-        params:z.infer<TType['params']>,
-        headers:z.infer<TType['headers']>
-    }}) => any>(cb:TArg): Route<ReplaceKey<TType, 'handler', TArg>> & { response: Awaited<ReturnType<TArg>>} {
-        this.#handler = cb;
-        return this as unknown as  Route<ReplaceKey<TType, 'handler', TArg>> & { response: Awaited<ReturnType<TArg>>};
-    }
-```
-
-This is very similar to the other methods with one exception, the `TArg` is typed based on the validators, this gives us type safety inside the callbacks
-
-Congratulations we are now done with the backend part, the only thing left to do is create a utility type that could extract the type based on a list of routes, this will be used in the client to get the types
-
-## Client
-
-The client is very simple, we will create a function that takes in a list of routes and returns a type, let's define a utility type to extract types from a Route
-
-```ts
-type ExtractTypesFromRoute<T extends Route> = T extends Route<infer U> ? {
-    body:z.infer<U['body']>,
-    queryString:z.infer<U['queryString']>,
-    params:z.infer<U['params']>,
-    headers:z.infer<U['headers']>,
-} : never;
-```
-This type just accepts a Route as a generic and uses the zod `infer` utility to extract the types from the validators
-
-We can now export a type like this
-
-```ts
-export type ApiType<T extends readonly Route[]> = { [KV in T[number] as KV['nameType']]: ExtractTypesFromRoute<KV> };
-```
-
-in your server you can export a type for the client, we first need to create a list of routes.
-
-```ts
-const routes = [
-    Route.route('users:get').get('users').query(paginationValidator).handler(...),
-    Route.route('users:post').post('users').body(userValidator).handler(...),
-    Route.route('users:put').put('users/:id').params(idValidator).body(userValidator).handler(...),
-    Route.route('users:delete').delete('users/:id').params(idValidator).handler(...),
-]
-
-// and export the types like this
-
-export type Api = ApiType<typeof routes>;
-```
-In yoyur client you can use the types like this
-
-```ts
-type CreateUserBody = Api['users:post']['body'];
-```
-
-And so on, you can also create a little utility to query the API from the client with full type safety
-
-```ts
-type FetchArgs = Omit<RequestInit, "body" | "headers">;
-
-const baseUrl = "http://localhost:3000"; // add your base url or load from environment file
-async function api<T extends Api[keyof Api]>(
-  args: { body: T["body"]; headers: T["headers"]; query: T["query"] },
-  fetchArgs: FetchArgs & {url:string}
-): Promise<T["response"]> {
-  // Construct the full fetch arguments
-
-  const url = new URL(fetchArgs.url);
-  for (const [key, value] of Object.entries(args.query)) {
-    if (typeof value === "string") url.searchParams.append(key, value);
-    else for (const v of value){
-        url.searchParams.append(key, v);
-    }
+app.listen({ port: 3000 }, (err, address) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
   }
-  const fullFetchArgs: RequestInit = {
-    ...fetchArgs,
-    body: JSON.stringify(args.body),
-    headers: args.headers,
-  };
-
-  // Perform the fetch operation
-  const res = await fetch(url, fullFetchArgs);
-
-  // Cast the response to the correct type
-  return (await res.json()) as T["response"];
-}
-```
-
-And use it like this
-
-```ts
-api<Api['test:get']>({body:{array:[], number:1, string:'string'}, headers:{}, query:{}}, {url:'/users'}).then((res) => {
-    res // is typed correctly
+  console.log(`Server listening at ${address}`);
 });
 ```
 
-In the next part we will add some additional features, we will extend this to allow for groups and also add some basic authentication on top
+This just creates a basic fastify server and listens on port 3000
 
-In progress 🚧🚧
+Add the following to the scripts in your 'package.json'
+
+```json
+"script":{
+    "start": "ts-node server.ts",
+    "dev": "nodemon --exec tsx server.ts"
+}
+```
+
+Now we can move on to the fun stuff, let's create a folder called typify, this is where all our code will be, create a folder inside called 'types', this is where we will add some utility types that will come in useful later
+
+Inside `/typify/types` create a file called `utils.ts` and add the following
+
+```ts
+import { ZodArray, ZodObject, ZodString } from "zod";
+
+export type ZodObjectOfStrings = ZodObject<{
+    [key: string]: ZodString;
+}>
+
+export type ZodObjectOfStringsOrArraysOfStrings = ZodObject<{
+    [key: string]: ZodString | ZodArray<ZodString>;
+}>
+
+export type OrUndefined<T> = T | undefined
+```
+
+Let's go over the types declared here, the first two types are types of zod validators, the first one is an object of strings, this is similar to the typescript type of `Record<string, string>`, the second is an object of strings, or arrays of strings, this is similar to the typescript type `Record<string, string | string[]>`, we need those types to ensure headers and query paramaters are typed correctly
+
+The last type is a simple utility type that makes a type optional, this will come in useful later
+
+Now let's create another file called 'builder.ts' inside the types folder, paste the following
+
+```ts
+import type { FastifyInstance } from "fastify";
+import type {
+  OrUndefined,
+  ZodObjectOfStrings,
+  ZodObjectOfStringsOrArraysOfStrings,
+} from "./utils";
+import type { ZodSchema } from "zod";
+import { RouteMethods } from "./route";
+
+export type BodySchemaType = ZodSchema;
+export type HeadersSchemaType = ZodObjectOfStrings;
+
+export type StepsNames = "body" | "headers";
+
+export type BuilderOmit<
+  TBody extends OrUndefined<BodySchemaType>,
+  THeaders extends OrUndefined<HeadersSchemaType>,
+  TName extends string,
+  TMethod extends RouteMethods
+> = {
+    _data:{
+        type:TMethod,
+        name:TName
+    },
+    handler: () => void
+} 
+& TBody extends undefined ? {body:<TSchema extends BodySchemaType>(schema:TSchema) => BuilderOmit<TSchema, THeaders, TName, TMethod>} : {}
+& THeaders extends undefined ? {headers:<TSchema extends HeadersSchemaType>(schema:TSchema) => BuilderOmit<TBody, TSchema, TName, TMethod>} : {}
+
+type TestBuilderOmit = BuilderOmit<undefined, undefined, 'name', 'GET'>
+```
+
+Now we are getting into some advanced tyepscript features, specifically we are going to rely a lot on generics, if you don't know what generics are I suggest you read up on it before continuing it because we are going to use them extensively
+
+The `BuilderOmit` type is responsible for getting the correct type at each step of the way, We can have a route with just a headers validator or a body validator or both, the type takes in 4 generics, `TBody` and `THeaders` are the added validators, they can both be undefined because when building the validator there is no guerantee that those validatora already exist
+
+The returned object has a `_data` property which is where we store the state of the route, this is typed properly, we are gonna use this object later to extract the correct types from the route
+
+The last two lines may look intimidating but all it does is return the same type for body and headers, so for example if you add a headers validator you'll get an object with a body method which you can use to add the body, this also checks if the generics are undefiend which means there is no validator for this type yet, otherwise we don't include the method because we don't want users to be able to add multiple body validators
+
+Now let's see how we could use this type in a builder
