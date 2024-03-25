@@ -12,8 +12,8 @@
   let activeStep = "who-am-i";
 </script>
 
-<div class="grid gap-5 grid-cols-5 mt-20 relative scroll-smooth">
-  <div class="col-span-2 sticky top-12">
+<div class="grid gap-5 grid-cols-3 md:grid-cols-5 mt-20 relative scroll-smooth">
+  <div class="col-span-2 sticky top-12 hidden md:block">
     <div class="sticky top-12 scroll-mt-12">
       <a
         href="#who-am-i"
@@ -78,7 +78,7 @@
       of Tailwind and other tailwind labs projects.
     </p>
     <h3 class="font-bold">Some highlighted memories</h3>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid lg:grid-cols-2 gap-4">
       <div class="rounded-xl p-3 bg-slate-800">
         <p class="leading-relaxed font-nunito tracking-wide">
           The time I learned PHP and Laravel in two days for a pressing
@@ -164,41 +164,53 @@
     <div
       class="grid grid-cols-9 p-3 rounded-xl bg-slate-800 items-center gap-y-2"
     >
-      <div class="">JS/TS</div>
-      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+      <div class="mt-2 lg:t-0">JS/TS</div>
+      <div
+        class="w-full rounded-full h-2 bg-slate-700 col-span-9 lg:col-span-8 relative"
+      >
         <div
           class="absolute w-11/12 bg-primary-500 rounded-full inset-y-0 left-0"
         ></div>
       </div>
-      <div class="">Python</div>
-      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+      <div class="mt-2 lg:mt-0">Python</div>
+      <div
+        class="w-full rounded-full h-2 bg-slate-700 col-span-9 lg:col-span-8 relative"
+      >
         <div
           class="absolute w-10/12 bg-primary-500 rounded-full inset-y-0 left-0"
         ></div>
       </div>
 
-      <div class="">CSS</div>
-      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+      <div class="mt-2 lg:mt-0">CSS</div>
+      <div
+        class="w-full rounded-full h-2 bg-slate-700 col-span-9 lg:col-span-8 relative"
+      >
         <div
           class="absolute w-11/12 bg-primary-500 rounded-full inset-y-0 left-0"
         ></div>
       </div>
-      <div class="">Tailwind</div>
-      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+      <div class="mt-2 lg:mt-0">Tailwind</div>
+      <div
+        class="w-full rounded-full h-2 bg-slate-700 col-span-9 lg:col-span-8 relative"
+      >
         <div
           class="absolute w-full bg-primary-500 rounded-full inset-y-0 left-0"
         ></div>
       </div>
 
-      <div class="">Git</div>
-      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+      <div class="mt-2 lg:mt-0">Git</div>
+      <div
+        class="w-full rounded-full h-2 bg-slate-700 col-span-9 lg:col-span-8 relative"
+      >
         <div
           class="absolute w-10/12 bg-primary-500 rounded-full inset-y-0 left-0"
         ></div>
       </div>
 
-      <div class="">Rust</div>
-      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+      <div class="mt-2 lg:mt-0">Rust</div>
+      <div
+        class="w-full rounded-full h-2 bg-slate-700 col-span-9 lg:col-span-8 relative"
+      >
         <div
           class="absolute w-2/12 bg-primary-500 rounded-full inset-y-0 left-0"
         >
