@@ -10,16 +10,36 @@
     | "freelance-experience"
     | "soft-skills";
   let activeStep = "who-am-i";
+
+  function intersectionobserver(el: HTMLElement, step: string) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // check if ratio is above 0.5 to prevent flickering
+          if (entry.intersectionRatio > 0.1) {
+            activeStep = step;
+          }
+        }
+      });
+    });
+    observer.observe(el);
+
+    return {
+      destroy() {
+        observer.disconnect();
+      },
+    };
+  }
 </script>
 
 <div class="grid gap-5 grid-cols-3 md:grid-cols-5 mt-20 relative scroll-smooth">
   <div class="col-span-2 sticky top-12 hidden md:block">
-    <div class="sticky top-12 scroll-mt-12">
+    <div class="sticky top-12 scroll-mt-6">
       <a
         href="#who-am-i"
         class="py-2 px-3 border-l-2 block {activeStep === 'who-am-i'
           ? 'border-primary-500 text-slate-100'
-          : 'border-slate-300 text-slate-500'}">Who am I</a
+          : 'border-slate-500 text-slate-500'}">Who am I</a
       >
       <a
         href="#my-journey"
@@ -69,7 +89,13 @@
   <div
     class="mt-6 space-y-7 text-base text-main-400 dark:text-main-300 col-span-3"
   >
-    <h2 class="text-main-200 text-lg font-ibm">Who am I?</h2>
+    <h2
+      use:intersectionobserver={"who-am-i"}
+      class="text-main-200 text-lg font-ibm scroll-mt-6"
+      id="who-am-i"
+    >
+      Who am I?
+    </h2>
     <p class="leading-relaxed font-nunito tracking-wide">
       I'm a passionate and dedicated software developer with a love for turning
       ideas into functional, elegant, and user-friendly digital solutions. With
@@ -95,7 +121,13 @@
         </p>
       </div>
     </div>
-    <h2 id="my-journey" class="text-main-200 text-lg font-ibm">My journey</h2>
+    <h2
+      use:intersectionobserver={"my-journey"}
+      id="my-journey"
+      class="text-main-200 text-lg font-ibm scroll-mt-6"
+    >
+      My journey
+    </h2>
     <p class="leading-relaxed font-nunito tracking-wide">
       My journey, like all the great ones, starts with the movies. As a kid, I
       was totally into those hacker movies and decided at 15 that I was going to
@@ -125,7 +157,13 @@
       shifting, Tailwind's flexibility allowed me to adapt quickly and
       efficiently.
     </p>
-    <h2 id="my-abilities" class="text-main-200 text-lg font-ibm">My skills</h2>
+    <h2
+      use:intersectionobserver={"my-abilities"}
+      id="my-abilities"
+      class="text-main-200 text-lg font-ibm scroll-mt-6"
+    >
+      My skills
+    </h2>
     <p class="leading-relaxed font-nunito tracking-wide"></p>
     <p class="leading-relaxed font-nunito tracking-wide">
       When I first looked at the previous tasks for this role, my initial
@@ -243,7 +281,11 @@
     </div>
     <div class="h-4"></div>
     <!-- team experience -->
-    <h2 id="team-experience" class="text-main-200 text-lg font-ibm">
+    <h2
+      use:intersectionobserver={"team-experience"}
+      id="team-experience"
+      class="text-main-200 text-lg font-ibm scroll-mt-6"
+    >
       My experience working with teams
     </h2>
     <p class="leading-relaxed font-nunito tracking-wide">
@@ -299,7 +341,11 @@
       API level, thereby optimizing the user experience.
     </p>
     <!-- freelance experience -->
-    <h2 id="freelance-experience" class="text-main-200 text-lg font-ibm">
+    <h2
+      use:intersectionobserver={"freelance-experience"}
+      id="freelance-experience"
+      class="text-main-200 text-lg font-ibm scroll-mt-6"
+    >
       My experience as a freelancer
     </h2>
     <p class="leading-relaxed font-nunito tracking-wide">
@@ -332,7 +378,11 @@
       </li>
     </ul>
     <!-- why tailwind labs -->
-    <h2 id="why-tailwind-labs" class="text-main-200 text-lg font-ibm">
+    <h2
+      use:intersectionobserver={"why-tailwind-labs"}
+      id="why-tailwind-labs"
+      class="text-main-200 text-lg font-ibm scroll-mt-6"
+    >
       Why Tailwind Labs?
     </h2>
 
@@ -350,7 +400,13 @@
     </p>
 
     <!-- why me -->
-    <h2 id="why-me" class="text-main-200 text-lg font-ibm">Why me?</h2>
+    <h2
+      use:intersectionobserver={"why-me"}
+      id="why-me"
+      class="text-main-200 text-lg font-ibm scroll-mt-6"
+    >
+      Why me?
+    </h2>
     <p class="leading-relaxed font-nunito tracking-wide">
       I am a motivated developer with a passion for learning and growing, I
       believe my experience and speed of learning will help me contribute to the
@@ -435,7 +491,11 @@
       And I am a fast learner which will help me quickly fill the gaps
     </p>
     <!-- the future -->
-    <h2 id="the-future" class="text-main-200 text-lg font-ibm">
+    <h2
+      use:intersectionobserver={"the-future"}
+      id="the-future"
+      class="text-main-200 text-lg font-ibm scroll-mt-6"
+    >
       The future...
     </h2>
     <p class="leading-relaxed font-nunito tracking-wide">
@@ -467,7 +527,7 @@
       reviewers.
     </p>
     <!-- in conclusion -->
-    <h2 class="text-main-200 text-lg font-ibm">In conclusion</h2>
+    <h2 class="text-main-200 text-lg font-ibm scroll-mt-6">In conclusion</h2>
     <p class="leading-relaxed font-nunito tracking-wide">
       Thanks for sticking with me till here, I am excited about the possibility
       of joining such a high impact team and I believe I could be a valuable
