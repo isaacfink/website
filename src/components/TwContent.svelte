@@ -103,13 +103,6 @@
       the truth, but by then, I was already hooked on programming.
     </p>
     <p class="leading-relaxed font-nunito tracking-wide">
-      My journey into the world of programming began as a curiosity-driven
-      adventure, and it has since evolved into a full-blown passion. I've always
-      been drawn to the endless possibilities that coding offers, and I've had
-      the privilege of working on a diverse range of projects that have
-      challenged me and allowed me to grow both personally and professionally.
-    </p>
-    <p class="leading-relaxed font-nunito tracking-wide">
       My first entry into the world of programming was through Python, I used it
       to automate simple stuff at first but the real excitement came from
       creating something out of nothing.
@@ -139,8 +132,8 @@
       thought was that I am not good enought to do this job, I don't have
       sufficient experience with parts of the stack and I haven't worked much on
       tooling, However I remembered that I had the same feeling at some of my
-      previous jobs and those were the ones where I was able to make the bigegst
-      impact in teh shortest time, I find that I work better in unkown territory
+      previous jobs and those were the ones where I was able to make the biggest
+      impact in the shortest time, I find that I work better in unkown territory
       ebcause it forces me to not become complacent and to keep learning
     </p>
     <p class="leading-relaxed font-nunito tracking-wide">
@@ -166,6 +159,77 @@
       personal and client projects for a while now. There's something about its
       simplicity and speed that just gets me.
     </p>
+
+    <h3 class="font-bold">My approximate level for relevant skills:</h3>
+    <div
+      class="grid grid-cols-9 p-3 rounded-xl bg-slate-800 items-center gap-y-2"
+    >
+      <div class="">JS/TS</div>
+      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+        <div
+          class="absolute w-11/12 bg-primary-500 rounded-full inset-y-0 left-0"
+        ></div>
+      </div>
+      <div class="">Python</div>
+      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+        <div
+          class="absolute w-10/12 bg-primary-500 rounded-full inset-y-0 left-0"
+        ></div>
+      </div>
+
+      <div class="">CSS</div>
+      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+        <div
+          class="absolute w-11/12 bg-primary-500 rounded-full inset-y-0 left-0"
+        ></div>
+      </div>
+      <div class="">Tailwind</div>
+      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+        <div
+          class="absolute w-full bg-primary-500 rounded-full inset-y-0 left-0"
+        ></div>
+      </div>
+
+      <div class="">Git</div>
+      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+        <div
+          class="absolute w-10/12 bg-primary-500 rounded-full inset-y-0 left-0"
+        ></div>
+      </div>
+
+      <div class="">Rust</div>
+      <div class="w-full rounded-full h-2 bg-slate-700 col-span-8 relative">
+        <div
+          class="absolute w-2/12 bg-primary-500 rounded-full inset-y-0 left-0"
+        >
+          <div class="absolute top-full pt-3 left-1/4 flex items-end gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+              class="h-10 w-10 text-primary-500"
+              viewBox="0 0 256 256"
+              xml:space="preserve"
+            >
+              <defs> </defs>
+              <g
+                style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+              >
+                <path
+                  d="M 16.667 0.011 c 0.037 0.004 0.072 0.014 0.108 0.022 C 17.247 0.113 17.612 0.505 17.612 1 v 9.931 c 0 0.553 -0.447 1 -1 1 s -1 -0.447 -1 -1 V 3.076 C 10.111 7.853 6.563 14.378 5.566 21.663 c -1.09 7.952 0.986 15.859 5.841 22.254 c 4.154 5.473 9.92 9.281 16.481 10.948 c 0.041 -0.421 0.091 -0.843 0.148 -1.264 c 1.161 -8.485 5.558 -16.009 12.38 -21.188 c 9.987 -7.582 17.714 -6.48 21.295 -3.233 c 3.588 3.254 3.748 8.866 0.406 14.297 c -1.684 2.737 -4.168 5.361 -7.381 7.8 c -6.821 5.179 -15.25 7.39 -23.735 6.229 c -0.422 -0.058 -0.841 -0.124 -1.258 -0.197 c -0.179 6.757 1.96 13.345 6.115 18.818 c 10.023 13.203 28.918 15.79 42.121 5.768 c 3.016 -2.289 5.332 -4.731 6.886 -7.256 c 0.289 -0.471 0.905 -0.617 1.376 -0.328 c 0.471 0.29 0.618 0.907 0.328 1.376 c -1.684 2.737 -4.167 5.362 -7.381 7.801 c -14.081 10.69 -34.233 7.93 -44.924 -6.151 c -4.508 -5.937 -6.763 -13.087 -6.511 -20.443 c -7.149 -1.729 -13.433 -5.829 -17.94 -11.766 c -4.277 -5.634 -6.53 -12.366 -6.53 -19.32 c 0 -1.464 0.1 -2.94 0.302 -4.416 C 4.619 13.84 8.22 7.054 13.807 2 H 6.681 c -0.553 0 -1 -0.447 -1 -1 s 0.447 -1 1 -1 h 9.931 C 16.631 0 16.647 0.01 16.667 0.011 z M 31.272 55.524 c 7.955 1.09 15.859 -0.985 22.254 -5.84 c 3.016 -2.289 5.332 -4.73 6.887 -7.256 c 1.421 -2.308 2.13 -4.583 2.13 -6.608 c 0 -2.048 -0.726 -3.842 -2.177 -5.157 c -3.251 -2.95 -10.308 -3.059 -18.742 3.344 c -6.396 4.855 -10.518 11.91 -11.607 19.865 c -0.065 0.475 -0.119 0.949 -0.161 1.424 C 30.325 55.383 30.797 55.459 31.272 55.524 z"
+                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: currentColor; fill-rule: nonzero; opacity: 1;"
+                  transform=" matrix(1 0 0 1 0 0) "
+                  stroke-linecap="round"
+                />
+              </g>
+            </svg>
+            <p class="text-primary-600 whitespace-nowrap">Growing every day</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h-4"></div>
     <!-- team experience -->
     <h2 id="team-experience" class="text-main-200 text-lg font-ibm">
       My experience working with teams
@@ -191,14 +255,6 @@
         href="https://www.triplewhale.com/">Triple whale</a
       > the focus was to build a financial analytics platform, I was put on the team
       in the very early stages of the product and I was involved in some early decisions
-    </p>
-
-    <p class="leading-relaxed font-nunito tracking-wide">
-      My subsequent role was with a startup named <a
-        href="https://www.triplewhale.com/">Triple whale</a
-      >, where I was tasked with contributing to the development of a financial
-      analytics platform. Joining the team in the early stages of the product, I
-      played a part in some of the foundational decisions.
     </p>
 
     <p class="leading-relaxed font-nunito tracking-wide">
@@ -248,7 +304,7 @@
         it presented in integrating a user-friendly yet powerful image editing tool
         within the platform.
       </li>
-      <li class="leading-relaxed font-nunito tracking-wide">
+      <li class="mt-2 leading-relaxed font-nunito tracking-wide">
         <span class="font-semibold"
           >A Portfolio Website for a Local Photographer:</span
         > This task was both challenging and exhilarating, as the client had very
@@ -295,17 +351,17 @@
     <p class="leading-relaxed font-nunito tracking-wide">
       The evolving landscape of frontend development excites me, particularly
       the strategic shifts Tailwind is making—moving away from JavaScript-based
-      configuration and runtime. This pivot promises to broaden Tailwind's
-      applicability, enabling its integration into a variety of frameworks
-      without the necessity of initiating a Vite project. My enthusiasm extends
-      beyond merely contributing to such a pioneering product; I foresee
-      opportunities for expansion beyond typical frontend territories.
+      configuration and runtime. This could lead to much wider adaptation and
+      usage for developers working outside the typical React/Vue space, my time
+      working with Django has shown me the need for something like this
     </p>
     <p class="leading-relaxed font-nunito tracking-wide">
       I envision creating adapters for frameworks like Django, which would
       incorporate the Tailwind compiler within their development and build
       scripts. This adaptation would streamline the process, making Tailwind
-      more accessible to a wider range of developers.
+      more accessible to a wider range of developers, while community solutions
+      already exist, the new tailwind compiler makes it much easier to support
+      with minimal effort
     </p>
     <p class="leading-relaxed font-nunito tracking-wide">
       I also see the potential for a more robust ecosystem, extending headlessui
@@ -313,14 +369,19 @@
       will make tailwindui/catalyst easier for more developers to use.
     </p>
     <p class="leading-relaxed font-nunito tracking-wide">
-      Beyond viewing Tailwind as merely a CSS framework, I believe there are
-      opportunities to enhance the overall developer experience for frontend
-      teams. The control over generated CSS that Tailwind offers opens up
-      exciting possibilities for testing utilities. These could prove to be
-      transformative, especially for larger teams, by facilitating more
-      efficient and effective testing of UI specific tasks. My aim is to explore
-      these avenues, contributing to the innovation and expansion of Tailwind's
-      capabilities.
+      One area I was hoping to explore more recently is better tooling around
+      code reviews for UI changes, I think projects built with tailwind have an
+      advantage since it's easier to see what changed and there is usually a
+      strong design system in place which removes some of the overhead for the
+      reviewers.
+    </p>
+    <!-- in conclusion -->
+    <h2 class="text-main-200 text-lg font-ibm">In conclusion</h2>
+    <p class="leading-relaxed font-nunito tracking-wide">
+      Thanks for sticking with me till here, I am excited about the possibility
+      of joining such a high impact team and I believe I could be a valuable
+      asset, I am looking forward to hearing back from you, let's make the web a
+      better place, one feature at a time.
     </p>
   </div>
 </div>
