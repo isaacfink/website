@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import FastApiMono from "./icons/mono/Fastapi.svelte";
   import JavascriptMono from "./icons/mono/Javascript.svelte";
   import ReactMono from "./icons/mono/React.svelte";
@@ -188,7 +188,7 @@
     },
   ];
 
-  let activeIndex: number | null = null;
+  let activeIndex = null;
 </script>
 
 <div

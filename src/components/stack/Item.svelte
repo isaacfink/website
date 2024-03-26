@@ -1,13 +1,12 @@
-<script lang="ts">
+<script>
   import { createEventDispatcher } from "svelte";
-  import { flip } from "svelte/animate";
 
-  export let isActive: boolean;
-  export let monoLogo: ConstructorOfATypedSvelteComponent;
-  export let logo: ConstructorOfATypedSvelteComponent;
+  export let isActive;
+  export let monoLogo;
+  export let logo;
 
-  export let title: string;
-  export let description: string;
+  export let title;
+  export let description;
 
   const dispatch = createEventDispatcher();
 

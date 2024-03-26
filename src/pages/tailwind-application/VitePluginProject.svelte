@@ -1,5 +1,3 @@
-<script lang="ts"></script>
-
 <div
   class="rounded-xl px-3 py-4 bg-slate-800 flex items-start gap-y-5 flex-col"
 >

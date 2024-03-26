@@ -1,5 +1,5 @@
-<script lang="ts">
-  let formEl: HTMLFormElement;
+<script>
+  let formEl;
 
   let loading = false;
   let message = "";

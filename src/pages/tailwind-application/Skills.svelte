@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import GrowingGraphic from "./GrowingGraphic.svelte";
 
   const skills = {
