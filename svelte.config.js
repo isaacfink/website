@@ -1,5 +1,7 @@
 import { vitePreprocess } from '@astrojs/svelte';
+import { markdown } from 'svelte-preprocess-markdown'
 
 export default {
-	preprocess: [vitePreprocess()]
+	extensions: ['.svelte', '.md'],
+	preprocess: [markdown(), vitePreprocess()]
 };

@@ -1,7 +1,7 @@
 import { slate } from "tailwindcss/colors";
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,svx}"],
   darkMode: "class",
   theme: {
     extend: {

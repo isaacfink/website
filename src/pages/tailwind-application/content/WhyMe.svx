@@ -1,0 +1,17 @@
+I am a motivated developer with a passion for learning and growing, I believe my experience and speed of learning will help me contribute to the success of tailwind and future projects
+
+### A perfect fit: My skills and the application requirements:
+
+- **You like to pair on problems.** At triple whale I got the opportunity to pair program with some team members, this was my own initiative after seeing the benefits, we would usually jump on a call for a couple of hours and knock out bug after bug, I found it enjoyable as well as extremely productive, as much as I like coding on my own this realization made me appreciate the benefits of pair programming and I worked on some of the skills required to do so effectively like better communication and effective documentation
+
+- **You're fanatical about polish.** I have worked with professional designers and experienced tech leads who wouldn't let a single pixel be off, I have learned to appreciate the difference between 99% and 100% and I always strive to get as close to 100% as possible, in the past this has been a source of feedback from my managers when sometimes they felt (rightfully so) that I was spending too much time on finishing touches
+
+- **You miss when software used to be fast.** Recently I have been studying up on how to make software more efficient, I had the opportunity to put this to work when I had to optimize some internal tools for a company that was processing close to a million files a day on a very low budget setup, it was a challenge which I appreciated and I learned a lot from it
+
+- **You're energized by unfamiliar territory.** Very few things excite me more than jumping into an unfamiliar codebase, add an unfamiliar stack on top and I am in heaven, my best experiences involved unfamiliar territory including a job I took which required PHP and Laravel and I didn't know either, those two days I spent learning PHP and going through the codebase were some of the best of my entire career
+
+- **You're good at breaking down projects.** My experience freelancing has taught me how to break down a project in way that is clear from a technical perspective but also easy for stakeholders to understand, when freelancing this is one of the most important skills, one of my gigs had a very simple requirement, they wanted a feature that would allow them to add features to their software without wiriting code (?) I had no idea what that even means but after a couple of hours with the client we were able to break the project down and after a few months they got exactly that
+
+- **You love great design.** Who doesn't? but besides loving the final design i enjoy the process of refining a web page until it is perfect, I have worked with some amazing designers who have taught me a lot about design and I have learned to appreciate the difference between a good design and a great one, i took some courses on UX to learn basic theory but I am by no means a designer, I stick to what I am good at which is to make the designers look good
+
+And I am a fast learner which will help me quickly fill the gaps

@@ -1,7 +1,7 @@
-<script lang="ts">
-  export let name: string;
-  export let activeStep: string;
-  export let id: string;
+<script>
+  export let name;
+  export let id;
+  export let activeStep;
 </script>
 
 <a

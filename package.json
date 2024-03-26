@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "mdsvex": "^0.11.0",
-    "svelte-preprocess-markdown": "^2.7.3"
+    "svelte-preprocess-markdown": "^2.7.3",
+    "vite-plugin-markdown": "^2.2.0"
   }
 }

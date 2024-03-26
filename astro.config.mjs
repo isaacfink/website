@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
+import { mdsvex } from 'mdsvex'
 
 import svelte from "@astrojs/svelte";
 
@@ -16,5 +17,11 @@ export default defineConfig({
   },
   integrations: [mdx(), sitemap(), tailwind({
     applyBaseStyles: false
-  }), svelte()]
+  }), svelte({
+    extensions: [
+      '.svelte',
+      '.svx'
+    ],
+    preprocess: mdsvex()
+  })]
 });

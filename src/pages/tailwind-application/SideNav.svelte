@@ -1,7 +1,7 @@
-<script lang="ts">
+<script>
   import Link from "./Link.svelte";
 
-  export let activeStep: string;
+  export let activeStep;
 </script>
 
 <Link name="Who am I" {activeStep} id="who-am-i"></Link>
