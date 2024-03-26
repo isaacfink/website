@@ -4,7 +4,7 @@
   <div class="flex items-center justify-center">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="shrink-0 w-8 h-8 text-primary-600"
+      class="shrink-0 w-6 h-6 text-primary-600"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -26,7 +26,7 @@
     <p class="text-center grow shrink-0 text-xl ml-2 my-0">Browser in rust</p>
   </div>
   <p class="leading-relaxed font-nunito tracking-wide text-sm z-20 mt-0">
-    A browser written in rust, this was an ambitious project and I used <a
+    A browser written in rust, this was my first project in rust and I used <a
       class="text-slate-200 font-semibold hover:underline"
       href="https://browser.engineering">The browser book</a
     > as a reference, I learned a lot about browsers and it was the perfect project

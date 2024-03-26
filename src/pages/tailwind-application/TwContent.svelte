@@ -42,7 +42,7 @@
     </div>
   </div>
   <div
-    class="mt-6 space-y-7 text-base text-main-400 dark:text-main-300 col-span-3 scroll-smooth prose prose-a:text-slate-200 prose-a:font-semibold prose-a:hover:underline prose-a:no-underline prose-p:tracking-wide prose-invert"
+    class="mt-6 space-y-7 text-base text-main-400 dark:text-main-300 col-span-3 scroll-smooth prose prose-a:text-slate-200 prose-a:font-semibold hover:prose-a:underline prose-a:no-underline prose-p:tracking-wide prose-invert"
   >
     <h2
       use:intersectionobserver={"who-am-i"}
@@ -134,9 +134,3 @@
     </p>
   </div>
 </div>
-
-<style lang="postcss">
-  p {
-    @apply leading-relaxed font-nunito tracking-wide;
-  }
-</style>

@@ -1,6 +1,6 @@
 During my time as a freelancer, I've had the pleasure of working on a variety of projects for a diverse set of clients. My most memorable is definitely the POS mentioned above (You never forget your first), there have been several other noteworthy ventures:
 
-- **An Invitations Platform with a Custom Image Editor** This project was particularly memorable because of the unique challenge it presented in integrating a user-friendly yet powerful image editing tool within the platform.
+- **An Invitations Platform with a Custom Image Editor:** This project was particularly memorable because of the unique challenge it presented in integrating a user-friendly yet powerful image editing tool within the platform.
 
 - **A Portfolio Website for a Local Photographer:** This task was both challenging and exhilarating, as the client had very specific design and style preferences for their website. Striving for pixel-perfect design and adhering closely to Figma designs taught me a great deal about meticulous attention to detail in web design.
 

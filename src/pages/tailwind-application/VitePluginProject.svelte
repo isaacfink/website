@@ -10,7 +10,7 @@
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="shrink-0 w-8 h-8 text-primary-600"
+      class="shrink-0 w-6 h-6 text-primary-600"
       ><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect
         width="20"
         height="8"
@@ -30,8 +30,8 @@
     </p>
   </div>
   <p class="leading-relaxed font-nunito tracking-wide text-sm z-20 grow mt-0">
-    A vite plugin to add server acitons to sveltekit projects, this plugin
-    allows sveltekit developers to call server actions from the client side
+    A vite plugin to add server actions to Svelte-kit projects, this plugin
+    allows Svelte-kit developers to call server actions from the client side
     similar to server actions in next
   </p>
 
