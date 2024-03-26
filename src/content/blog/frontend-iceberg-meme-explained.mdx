@@ -3,16 +3,22 @@ title: "Frontend iceberg meme explained"
 description: "Explaining the frontend iceberg meme"
 pubDate: "Nov 27 2023"
 heroImage: "/src/images/frontend-iceberg.jpeg"
-published: false
+published: true
 ---
 
 ### The meme
 
-A while ago I ran into [this meme](https://twitter.com/leeerob/status/1707443239630835805) on Twitter, this meme outlines how a seemingly simple domain like frontend is actually quite complicated and has a lot of parts the average developer might not be familiar with
+A while ago I ran into [this meme](https://twitter.com/leeerob/status/1707443239630835805) on Twitter, this meme
+outlines how a seemingly simple domain like frontend is actually quite complicated and has a lot of parts some
+developers might not be familiar with
 
-I personally take issue with this meme because while it makes a valid point to the complexity of modern frontend development it does make it sound like frontend is more complex than it actually is, at the core of it you only need to know HTML, CSS and JavaScript to be good at frontend, you can build almost anything you want, even more complex applications that require frontend framework to manage reactivity you can still learn fast with a solid understanding of the core technologies
+I personally take issue with this meme because while it makes a valid point to the complexity of modern frontend development
+it does make it sound like frontend is more complex than it actually is, at the core of it you only need to know HTML, CSS and JavaScript
+to be good at frontend, you can build almost anything you want, even more complex applications that require frontend framework to manage
+reactivity you can still learn fast with a solid understanding of the core technologies
 
-But nevertheless I will attempt to demistify as many of the concepts in this meme as possible, this could be a good learning oppurtunity or a good overview for folks curious about what's out there, keep in mind that those concepts are not all required to be a good or even a great frontend developer
+But nevertheless I will attempt to demistify as many of the concepts in this meme as possible, this could be a good learning
+oppurtunity or a good overview for folks curious about what's out there, keep in mind that those concepts are not all required to be a good or even a great frontend developer
 
 I am gonna skip over the first part of the meme because it's very basic and wouldn't add much value to you, let's start with the second layer
 
@@ -26,27 +32,27 @@ The `img` tag is used to add images to an HTML page, a very basic tag that uses 
 
 ### The `<form/>` tag
 
-Form tags are used to wrap around HTML form, it is not only a semantic way of grouping input elements belonging to the same form but also provides some APIs to easily manage the entire form like clearing all input fields or validating the entire form, additionally forms allow us to submit data to a server without using JavaScript and rest apis, forms can be validated ont eh client side and can submit both text and files
+Form tags are used to wrap around HTML form, it is not only a semantic way of grouping input elements belonging to the same form but also provides some APIs to easily manage the entire form like clearing all input fields or validating the entire form, additionally forms allow us to submit data to a server without using JavaScript and rest apis, forms can be validated on the client side and can submit both text and files
 
 ### The `<iframe/>` tag
 
-The `iframe` tag is used to embed another HTML page inside the current HTML page, this is useful for embedding videos, maps, or other HTML pages, it's also used to embed ads on websites, iframes provide some JavaScript APIs to communicate between the parent page and the embedded page but it also provides an isolated environment for other pages to run inside the same window which is why it is also used to embed payment forms on websites
+The `iframe` tag is used to embed another HTML page inside the current HTML page, this is useful for embedding videos, maps, or other HTML pages, it's also used to embed ads on websites, iframes provide some JavaScript APIs to communicate between the parent page and the embedded page but it also provides an isolated environment for other pages to run inside the same window which is why it is also used (and sometimes required by law) to embed payment forms on websites
 
 ## The third layer
 
-Up until now we have mostly looked at HTML tags, in this layer we will see some styling related concepts
+Up until now we have mostly looked at HTML tags, in this layer we will see some styling related concepts, and framework specific features
 
 ### Responsive layouts
 
-Responsive layouts are layouts that work on multiple different screen sizes, at the most basic level responsive layouts involve adjutsing font sizes for mobile devices, but it can also be more involved like moving sections around or hiding some sections on mobile devices, additionally we need to make sure our websites work with different input methods like keyboards, touch screens and mouse, responsive layouts are a must have for any modern website
+Responsive layouts are layouts that work on multiple different screen sizes, at the most basic level responsive layouts involve adjutsing font sizes for mobile devices, but it can also be more involved like moving sections around or hiding some sections on mobile devices, additionally we need to make sure our websites work with different input methods like keyboards, touch screens and mouse, responsive layouts are a must have for any modern website, but modern CSS makes it easier than ever
 
 ### useEffect
 
-useEffect is a concept in react and other popular frameworks, useEffect is usually a function that reruns when some variable changes, this is useful to recalculate some state or change the ui based on external changes, for example we can remove the login button when a users status changes to logged in, useEffect is a very powerful tool but is also known to be a source of bugs and performance issues
+`useEffect` is a concept in react and other popular frameworks, `useEffect` is usually a function that reruns when some variable changes, this is useful to recalculate some state or change the ui based on external changes, for example we can remove the login button when a users status changes to logged in, `useEffect` is a very powerful tool but is also known to be a source of bugs and performance issues, sometimes when we overuse `useEffect` we get what is called extra renders, for example if we have a `useEffect` that changes a value that also triggers the same `useEffect` we will be stuck in an infinite loop of updates
 
 ### linting
 
-Linting is the process of checking your code for errors and code style, it is useful to ensure a large codebase stays consistent and to catch bugs early, the most popular linter for javaScript is called es-lint and it is used by a lot of frameworks behind the scenes, es-lint can be configured to enforce specific rules and code styles so that the entire team is familiar with the code style
+Linting is the process of checking your code for errors and code style, it is useful to ensure a large codebase stays consistent and to catch bugs early, the most popular linter for javaScript is called es-lint and it has support for different frameworks, for example you can make a rule to not allow `useEffect` to change a variable that it relies on, es-lint can be configured to enforce specific rules and code styles so that the entire team is familiar with the code style
 
 ### CSS cascade
 
@@ -72,21 +78,27 @@ In this layer we are gonna start seeing some concepts an average developer might
 
 CORS or Cross Origin Resource Sharing is a mechanism to avoid CSRF attacks, to understand how it works we first need to understand how CSRF attacks work
 
-A CSRF attack takes advantage of the defaukt browser behaviour when it comes to cookies, by default the browser will pass along any cookies for the domain requested, this means every time we make a request to https://google.com the browser will send along all the cookies added by google, those cookies could include credentials and authentication information, now imagine if we submit a request to google from our website, tghe browser will still send along all the cookies and google might not be aware that the request did not originate from their own website, the user might also not be aware of this and it could all happen behind the scenes
+A CSRF attack takes advantage of the defaukt browser behaviour when it comes to cookies, by default the browser will pass along any cookies for the domain requested, this means every time we make a request to [https://google.com](https://google.com) the browser will send along all the cookies added by google, those cookies could include credentials and authentication information, now imagine if we submit a request to google from our website, the browser will still send along all the cookies and google might not be aware that the request did not originate from their own website, the user might also not be aware of this and it could all happen behind the scenes
 
 Now that we understand how CSRF attacks work let's see how CORS prevents them, CORS is a protocol that allows the server to specify which domains are allowed to make requests, it's important to note that this does not prevent malicious actors from spoofing the origin header and fool the server into believeing the request is coming from a different domain, but the browser automatically adds the correct origin header so we are protected against CSRF attacks, the browser will first attempt a preflight request to check if CORS is allowed and if it is then the browser will send the request, when using fetch we can skip this step by adding the `mode: 'cors'` option but the request will still fail if CORS is disabled
 
-If yoyu're building your own backend please consult your framework's documentation on how to enable and configure CORS
+If you're building your own backend please consult your framework's documentation on how to enable and configure CORS, during the development it is tempting to just allow all origins to svoid CORS errors but in production this poses a serious security risk
 
 ### E2E tests
 
-unlike unit tests E2E (end to end) tests attempt to test a wider range of funcitonality, where unit tests only test a single funcitonality e2e tests test how different functions integrate with each other, let's take our example of a date formatter function, an e2e test might run through the different steps of the process, simulating a users input and looking at the resulting web page to see not only if the date was formatted correctly but also if the date is the correct date and if the ui was updated accordingly
+unlike unit tests E2E (end to end) tests attempt to test a wider range of funcitonality, where unit tests only test a single function e2e tests test how different functions integrate with each other, let's take our example of a date formatter function, an e2e test might run through the different steps of the process, simulating a users input and looking at the resulting web page to see not only if the date was formatted correctly but also if the date is the correct date and if the ui was updated accordingly
 
-To integrate tests with the browsers there are a couple of great libraries and frameworks, the most popular is pupeteer which spins up a headless chrome instance and actually runs the application inside it, a newer option is playwright which is similar to pupeteer but is more modern and has a nicer API, playwright also provides a nice report and screen recording of the tests
+To integrate tests with the browsers there are a couple of great libraries and frameworks, the most popular is pupeteer which spins up a headless chrome instance and actually runs the application inside it, a newer option is playwright which is similar to pupeteer but is more modern and has a nicer API, playwright also provides a nice report and screen recording of the tests, both options utilize a headless chromium browser under the hood
 
 ### input validation
 
-HTML comes with built in validation for input fields, the most basic ones are automatically based of the type attribute, for example and input with type email will automatically validate the input and show an error if the input is not a valid email, additionally we can add custom validation rules using the pattern attribute, this attribute accepts a regular expression and will validate the input against it, we can also use the required attribute to make sure the input is not empty, all of this is done automatically by the browser and we can even style the error messages using CSS
+HTML comes with built in validation for input fields, the most basic ones are automatically based of the type attribute, for example an input with type email will automatically validate the input and show an error if the input is not a valid email, additionally we can add custom validation rules using the pattern attribute, this attribute accepts a regular expression and will validate the input against it, we can also use the required attribute to make sure the input is not empty, all of this is done automatically by the browser and we can even style the error messages using CSS
+
+When using a framework we sometimes like to validate user input using a validation library, this gives us more control over the rules, for example if we want to validate that the password and confirm password fields are the same, this is not possible with the basic browser validation but is easy with any modern validation library
+
+My go to option for validation is zode, it is a fully type safe validator which makes it useful for not only validating user input but also to add types to our data
+
+It's important ot remember that anything happening on the browser can be spoofed by the user so we still need to validate the requests on the server, most frameworks come with a built in validation library or at least provide support for libraries and can automatically validate user submitted input and return the correct error
 
 ### Hydration errors
 
@@ -102,6 +114,8 @@ The srcSet attribute is used to provide a list of images for the browser to choo
 
 Pagination is the process of paginating a list of values and only show a subset of those records, most commonly used when displaying large amounts of data, pagination can be performed in two ways, we can either load the entire list in the browser and only display the selected page or we can load one page at a time and request the next page from the server when changing pages
 
+There are also two ways of paginating results when querying from a SQL database, offset and cursor based, but that is not frontend related
+
 ### @media print
 
 This is a CSS media query, the styles inside this block will only be applied when printing the page, this is useful for hiding elements that are not needed when printing, for example we can hide the navigation bar and the footer when printing
@@ -116,18 +130,43 @@ This is a CSS media query, the styles inside this block will only be applied whe
 
 Layout shift occurs when content is added to the dom resulting in the layout shifting, a few examples where this could happen
 
-1. When loading images and the image size repositions other elementws around it like pushing items further down
-2. When loading fonts and the font size changes the layoyut
+1. When loading images and the image size repositions other elements around it like pushing items further down
+2. When loading fonts and the font size changes the layout
 
-There are a lot of different ways layout shift can happen and all of those require different solutions to avoid it, we can either await all resources to load before rendering the page or use browser hints to tell the browser to load some assets before it is needed
+There are a lot of different ways layout shift can happen and all of those require different solutions to avoid it, we can either await all resources to load before rendering the page or use browser hints to tell the browser to load some assets before it is needed, we can also specify image dimensions so the browser can position the elements correctly before the loading the image
 
 ### infinite scroll
 
-infinite scroll is a method used to display large lists, instead of loading in all the lists we load in just a part of it and load in more as the user reaches the end, there are two popular ways of requesting more items, adding a button to load more at the bottom of the list or automatically loading more items when the user reaches the end of the list detected by an intersection observer
+infinite scroll is a method used to display large lists, instead of loading in all the lists we load in just a part of it and load in more as the user reaches the end, there are two popular ways of requesting more items, adding a button to load more at the bottom of the list or automatically loading more items when the user reaches the end of the list detected by an intersection observer, some infinite scrolling implementations are also paginating the results and go back when you click on back
 
 ### CSS selector perf
 
-CSS has multiple ways of selecting elements but they are not the same, while two selectors may select the same element one mighgt be more performant than the other one
+CSS has multiple ways of selecting elements but they are not the same, while two selectors may select the same element one might be more performant than the other one, the order of efficiency roughly follows this patter from most efficient to least
+
+```html
+<div id="id" class="class" data-attr="attr" />
+```
+
+There are many ways we can select this element, here are 9 ways rangin from most efficient to least
+
+```css
+#id {
+}
+.class {
+}
+div {
+}
+.another-div + div {
+}
+.parent-div div {
+}
+* {
+}
+[data-attr="attr"] {
+}
+div::hover {
+}
+```
 
 ### Event loop
 
@@ -167,7 +206,7 @@ The browser has built in caching but sometimes we need to tell the browser how l
 
 ### regex
 
-regex is not specific to frontend development but is important for every developer to understand, in simple terms regex is a way to match patterns in strings, for example we can create a regex to check wether a string is a valid email
+regex is not specific to frontend development but is important for every developer to understand, in simple terms regex is a way to match patterns in strings, for example we can create a regex to check wether a string is a valid email, but regex is notoriously dificult to read and understand even for experienced developers, there are a number of good tools online that can help with that for example [regex101](https://regex101.com/)
 
 ### same site cookie
 
@@ -179,12 +218,36 @@ The default behaviour for cookies is to send them along with every request, this
 
 ### WebRTC
 
-webrtc is a new protocol to enable real time communication between browsers, mostly used for video streams or audio calls
-
+webrtc is a new protocol to enable real time communication between browsers, mostly used for video streams and audio calls
 
 ### closures
 
-Closures are a concept in JavaScript, a closure is a function that has access to the parent scope, this is useful when we want to create a function that has access to some variables but we don't want to explicitely pass those variables to the funciton, if we declare the function inside the parent scope it will have access to the parents variables
+Closure is a concept in JavaScript, a closure is a function that has access to the parent scope, this is useful when we want to create a function that has access to some variables but we don't want to explicitely pass those variables to the funciton, if we declare the function inside the parent scope it will have access to the parents variables
+
+In this example we want the inner function to have access to the request context
+
+```js
+function isAdmin(user) {
+  return user.role === "admin";
+}
+
+async function handleRequest(request) {
+  const allow = isAdmin(request.user);
+}
+```
+
+We can instead define it like this
+
+```js
+async function handleRequest(request) {
+  function isAdmin() {
+    return request.user.role === "admin";
+  }
+  const allow = isAdmin();
+}
+```
+
+And now we don't need to pass down the request
 
 ### CJS/ESM
 
@@ -203,4 +266,3 @@ web sockets are a newer protocol to enable real time communication between brows
 ### CSS full height on mobile
 
 Mobile device introduce an interesting problem for websites, mobile devices usually have a bottom navigation bar that goes away when scrolling this means that the full height of the screen is constantly changing, there are a few ways of dealing with this and recently there were a few new CSS properties introduced to deal with this
-

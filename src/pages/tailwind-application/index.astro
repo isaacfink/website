@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import portrait from "../images/headshot.jpeg";
-import TwContent from "../components/TwContent.svelte";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import portrait from "../../images/headshot.jpeg";
+import TwContent from "./TwContent.svelte";
 ---
 
 <BaseLayout
@@ -12,7 +12,7 @@ import TwContent from "../components/TwContent.svelte";
   description="A little about me, my journey, experiences and plans"
   loadNunito={true}
 >
-  <main class="max-w-6xl px-5 mx-auto py-12">
+  <main class="max-w-6xl px-5 mx-auto py-12 scroll-smooth">
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 md:gap-x-12"
     >
