@@ -88,11 +88,11 @@ fn contains(&self, item: &str) -> bool {
 }
 ```
 
-Those funciton are very similar, the first one is setting the bit to true for each hash, the second one is checking if the bit is false for each hash, if a single bit is false we know the item doesn't exist so we can immediately return false, otherwisee we still don't know for sure if the item is there but we return true
+Those function are very similar, the first one is setting the bit to true for each hash, the second one is checking if the bit is false for each hash, if a single bit is false we know the item doesn't exist so we can immediately return false, otherwisee we still don't know for sure if the item is there but we return true
 
 You may notice there are no methods to remove items and that's because by default Bloom filters do not allow removing items, it makes perfect sense if you think about it, we can't remove a bit because we don't know if the bit belongs to any other items so we will end up removing additional items, there are variations fo bloom filters that allow that but I will leave that for another post
 
-Now we can go ahead and test our Bloom filter, in our main funciton let's add the following and check the result
+Now we can go ahead and test our Bloom filter, in our main function let's add the following and check the result
 
 ```rust
 fn main() {
@@ -114,4 +114,4 @@ Contains 'world': true
 Contains 'rust': false
 ```
 
-And that's it, I wrote this article because I pushed off learning Bloom filters for a long time because I was intimidated by them, as you can see it is a evry simple and elegant solution, I hope you found this interesting, catch you in the next one
+And that's it, I wrote this article because I pushed off learning Bloom filters for a long time because I was intimidated by them, as you can see it is a very simple and elegant solution, I hope you found this interesting, catch you in the next one

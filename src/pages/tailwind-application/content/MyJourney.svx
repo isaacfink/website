@@ -1,7 +1,9 @@
-My journey, like all the great ones, starts with the movies. As a kid, I was totally into those hacker movies and decided at 15 that I was going to learn how to hack. It didn't take long to figure out that movies stretched the truth, but by then, I was already hooked on programming.
+<!-- My journey, like all the great ones, starts with the movies. As a kid, I was totally into those hacker movies and decided at 15 that I was going to learn how to hack. It didn't take long to figure out that movies stretched the truth, but by then, I was already hooked on programming. -->
 
-My first entry into the world of programming was through Python, I used it to automate simple stuff at first but the real excitement came from creating something out of nothing.
+Inspired by hacker movies, I began programming at 15, starting with Python to automate tasks
 
-Given my limited time and almost no internet access, creativity wasn't just an asset; it was a necessity. For the first few years, a local library was my go-to source for learning. I'd then practice on a computer whenever I could. I remember coding on an old Samsung Galaxy Duo, transferring the code to an SD card, and later running it on an online interpreter
+<!-- My first entry into the world of programming was through Python, I used it to automate simple stuff at first but the real excitement came from creating something out of nothing. -->
 
-Web development eventually caught my eye, and Django was my first real dive into that world. I worked on some cool projects, but the highlight was this gig I landed for a local restaurant. What started as a custom Shopify template for their online orders quickly evolved into a full-blown custom POS system. This project was my introduction to Tailwind, and honestly, it was a game-changer. As the project's demands and designs kept shifting, Tailwind's flexibility allowed me to adapt quickly and efficiently.
+Given my limited time and almost no computer access, creativity wasn't just an asset, it was a necessity. For the first few years, a local library was my go-to source for learning. I'd then practice on a computer whenever I could. I remember coding on an old Samsung Galaxy Duo, transferring the code to an SD card, and later running it on an online interpreter
+
+Web development eventually caught my eye, and Django was my first real dive into that world. I worked on some cool projects, I always made a point to continue learning and I picked up a couple other languages and frameworks as well as different areas in Computer science like algorithms and databases

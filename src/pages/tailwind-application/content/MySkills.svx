@@ -2,14 +2,14 @@
     import Skills from '../Skills.svelte'
 </script>
 
-When I first looked at the previous tasks for this role, my initial thought was that I am not good enought to do this job, I don't have sufficient experience with parts of the stack and I haven't worked much on tooling, However I remembered that I had the same feeling at some of my previous jobs and those were the ones where I was able to make the biggest impact in the shortest time, I find that I work better in unkown territory because it forces me to not become complacent and to keep learning
+When I first looked at the previous tasks for this role, my initial thought was that I am not good enought to do this job, I don't have sufficient experience with parts of the stack and I haven't worked much on tooling, However I remembered that I had the same feeling at some of my previous jobs and those were the ones where I was able to make the biggest impact in the shortest time, So my first skill is that I am a quick learner and I am not afraid to take on new challenges.
 
 My experience has spanned the entire web spectrum, including database management, frontend development, and complex backend projects. While I have a stronger preference for, and greater proficiency in, backend development — which closely aligns with tooling and working directly on Tailwind — I also find joy in frontend projects that present creative and genuine challenges.
 
 I have experience with multiple languages and frameworks, including Python, PHP, and JavaScript, and have utilized Django, Laravel, Svelte, and React in various projects. My work with databases extends to Postgres, MySQL, and SQLite, as well as no-sql options like MongoDB and Bigtable, alongside proficiency with tools such as Docker, Git, and various cloud services.
 
-Most of my professional work has been with React and Vue, but if I had to pick a fav, it's Svelte all the way. Svelte's been my sidekick for personal and client projects for a while now. There's something about its simplicity and speed that just gets me.
+Most of my professional work has been with React and Vue, but if I had to pick a favorite, it's Svelte all the way. Svelte's been my framework of choice for personal and client projects for a while now.
 
 <h3 class="font-bold">My approximate level for relevant skills:</h3>
-    <Skills />
-    <div class='h-4'/>
+<Skills />
+<div class='h-4'/>

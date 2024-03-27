@@ -1,7 +1,7 @@
 During my time as a freelancer, I've had the pleasure of working on a variety of projects for a diverse set of clients. My most memorable is definitely the POS mentioned above (You never forget your first), there have been several other noteworthy ventures:
 
-- **An Invitations Platform with a Custom Image Editor:** This project was particularly memorable because of the unique challenge it presented in integrating a user-friendly yet powerful image editing tool within the platform.
+- **An invitations platform with a custom image editor:** This project was particularly memorable because of the unique challenge it presented in integrating a user-friendly yet powerful image editing tool within the platform.
 
-- **A Portfolio Website for a Local Photographer:** This task was both challenging and exhilarating, as the client had very specific design and style preferences for their website. Striving for pixel-perfect design and adhering closely to Figma designs taught me a great deal about meticulous attention to detail in web design.
+- **A portfolio website for a local photographer:** This wwas one of my first projects and quite a challenge because both the client and the designer were very particular about the design, this project taught me a lot about pixel perfect design and working within a design system
 
-- **Various Automations and Solutions for Businesses:** These projects were invaluable in teaching me about building scalable solutions and collaborating closely with stakeholders to precisely define project requirements.
+- **A low code tool for a healthcare SaaS:** This was a tool designed to help the company roll out features through a low code interface, I designed and built the system which allowed them to create rule based proccesses based on specific triggers or on a cron job, they could run arbitrary code or call internal APIs, the project included a redis job queue with functionality for retries and error handling.
