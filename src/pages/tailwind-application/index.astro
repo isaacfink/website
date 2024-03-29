@@ -8,7 +8,6 @@ import WhoAMI from "./content/WhoAmI.md";
 
 <BaseLayout
   showFooter={false}
-  showHeader={false}
   title="Tailwind Labs application | Isaac Finkelstein"
   description="A little about me, my journey, experiences and plans"
   loadNunito={true}
@@ -21,7 +20,7 @@ import WhoAMI from "./content/WhoAmI.md";
         <div class="max-w-xs px-2.5 lg:max-w-none">
           <Image
             src={portrait}
-            alt={"Isaac Finkelstein"}
+            alt={"AI generated image that happens to look exactly like me"}
             class="aspect-square rotate-3 rounded-2xl bg-main-100 object-cover dark:bg-main-800 shadow-2xl shadow-primary-300/40"
           />
         </div>
@@ -63,5 +62,5 @@ import WhoAMI from "./content/WhoAmI.md";
       </div>
     </div>
     <TwContent client:load />
-  </main></BaseLayout
->
+  </main>
+</BaseLayout>
