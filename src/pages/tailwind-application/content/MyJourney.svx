@@ -1,9 +1,0 @@
-<!-- My journey, like all the great ones, starts with the movies. As a kid, I was totally into those hacker movies and decided at 15 that I was going to learn how to hack. It didn't take long to figure out that movies stretched the truth, but by then, I was already hooked on programming. -->
-
-Inspired by hacker movies, I began programming at 15, starting with Python to automate tasks
-
-<!-- My first entry into the world of programming was through Python, I used it to automate simple stuff at first but the real excitement came from creating something out of nothing. -->
-
-Given my limited time and almost no computer access, creativity wasn't just an asset, it was a necessity. For the first few years, a local library was my go-to source for learning. I'd then practice on a computer whenever I could. I remember coding on an old Samsung Galaxy Duo, transferring the code to an SD card, and later running it on an online interpreter
-
-Web development eventually caught my eye, and Django was my first real dive into that world. I worked on some cool projects, I always made a point to continue learning and I picked up a couple other languages and frameworks as well as different areas in Computer science like algorithms and databases

@@ -4,10 +4,10 @@
   import Skills from "./Skills.svelte";
   import VitePluginProject from "./VitePluginProject.svelte";
   import WhoAmI from "./content/WhoAmI.svx";
-  import MyJourney from "./content/MyJourney.svx";
-  import MySkills from "./content/MySkills.svx";
-  import TeamExperience from "./content/TeamExperience.svx";
-  import FreelanceExperience from "./content/FreelanceExperience.svx";
+  import MyJourney from "./content/MyJourney.svelte";
+  import MySkills from "./content/MySkills.svelte";
+  import TeamExperience from "./content/TeamExperience.svelte";
+  import FreelanceExperience from "./content/FreelanceExperience.svelte";
   import WhyTailwind from "./content/WhyTailwind.svx";
   import WhyMe from "./content/WhyMe.svx";
   import TheFuture from "./content/TheFuture.svx";
