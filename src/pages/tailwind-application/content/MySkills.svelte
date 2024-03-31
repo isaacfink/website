@@ -48,12 +48,16 @@
       pick a favorite, it's Svelte all the way. Svelte's been my framework of
       choice for personal and client projects for a while now.
     </p>
-
-    <h3 class="font-bold">My approximate level for relevant skills:</h3>
-    <Skills />
-    <div class="h-4" />
   </div>
 {/if}
-<button {...$trigger} use:trigger class="block text-right w-full"
+
+<button
+  {...$trigger}
+  use:trigger
+  class="block text-right w-full text-primary-300 hover:underline"
   >{$open ? "Close" : "Read more"}</button
 >
+
+<h3 class="font-bold">My approximate level for relevant skills:</h3>
+<Skills />
+<div class="h-4" />

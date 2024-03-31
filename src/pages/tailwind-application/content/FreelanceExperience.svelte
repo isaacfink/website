@@ -55,6 +55,10 @@ As the newest member of the team, I volunteered to spearhead this challenge. My 
     </ul>
   </div>
 {/if}
-<button {...$trigger} use:trigger class="block text-right w-full"
+
+<button
+  {...$trigger}
+  use:trigger
+  class="block text-right w-full text-primary-300 hover:underline"
   >{$open ? "Close" : "Read more"}</button
 >

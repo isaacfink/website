@@ -15,9 +15,6 @@
   resources starting with Python, and eventually web development and now low
   level stuff like C and Rust
 </p>
-<button {...$trigger} use:trigger class="block text-right w-full"
-  >Read more</button
->
 {#if $open}
   <div class="" transition:slide {...$content} use:content>
     <p class="mt-0">
@@ -49,3 +46,10 @@
     </p>
   </div>
 {/if}
+
+<button
+  {...$trigger}
+  use:trigger
+  class="block text-right w-full text-primary-300 hover:underline"
+  >{$open ? "Close" : "Read more"}</button
+>

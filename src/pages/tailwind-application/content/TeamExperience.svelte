@@ -18,7 +18,7 @@ As the newest member of the team, I volunteered to spearhead this challenge. My 
 <!-- My journey, like all the great ones, starts with the movies. As a kid, I was totally into those hacker movies and decided at 15 that I was going to learn how to hack. It didn't take long to figure out that movies stretched the truth, but by then, I was already hooked on programming. -->
 
 <p>
-  I have worked with big and small temas both in office and remotely, I have
+  I have worked with big and small teams both in office and remotely, I have
   learned how to navigate different environments and communicate effectively
   when distance is a factor
 </p>
@@ -53,6 +53,10 @@ As the newest member of the team, I volunteered to spearhead this challenge. My 
     </p>
   </div>
 {/if}
-<button {...$trigger} use:trigger class="block text-right w-full"
+
+<button
+  {...$trigger}
+  use:trigger
+  class="block text-right w-full text-primary-300 hover:underline"
   >{$open ? "Close" : "Read more"}</button
 >

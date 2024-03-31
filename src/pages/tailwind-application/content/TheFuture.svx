@@ -4,4 +4,6 @@ I envision creating adapters for frameworks like Django, which would incorporate
 
 I also see the potential for a more robust ecosystem, extending headlessui to include frameworks like svelte and even vanilla JS components which will make tailwindui/catalyst easier for more developers to use.
 
+<!-- Beyond developer experience I see a bit of a gap in tooling around UI testing in CI/CD, since tailwind controls the styles directly there is room for innovation like a github action that would block a PR if the styles do not follow the design system, this is just something I have been thinking about and would love to explore more -->
+
 <!-- One area I was hoping to explore more recently is better tooling around code reviews for UI changes, I think projects built with tailwind have an advantage since it's easier to see what changed and there is usually a strong design system in place which removes some of the overhead for the reviewers. -->
