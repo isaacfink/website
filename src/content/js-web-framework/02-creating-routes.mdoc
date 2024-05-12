@@ -1,31 +1,32 @@
 ---
-title: "Creating routes"
-description: "Creating routes for our js web framework"
-pubDate: "Jul 02 2022"
-heroImage: "../../images/portrait.jpg"
+title: 02 creating routes
+published: false
+publishedDate: 2024-05-12
+description: Creating routes for our JS framework
+---
 ---
 
-This is the first post in a new series where we will create a python orm from scratch, the goal of this is to learn more about python and sql databases, the final project while functional will not be production ready but nevertheless it will be an interesting learning experience
+This is the first post in a new series where we will create a python ORM from scratch, the goal of this is to learn more about python and sql databases, the final project while functional will not be production ready but nevertheless it will be an interesting learning experience
 
 First a few words briefly explaining what an ORM is and why you should use it, an ORM or Object Relational Model is a library that allows you to interact with a database using familiar language features and syntax
 
 In general Databases operate with a client server model, usually over the `TCP/IP` protocol, the normal connection works as follows:
 
 1. The client requests a connection to the database server
-2. The server forks a process to handle this connection
-3. The server and client establish a connection and can now communicate
-4. The client sends a query to the server
-5. The server processes the query and sends the result back to the client
+1. The server forks a process to handle this connection
+1. The server and client establish a connection and can now communicate
+1. The client sends a query to the server
+1. The server processes the query and sends the result back to the client
 
 This is handled by a driver, the popular SQL databases have drivers for most if not all programming languages, for example `psycopg2` is a popular driver for python, this driver handles the connection and communication with the database server, the ORM will use this driver to communicate with the database
 
 ### Our API
 
-The first step in creating any library is deciding on an API, furtunotely for us we don't need to figure this out as there are already dozens of popular ORMs for many languages, for this series I will be implementing a similar APi to the popular drizzle ORm for JavaScript, I like their API for it's simplicity and ease of use, this API implements the builder pattern which we will explore more later on as we get to actually write code
+The first step in creating any library is deciding on an API, fortunately for us we don't need to figure this out as there are already dozens of popular ORMs for many languages, for this series I will be implementing a similar API to the popular drizzle ORM for JavaScript, I like their API for it's simplicity and ease of use, this API implements the builder pattern which we will explore more later on as we get to actually write code
 
 Our API will look something like this
 
-```python
+```
 from orm import Model, Field, Integer, String
 
 class User(Model):
@@ -36,7 +37,7 @@ class User(Model):
 
 And here is how you would use it
 
-```python
+```
 from ./models import User
 from orm.operators import Eq
 

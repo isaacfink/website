@@ -1,0 +1,31 @@
+---
+title: 01 getting started
+published: false
+publishedDate: 2024-05-12
+description: Getting started with our JS web framework
+---
+---
+
+### What are we building?
+
+This is the first post in the series [building a JavaScript web framework](/blog/js-web-framework) the series where we will build a web framework from scratch using (almost) no libraries, together we will learn how to handle http traffic in Node.JS, building a CLI application to run the server during development.
+
+### What si a web framework?
+
+When we talk about web framework the job can be divided in two parts:
+
+1. Handling the HTTP requests and sending the responses
+1. everything that happens between the request coming in and the response being sent back
+
+Node.Js has built in support for building http servers but it is very basic and doesn't handle some of the most common tasks like defining routes, parsing the request and authentication, for that we typically rely on libraries like express or fastify, we will be building on top of this built in module to manage the HTTP requests/responses and we will add functionality to:
+
+1. define routes
+1. add route groups
+1. add middleware
+1. hot reload server
+
+And much more...
+
+### Setting up the project
+
+We will be using typescript for this project and for testing we will be creating a project and add features as we implement it, so start by creating a new typescript project

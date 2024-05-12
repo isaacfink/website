@@ -1,0 +1,13 @@
+---
+title: 0Auth
+published: false
+publishedDate: 2024-05-12
+description: How does 0Auth really work?
+---
+# How does oAuth work?
+
+oAuth is one of the best inventions of the past decade and for good reason, with oAuth developers can authenticate users without getting too much access, and while oAuth might look intimidating it actually simplifies the developer experience because it eliminates the need to store user information and it also cuts down on the amount of features we need to implement ourselves, oAuth returns ownership of access to the user since the user can disable access to their data from their oAuth provider so we don't need to implement that
+
+Of course realistically we still need to implement good old password authentication since not all users want to authenticate with a third party application but regardless oAuth is a great option that should be standard in a modern application
+
+To really understand how oAuth works it's important to first look at how password authentication works, in simple terms authentication is how we identify requests on the server, the basic idea is that the user needs to prove to us that they are who they say they are, after which we issue a special token that we could use to reference them, this proof is usually in the form of a username-password combination, this has always worked great but it also means we need to store user credentials, with oAuth we are not the ones storing the users information, instead we outsource all that work to an auth provider, we redirect the user to the provider and after they are authenticated they are redirected back to our application with a token that we can use to get additional information about them

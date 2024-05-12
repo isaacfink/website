@@ -7,10 +7,13 @@ import FormattedDate from "../components/FormattedDate.astro";
 import "../styles/base.css";
 import BaseLayout from "./BaseLayout.astro";
 import { Image } from "astro:assets";
+import type { reader } from "../reader";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = Awaited<
+  ReturnType<Awaited<(typeof reader)["collections"]["posts"]>["read"]>
+>;
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, image, publishedDate } = Astro.props!;
 ---
 
 <BaseLayout>
@@ -36,11 +39,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     >
       <div class="hero-image">
         {
-          heroImage && (
+          image && (
             <Image
               width={1020}
               height={510}
-              src={heroImage}
+              src={image}
               alt=""
               class="rounded-lg"
             />
@@ -50,17 +53,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       <div class="">
         <div class="title">
           <div class="date">
-            <FormattedDate date={new Date(pubDate)} />
-            {
-              updatedDate && (
-                <div class="last-updated-on">
-                  Last updated on <FormattedDate date={updatedDate} />
-                </div>
-              )
-            }
+            <FormattedDate date={new Date(publishedDate || new Date())} />
           </div>
           <h1>{title}</h1>
-          <hr />
+          <!-- <hr /> -->
         </div>
         <slot />
       </div>
