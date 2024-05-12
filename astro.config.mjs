@@ -18,7 +18,7 @@ export default defineConfig({
       wrap: false
     }
   },
-  output: 'hybrid',
+  output: process.env.SKIP_KEYSTATIC ? 'static' : 'hybrid',
   integrations: [mdx(), sitemap(), tailwind({
     applyBaseStyles: false
   }), svelte({
