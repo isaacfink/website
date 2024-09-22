@@ -5,8 +5,10 @@
     "Js/Ts": "w-11/12",
     Python: "w-10/12",
     CSS: "w-11/12",
+    React: "w-10/12",
     Tailwind: "w-full",
     Git: "w-10/12",
+    Flutter: "w-9/12",
     Rust: "w-2/12",
   };
 </script>

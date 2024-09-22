@@ -1,12 +1,9 @@
 ---
-title: Implement a bloom filter in Rust
+title: "Implement a bloom filter in Rust"
+description: "Bloom filters are a powerful solution when used in the right place, let's learn how they work by building one"
+pubDate: "Mar 26 2024"
+heroImage: "/src/images/databases.jpg"
 published: true
-publishedDate: 2024-03-26
-description: >-
-  Bloom filters are a powerful solution when used in the right place, let's
-  learn how they work by building one
-image: /src/images/implement-a-bloom-filter-in-rust/image.jpg
----
 ---
 
 In this article we are going to build a bloom filter in Rust without any libraries
@@ -27,7 +24,7 @@ check out this amazing article by samwho to learn more about bloom filters [samw
 
 Let's start by defining our struct
 
-```
+```rust
 struct BloomFilter {
     bit_vector: Vec<bool>,
     size: usize,
@@ -39,7 +36,7 @@ This struct has just 3 properties, `bit_vector` is where we will store the data,
 
 Now let's add the functions
 
-```
+```rust
 impl BloomFilter {
     fn new(size: usize, hash_functions: usize) -> BloomFilter {
         BloomFilter {
@@ -55,7 +52,7 @@ So far we just created the struct and added the new method so we can create a `B
 
 inside the `impl` add the following function
 
-```
+```rust
 fn hash(&self, item: &str) -> Vec<usize> {
     let mut result: Vec<usize> = Vec::new();
     for i in 0..self.hash_functions {
@@ -74,7 +71,7 @@ This is a simplified version, we start by looping over a range so we get the amo
 
 Last step we add function to add and check items
 
-```
+```rust
 fn add(&mut self, item: &str) {
     for i in self.hash( item) {
         self.bit_vector[i] = true;
@@ -97,7 +94,7 @@ You may notice there are no methods to remove items and that's because by defaul
 
 Now we can go ahead and test our Bloom filter, in our main function let's add the following and check the result
 
-```
+```rust
 fn main() {
     let mut filter = BloomFilter::new(1000, 3);
     filter.add("hello");
@@ -109,9 +106,9 @@ fn main() {
 }
 ```
 
-Run this and you should see this in your terminal
+Ruun this and you should see this in your terminal
 
-```
+```plaintxt
 Contains 'hello': true
 Contains 'world': true
 Contains 'rust': false

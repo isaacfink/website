@@ -1,3 +1,0 @@
-Tailwind has revolutionized my approach to design and design systems. As an early adopter, I have assisted several teams in transitioning to Tailwind, significantly boosting developer productivity.
-
-Although my focus has always been on web development, I've recently developed an interest in tooling. This includes developer tools and some internal tools for companies. I appreciate the complexity involved in building these tools and find the challenges they present to be particularly rewarding.

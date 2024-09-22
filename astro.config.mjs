@@ -7,7 +7,6 @@ import svelte from "@astrojs/svelte";
 
 import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
-import keystatic from '@keystatic/astro'
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,11 +17,10 @@ export default defineConfig({
       wrap: false
     }
   },
-  output: process.env.SKIP_KEYSTATIC ? 'static' : 'hybrid',
   integrations: [mdx(), sitemap(), tailwind({
     applyBaseStyles: false
   }), svelte({
     extensions: ['.svelte', '.svx'],
     preprocess: mdsvex()
-  }), react(), markdoc(), ...(process.env.SKIP_KEYSTATIC ? [] : [keystatic()])]
+  }), react(), markdoc({ allowHTML: true })]
 });

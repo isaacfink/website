@@ -1,14 +1,10 @@
 <script>
-  import BrowserProject from "./BrowserProject.svelte";
   import SideNav from "./SideNav.svelte";
-  import Skills from "./Skills.svelte";
-  import VitePluginProject from "./VitePluginProject.svelte";
   import WhoAmI from "./content/WhoAmI.svx";
   import MyJourney from "./content/MyJourney.svelte";
   import MySkills from "./content/MySkills.svelte";
   import TeamExperience from "./content/TeamExperience.svelte";
   import FreelanceExperience from "./content/FreelanceExperience.svelte";
-  import WhyTailwind from "./content/WhyTailwind.svx";
   import WhyMe from "./content/WhyMe.svx";
   import TheFuture from "./content/TheFuture.svx";
 
@@ -113,16 +109,6 @@
       My experience as a freelancer
     </h2>
     <FreelanceExperience />
-    <!-- why tailwind labs -->
-    <h2
-      use:intersectionobserver={"why-tailwind-labs"}
-      id="why-tailwind-labs"
-      class="text-main-200 text-lg font-ibm scroll-mt-6"
-    >
-      Why Tailwind Labs?
-    </h2>
-
-    <WhyTailwind />
 
     <!-- why me -->
     <h2
@@ -145,10 +131,9 @@
     <!-- in conclusion -->
     <h2 class="text-main-200 text-lg font-ibm scroll-mt-6">In conclusion</h2>
     <p class="leading-relaxed font-nunito tracking-wide">
-      Thanks for sticking with me till here, I am excited about the possibility
-      of joining such a high impact team and I believe I could be a valuable
-      asset, I am looking forward to hearing back from you, let's make the web a
-      better place, one feature at a time.
+      Thanks for sticking with me till here, I hope you've gotten a good idea of
+      who I am and what I can do. If you have any questions or would like to
+      work with me, feel free to reach out.
     </p>
   </div>
 </div>
