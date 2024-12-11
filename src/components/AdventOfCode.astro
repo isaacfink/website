@@ -4,13 +4,13 @@ const days: { text: string; done: 0 | 1 | 2 }[] = [
   { text: "02", done: 2 },
   { text: "03", done: 2 },
   { text: "04", done: 2 },
-  { text: "05", done: 1 },
+  { text: "05", done: 2 },
   { text: "06", done: 2 },
   { text: "07", done: 2 },
   { text: "08", done: 2 },
   { text: "09", done: 2 },
-  { text: "10", done: 0 },
-  { text: "11", done: 0 },
+  { text: "10", done: 2 },
+  { text: "11", done: 2 },
   { text: "12", done: 0 },
   { text: "13", done: 0 },
   { text: "14", done: 0 },
@@ -44,16 +44,16 @@ const days: { text: string; done: 0 | 1 | 2 }[] = [
             href="https://adventofcode.com/">Advent of Code</a
           >
         </span>
-         is an online challenge where developers compete to solve a new
-        challenge every day in December
+        is an online challenge where developers compete to solve a new challenge
+        every day in December
       </p>
       <p class="text-main-500 mt-3">
-        Check out my solutions for the 2023 edition below
+        Check out my solutions for the 2024 edition below
       </p>
     </div>
 
     <a
-      href="https://github.com/isaacfink/advent-of-code-2023"
+      href="https://github.com/isaacfink/aoc-2024"
       target="_blank"
       rel="noopener noreferrer"
       class="py-1 px-3 text-sm inline-flex rounded-full items-center gap-x-2 text-main-500 border border-main-500 mt-5 hover:text-main-400 hover:border-main-400 transition-colors"
@@ -78,7 +78,7 @@ const days: { text: string; done: 0 | 1 | 2 }[] = [
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href={`https://github.com/isaacfink/advent-of-code-2023/tree/master/day-${day.text}`}
+              href={`https://github.com/isaacfink/aoc-2024/tree/master/day-${day.text}/solution.py`}
               class={`aoc-cal-square aoc-cal-done ${
                 day.done === 1 ? "aoc-cal-1" : "aoc-cal-2"
               }`}
